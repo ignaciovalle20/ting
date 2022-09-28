@@ -1,5 +1,5 @@
 import { Component, ContentChild, OnInit, ViewChild } from '@angular/core';
-import { MovieFinderMovieSelectorComponent } from '../movie-finder-movie-selector/movie-finder-movie-selector.component';
+import { MovieFinderMovieSelectorComponent } from './movie-finder-movie-selector/movie-finder-movie-selector.component';
 
 @Component({
   selector: 'app-movie-finder',
