@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, OnInit, ViewChild } from '@angular/core';
+import { MovieFinderMovieSelectorComponent } from '../movie-finder-movie-selector/movie-finder-movie-selector.component';
 
 @Component({
   selector: 'app-movie-finder',
@@ -7,14 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieFinderComponent implements OnInit {
 
-  selectedMovie : string | undefined;
+  peliculaSelec:string = "";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getTheater(movie : string){
-    this.selectedMovie = movie;
+  getTheater(){
+    console.log("hola");
+  }
+
+  getPelicula(movie : string){
+    this.peliculaSelec = movie;
+    console.log(movie);
   }
 }

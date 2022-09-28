@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieFinderTheaterSelectorComponent implements OnInit {
 
-  pelicula : string | undefined;
+  @Input() pelicula = "";
 
   listaCines = [
     "cine 1",

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-movie-finder-movie-selector',
@@ -7,11 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MovieFinderMovieSelectorComponent implements OnInit {
 
-
-  @Input()
-  texto: string | undefined;
-  @Output()
-  PeliculaSelec = new EventEmitter<string>();
+  @Output() peliculaSeleccionada = new EventEmitter<string>();
 
   peliculas = [
     "Sachin Tendulkar",
@@ -33,6 +29,6 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
 
   getMovie(){
     var movie = (<HTMLInputElement>document.getElementById("inputGroupSelectMovie")).value;
-    this.PeliculaSelec.emit(movie);
+    this.peliculaSeleccionada.emit(movie);
   }
 }

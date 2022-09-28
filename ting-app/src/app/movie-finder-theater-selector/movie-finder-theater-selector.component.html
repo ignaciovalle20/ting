@@ -3,6 +3,7 @@
       <option selected>Choose...</option>
       <option *ngFor="let cine of listaCines" [value]="cine">
         {{cine}}
-    </option>
+      </option>
+      <option *ngIf='pelicula !== ""'>{{pelicula}}</option>
     </select>
   </div>
