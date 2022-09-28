@@ -1,0 +1,17 @@
+<div class="input-group mb-5" id="buscador">
+    <form class="custom-form" method="post">
+        <h1>Buscar Peliculas</h1>
+        <div class="mb-3 mt-3">
+            <app-movie-finder-movie-selector (peliculaSeleccionada)="getPelicula($event)"></app-movie-finder-movie-selector>
+        </div>
+        <div class="mb-3 mt-3">
+            <app-movie-finder-theater-selector [pelicula]="peliculaSelec"></app-movie-finder-theater-selector>
+        </div>
+        <div class="mb-3 mt-3">
+            <app-movie-finder-date-selector></app-movie-finder-date-selector>
+        </div>
+        <div class="mb-3 mt-3">
+
+        </div>
+    </form>
+</div>
