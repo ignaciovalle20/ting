@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ContentChild, ElementRef } from '@angular
 import { NgModel } from '@angular/forms';
 import { ngbCarouselTransitionIn } from '@ng-bootstrap/ng-bootstrap/carousel/carousel-transition';
 import { LoginPageInputComponent } from './login-page-input/login-page-input.component';
+import { USERS } from '../../mock-users';
 
 @Component({
   selector: 'app-login-page',
