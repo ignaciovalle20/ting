@@ -8,6 +8,7 @@
     background: #ecf0f3;
     justify-content: center;
     display: flex;
+    top: 50%;
   }
 
   h1 {
@@ -23,12 +24,17 @@
     padding: 2rem 1rem;
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
-    background-color: #0a0c2c;
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+    background-color: #262b4f;
     color: black;
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    //position: fixed;
+    //position: fixed;
+    //transform: translate(-50%, 0);
+
+    //left: 50%;
+    //right: 50%;
+    //top: 50%;
 }
   .custom-form input {
     width: 95%;
@@ -53,3 +59,16 @@
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
+
+  #buscador{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 500px) {
+    #buscador {
+       width: 25%;
+   }
+ }
