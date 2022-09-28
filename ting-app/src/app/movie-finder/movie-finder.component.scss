@@ -66,3 +66,9 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
+  @media (min-width: 500px) {
+    #buscador {
+       width: 25%;
+   }
+ }
