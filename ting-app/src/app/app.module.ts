@@ -6,12 +6,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login/login-page/login-page.component';
+import { LoginPageComponent } from './components/login/login-page.component';
+import { LoginPageBtnComponent } from './components/login/login-page-btn/login-page-btn.component';
+import { LoginPageInputComponent } from './components/login/login-page-input/login-page-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
+    LoginPageBtnComponent,
+    LoginPageInputComponent,
   ],
   imports: [
     BrowserModule,

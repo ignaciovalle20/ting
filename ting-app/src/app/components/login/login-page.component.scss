@@ -1,0 +1,34 @@
+
+
+.principal {
+    background-color: #182670;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: #fdfdfd;
+  }
+  .custom-form {
+    min-width: 300px;
+    width: 100%;
+    height: 60%;
+    padding: 2rem 1rem;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+    background-color: #0a0c2c;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+  .custom-form input {
+    width: 95%;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    border: 0 none;
+    background: #fdfdfd;
+    justify-content: center;
+  } 
+  
+ 
