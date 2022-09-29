@@ -9,9 +9,21 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
 
   @Input() pelicula = "";
 
+  /* Original
   listaCines = [
-    "cine 1",
+    "Life Tres Cruces",
+    "Movie Montevideo Shopping",
+    "Movie Punta Carretas"
   ]
+  */
+
+  listaCines = [
+    {"peliculaN": "Batman","cine": "Life Tres Cruces"},
+    {"peliculaN": "Batman","cine": "Movie Montevideo Shopping"},
+    {"peliculaN": "Minions","cine": "Movie Montevideo Shopping"},
+    {"peliculaN": "Deadpool","cine": "Movie Punta Carretas"}
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

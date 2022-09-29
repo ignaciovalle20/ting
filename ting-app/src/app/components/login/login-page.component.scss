@@ -16,11 +16,12 @@
     padding: 2rem 1rem;
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
-    background-color: #0a0c2c;
+    background-color: #262b4f;
     position: fixed;
-    left: 0px;
-    right: 0px;
+    //left: 0px;
+    //right: 0px;
     bottom: 0px;
+    
 }
   .custom-form input {
     width: 95%;
@@ -30,5 +31,16 @@
     background: #fdfdfd;
     justify-content: center;
   } 
-  
- 
+/*
+  #login{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+*/
+  @media (min-width: 500px) {
+    #login {
+       width: 25%;
+   }
+ }

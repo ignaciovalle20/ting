@@ -1,9 +1,25 @@
+<!-- ORIGINAL
 <div class="input-group mb-3">
     <select class="form-select" id="inputGroupSelect01">
-      <option selected>Choose...</option>
+      <option selected disabled>Elegir cine...</option>
       <option *ngFor="let cine of listaCines" [value]="cine">
-        {{cine}}
+        {{cine.cine}}
       </option>
       <option *ngIf='pelicula !== ""'>{{pelicula}}</option>
     </select>
   </div>
+-->
+
+
+<div class="input-group mb-3" >
+  <select class="form-select" id="inputGroupSelect01">
+    <option selected disabled>Elegir cine...</option>
+    <ng-container  *ngFor="let cine of listaCines">
+      <option *ngIf='cine.peliculaN == pelicula'>
+        {{cine.cine}}
+      </option>
+    </ng-container>
+    <!--<option *ngIf='pelicula !== ""'>{{pelicula}}</option> -->
+  </select>
+</div>
+
