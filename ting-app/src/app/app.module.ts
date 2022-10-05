@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login/login-page.component';
 import { LoginPageBtnComponent } from './components/login/login-page-btn/login-page-btn.component';
 import { LoginPageInputComponent } from './components/login/login-page-input/login-page-input.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { MovieFinderComponent } from './components/movie-finder/movie-finder.component';
 import { MovieFinderMovieSelectorComponent } from './components/movie-finder/movie-finder-movie-selector/movie-finder-movie-selector.component';
 import { MovieFinderTheaterSelectorComponent } from './components/movie-finder/movie-finder-theater-selector/movie-finder-theater-selector.component';
 import { MovieFinderDateSelectorComponent } from './components/movie-finder/movie-finder-date-selector/movie-finder-date-selector.component';
 import { SeatsComponent } from './seats/seats.component';
 import { SeatsGridComponent } from './seats/seats-grid/seats-grid.component';
+import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SeatsGridComponent } from './seats/seats-grid/seats-grid.component';
     MovieFinderTheaterSelectorComponent,
     MovieFinderDateSelectorComponent,
     SeatsComponent,
-    SeatsGridComponent
+    SeatsGridComponent,
+    MovieFinderNextComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,

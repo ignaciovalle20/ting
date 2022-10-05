@@ -10,16 +10,9 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
   @Output() peliculaSeleccionada = new EventEmitter<string>();
 
   peliculas = [
-    "Sachin Tendulkar",
-    "Ricky Ponting",
-    "Virat Kohli",
-    "Kumar Sangakkara",
-    "Jacques Kallis",
-    "Hashim Amla",
-    "Mahela Jayawardene",
-    "Brian Lara",
-    "Rahul Dravid",
-    "AB de Villiers"
+    "Batman",
+    "Minions",
+    "Deadpool"
   ]
 
   constructor() { }
