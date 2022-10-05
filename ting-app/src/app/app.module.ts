@@ -14,10 +14,11 @@ import { MovieFinderComponent } from './components/movie-finder/movie-finder.com
 import { MovieFinderMovieSelectorComponent } from './components/movie-finder/movie-finder-movie-selector/movie-finder-movie-selector.component';
 import { MovieFinderTheaterSelectorComponent } from './components/movie-finder/movie-finder-theater-selector/movie-finder-theater-selector.component';
 import { MovieFinderDateSelectorComponent } from './components/movie-finder/movie-finder-date-selector/movie-finder-date-selector.component';
-import { SeatsComponent } from './seats/seats.component';
-import { SeatsGridComponent } from './seats/seats-grid/seats-grid.component';
+import { SeatsComponent } from './components/seats/seats.component';
+import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.component';
 import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     SeatsComponent,
     SeatsGridComponent,
     MovieFinderNextComponent,
-    MovieListComponent
+    MovieListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
