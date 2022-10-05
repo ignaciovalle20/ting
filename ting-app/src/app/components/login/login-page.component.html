@@ -1,11 +1,13 @@
+<app-navbar></app-navbar>
 <div class="principal">
   <div class="input-group mb-5">
     <form class="custom-form" method="post">
       <h1>Login</h1>
       <app-login-page-input #userinput [type]="'text'" [placeholder]="'Username'"></app-login-page-input>
       <app-login-page-input #passinput [type]="'password'" [placeholder]="'Password'"></app-login-page-input>
+
+      <p *ngIf="wrongUser" style="color: red;">Login Incorrecto</p>
       <app-login-page-btn (LoginEvent)="login()"></app-login-page-btn>
-      <!-- ACA TIENE QUE IR ALGO QUE DIGA LOGIN FALLIDO -->
     </form>
   </div>
 </div>
