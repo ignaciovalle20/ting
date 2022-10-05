@@ -1,0 +1,94 @@
+
+<ol class="asientosGrid">
+    <li class="d-flex justify-content-center">
+        <div class="pantalla">
+            <label>PANTALLA</label>
+        </div>
+    </li>
+    <li class="d-flex justify-content-evenly">
+        <div class="asiento" *ngFor="let index of fila1">
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+        </div>
+    </li>
+    <li class="d-flex justify-content-evenly">
+        <div class="asiento" *ngFor="let index of fila2">
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+        </div>
+    </li>
+    <li class="d-flex justify-content-evenly">
+        <div class="asiento" *ngFor="let index of fila3">
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+        </div>
+    </li>
+    <li class="d-flex justify-content-evenly">
+        <div class="asiento" *ngFor="let index of fila4">
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+        </div>
+    </li>
+</ol>
+
+
+
+<!--
+<ol class="asientosGrid" *ngFor="let seat of asientos; let i = index">
+    <li class="d-flex justify-content-center" *ngIf="seat.asiento <= 6"> 
+        <div class="asiento" *ngIf="seat.asiento >= 1">
+            <input type="checkbox" id="{{seat.asiento}}" />
+            <label for="{{seat.asiento}}">{{seat.asiento}}</label>
+        </div>
+    </li>
+    <li class="d-flex justify-content-center" *ngIf="seat.asiento <= 12"> 
+        <div class="asiento" *ngIf="seat.asiento >= 7">
+            <input type="checkbox" id="{{seat.asiento}}" />
+            <label for="{{seat.asiento}}">{{seat.asiento}}</label>
+        </div>
+    </li>
+</ol>
+-->
+
+<!--
+<ol class="asientosGrid">
+    <li class="d-flex justify-content-center">
+        <div class="asiento" *ngFor="let seat of asientos">
+            <input type="checkbox" id="{{seat.asiento}}" />
+            <label for="{{seat.asiento}}">{{seat.asiento}}</label>
+        </div>
+    </li>
+</ol>
+-->
+
+
+<!--
+<ol class="asientosGrid">
+    <li class="d-flex justify-content-center">
+        <div class="asiento">
+            <input type="checkbox" id="1" />
+            <label for="1">1</label>
+        </div>
+        <div class="asiento">
+            <input type="checkbox" id="2" />
+            <label for="2">2</label>
+        </div>
+        <div class="asiento">
+            <input type="checkbox" id="3" />
+            <label for="3">3</label>
+        </div>
+        <div class="asiento">
+            <input type="checkbox" id="4" />
+            <label for="4">4</label>
+        </div>
+        <div class="asiento">
+            <input type="checkbox" disabled id="5" />
+            <label for="5">5</label>
+        </div>
+        <div class="asiento">
+            <input type="checkbox" id="6" />
+            <label for="6">6</label>
+        </div>
+    </li>
+</ol>
+-->
