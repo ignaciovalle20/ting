@@ -22,6 +22,9 @@ import { SeatsComponent } from './components/seats/seats.component';
 import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.component';
 import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { ExtrasComponent } from './components/extras/extras.component';
+import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
+import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { SectionHeadingComponent } from './components/home/section-heading/section-heading.component';
@@ -45,6 +48,9 @@ import { InfoPostComponent } from './components/home/info-post/info-post.compone
     SeatsGridComponent,
     MovieFinderNextComponent,
     MovieListComponent,
+    ExtrasComponent,
+    ExtrasListComponent,
+    ExtrasItemComponent,
     SectionHeadingComponent,
     HomePageComponent,
     FooterComponent,
@@ -63,7 +69,6 @@ import { InfoPostComponent } from './components/home/info-post/info-post.compone
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
