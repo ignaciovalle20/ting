@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +18,20 @@ import { MovieFinderComponent } from './components/movie-finder/movie-finder.com
 import { MovieFinderMovieSelectorComponent } from './components/movie-finder/movie-finder-movie-selector/movie-finder-movie-selector.component';
 import { MovieFinderTheaterSelectorComponent } from './components/movie-finder/movie-finder-theater-selector/movie-finder-theater-selector.component';
 import { MovieFinderDateSelectorComponent } from './components/movie-finder/movie-finder-date-selector/movie-finder-date-selector.component';
-import { SeatsComponent } from './seats/seats.component';
-import { SeatsGridComponent } from './seats/seats-grid/seats-grid.component';
+import { SeatsComponent } from './components/seats/seats.component';
+import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.component';
 import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { ExtrasComponent } from './components/extras/extras.component';
 import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
 import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomePageComponent } from './components/home/home-page/home-page.component';
+import { SectionHeadingComponent } from './components/home/section-heading/section-heading.component';
+import { PostCarouselComponent } from './components/home/post-carousel/post-carousel.component';
+import { FullSizedImageComponent } from './components/home/full-sized-image/full-sized-image.component';
+import { PostImgComponent } from './components/home/post-img/post-img.component';
+import { InfoPostComponent } from './components/home/info-post/info-post.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +50,25 @@ import { ExtrasItemComponent } from './components/extras/extras-item/extras-item
     MovieListComponent,
     ExtrasComponent,
     ExtrasListComponent,
-    ExtrasItemComponent
+    ExtrasItemComponent,
+    SectionHeadingComponent,
+    HomePageComponent,
+    FooterComponent,
+    PostCarouselComponent,
+    PostImgComponent,
+    FullSizedImageComponent,
+    InfoPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
