@@ -11,13 +11,15 @@ import { FullSizedImageComponent } from '../full-sized-image/full-sized-image.co
 export class PostImgComponent implements OnInit {
 
   @Input() image!: PostImg;
-  @Input() film!: string;;
+  @Input() movie!: string;;
 
   constructor() { }
 
   ngOnInit(): void {
 
   }
+
+  //// VER DE SACAR LO DEL FULL IMAGE NO LO VAMOS A USAR
  @ViewChild('hiddenElement') fullSizedImgElement!: FullSizedImageComponent;
 
    openImage(){

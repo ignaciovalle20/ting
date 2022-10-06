@@ -2,8 +2,8 @@
         [showNavigationIndicators]="showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let movie of movies">
             <div (touchstart)="captureSwipeStart($event)" (touchend)="swipePost($event)">
-                <app-post-img [image]="movie.postImg" [film]="movie.name"></app-post-img>
-                <app-info-post [film]="movie.name" [description]="movie.description"></app-info-post>
+                <app-post-img [image]="movie.postImg" [movie]="movie.name"></app-post-img>
+                <app-info-post [movie]="movie.name" [description]="movie.description"></app-info-post>
                 <button type="button" class="btn btn-primary"> caquita</button>
             </div>
         </ng-template>
