@@ -8,7 +8,7 @@ import { Component, OnInit, Input} from '@angular/core';
 export class InfoPostComponent implements OnInit {
 
   @Input() description?: string;
-  @Input() film?: string;
+  @Input() movie?: string;
 
   constructor() { }
 
