@@ -18,6 +18,9 @@ import { SeatsComponent } from './seats/seats.component';
 import { SeatsGridComponent } from './seats/seats-grid/seats-grid.component';
 import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { ExtrasComponent } from './components/extras/extras.component';
+import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
+import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     SeatsComponent,
     SeatsGridComponent,
     MovieFinderNextComponent,
-    MovieListComponent
+    MovieListComponent,
+    ExtrasComponent,
+    ExtrasListComponent,
+    ExtrasItemComponent
   ],
   imports: [
     BrowserModule,
