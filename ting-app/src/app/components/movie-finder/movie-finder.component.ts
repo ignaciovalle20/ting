@@ -1,4 +1,5 @@
 import { Component, ContentChild, OnInit, ViewChild } from '@angular/core';
+import { Movie } from 'src/app/interfaces/movie';
 import { MovieFinderMovieSelectorComponent } from './movie-finder-movie-selector/movie-finder-movie-selector.component';
 
 @Component({
@@ -8,7 +9,7 @@ import { MovieFinderMovieSelectorComponent } from './movie-finder-movie-selector
 })
 export class MovieFinderComponent implements OnInit {
 
-  peliculaSelec:string = "";
+  peliculaSelec : Movie | undefined;
 
   constructor() { }
 
@@ -19,8 +20,8 @@ export class MovieFinderComponent implements OnInit {
     console.log("hola");
   }
 
-  getPelicula(movie : string){
+  getPelicula(movie : Movie){
     this.peliculaSelec = movie;
-    console.log(movie);
+    /*console.log(movie.name); */
   }
 }

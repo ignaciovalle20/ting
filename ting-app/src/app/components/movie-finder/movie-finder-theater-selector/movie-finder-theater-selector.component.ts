@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { empty } from 'rxjs';
+import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-movie-finder-theater-selector',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieFinderTheaterSelectorComponent implements OnInit {
 
-  @Input() pelicula = "";
+  @Input() pelicula: Movie | undefined;
 
   /* Original
   listaCines = [
@@ -18,7 +20,7 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
   */
 
   listaCines = [
-    {"peliculaN": "Batman","cine": "Life Tres Cruces"},
+    {"peliculaN": "Pelicula1","cine": "Life Tres Cruces"},
     {"peliculaN": "Batman","cine": "Movie Montevideo Shopping"},
     {"peliculaN": "Minions","cine": "Movie Montevideo Shopping"},
     {"peliculaN": "Deadpool","cine": "Movie Punta Carretas"}
@@ -28,7 +30,7 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.pelicula) {
-      console.log(this.pelicula);
+      console.log(this.pelicula.name);
     }
   }
 

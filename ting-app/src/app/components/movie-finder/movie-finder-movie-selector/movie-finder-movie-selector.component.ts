@@ -8,8 +8,11 @@ import { MovieService } from '../../../services/movie.service';
   styleUrls: ['./movie-finder-movie-selector.component.scss']
 })
 export class MovieFinderMovieSelectorComponent implements OnInit {
+String(arg0: string) {
+throw new Error('Method not implemented.');
+}
 
-  @Output() peliculaSeleccionada = new EventEmitter<string>();
+  @Output() peliculaSeleccionada = new EventEmitter<Movie>();
 
   movies: Movie[] = [];
 
@@ -25,8 +28,12 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
   
 
   getMovie(){
-    var movie = (<HTMLInputElement>document.getElementById("inputGroupSelectMovie")).value;
-    this.peliculaSeleccionada.emit(movie);
+    let moviee = (<HTMLInputElement>document.getElementById("inputGroupSelectMovie")).value;
+    console.log(String(moviee));
+    var peli = this.movies.find(obj => {
+      return obj.name === moviee
+    });
+    this.peliculaSeleccionada.emit(peli);
   }
 
   
