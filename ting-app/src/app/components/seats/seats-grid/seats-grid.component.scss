@@ -18,14 +18,26 @@
 }
 
 .asiento{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
     padding: 5px;
     input[type=checkbox] {
         position: absolute;
         opacity: 0;
+        &:hover {
+          cursor: pointer;
+        }
     }
     input[type=checkbox]:checked {
         + label {
           background: #ff0000;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
       label {    
@@ -37,6 +49,9 @@
         padding: 10px;
         background: #00ffea;
         border-radius: 5px;
+        &:hover {
+          cursor: pointer;
+        }
     }
     input[type=checkbox]:disabled {
         + label {

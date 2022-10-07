@@ -1,5 +1,5 @@
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let snack of snacks">
-        <app-extras-item [nombreE]="snack.nombre" [precioO]="snack.precio"></app-extras-item>
+    <li class="list-group-item" *ngFor="let extra of extras">
+        <app-extras-item [nombreE]="extra.name" [precioO]="extra.price"></app-extras-item>
     </li>
   </ul>

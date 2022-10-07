@@ -32,6 +32,7 @@ import { PostCarouselComponent } from './components/home/post-carousel/post-caro
 import { FullSizedImageComponent } from './components/home/full-sized-image/full-sized-image.component';
 import { PostImgComponent } from './components/home/post-img/post-img.component';
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
+import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
 
 @NgModule({
@@ -59,6 +60,7 @@ import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn
     PostImgComponent,
     FullSizedImageComponent,
     InfoPostComponent,
+    ProcessingPaymentComponent,
     HomeBuyBtnComponent
   ],
   imports: [

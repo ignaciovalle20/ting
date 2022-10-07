@@ -1,4 +1,4 @@
-
+<!-- 
 <ol class="asientosGrid">
     <li class="d-flex justify-content-center">
         <div class="pantalla">
@@ -7,32 +7,36 @@
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila1">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
-            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+            <input type="checkbox" [disabled]="asientos[index].seats[1]" id="{{asientos[index].seats[0]}}" (change)="checkboxClick($event)"/>
+            <label for="{{asientos[index].seats}}">{{asientos[index].seats[0]}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila2">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
-            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+            <input type="checkbox" [disabled]="asientos[index].seats[1]" id="{{asientos[index].seats[0]}}" (change)="checkboxClick($event)"/>
+            <label for="{{asientos[index].seats}}">{{asientos[index].seats[0]}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila3">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
-            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+            <input type="checkbox" [disabled]="asientos[index].seats[1]" id="{{asientos[index].seats[0]}}" (change)="checkboxClick($event)"/>
+            <label for="{{asientos[index].seats}}">{{asientos[index].seats[0]}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila4">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
-            <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
+            <input type="checkbox" [disabled]="asientos[index].seats[1]" id="{{asientos[index].seats[0]}}" (change)="checkboxClick($event)"/>
+            <label for="{{asientos[index].seats}}">{{asientos[index].seats[0]}}</label>
         </div>
     </li>
 </ol>
+<br>
+<h6 class="d-flex justify-content-center">Asientos seleccionados:</h6>
+<span id="selec" class="d-flex justify-content-center"></span>
 
+ -->
 
-
+ 
 <!--
 <ol class="asientosGrid" *ngFor="let seat of asientos; let i = index">
     <li class="d-flex justify-content-center" *ngIf="seat.asiento <= 6"> 

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExtrasItemComponent implements OnInit {
 
-  @Input() precioO : string | undefined;
+  @Input() precioO : number | undefined;
   @Input() nombreE : string | undefined;
 
   constructor() { }

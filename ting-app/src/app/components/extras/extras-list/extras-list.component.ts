@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Extra } from '../../../interfaces/extras';
+import { ExtrasService } from '../../../services/extras.service';
 
 @Component({
   selector: 'app-extras-list',
@@ -6,16 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./extras-list.component.scss']
 })
 export class ExtrasListComponent implements OnInit {
+String(arg0: string) {
+  throw new Error('Method not implemented.');
+  }
+  extras: Extra[] = [];
 
-  snacks = [
-    {"nombre": "Coca Cola", "precio": "$50"},
-    {"nombre": "Pop", "precio": "$50"},
-    {"nombre": "Helado", "precio": "$20"}
-  ];
-
-  constructor() { }
+  constructor(private extrasService: ExtrasService) { }
 
   ngOnInit(): void {
+    this.extrasService.getExtras()
+      .subscribe(extras => {
+        this.extras = extras;
+      });
   }
-
 }
