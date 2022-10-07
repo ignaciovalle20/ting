@@ -36,14 +36,14 @@ export class SeatsGridComponent implements OnInit {
     {"asiento":"D6", "ocupado" : false},
   ]
   */
-  fila1 = [0,1,2,3,4,5]
-  fila2 = [6,7,8,9,10,11]
-  fila3 = [12,13,14,15,16,17]
-  fila4 = [18,19,20,21,22,23]
+  fila1 = [0, 1, 2, 3, 4, 5]
+  fila2 = [6, 7, 8, 9, 10, 11]
+  fila3 = [12, 13, 14, 15, 16, 17]
+  fila4 = [18, 19, 20, 21, 22, 23]
 
   seleccionados: string[] = [];
 
-  asientos: Funciones[] = [];
+  asientos: any[] = [];
 
   constructor(private funcionesService: FuncionesService) { }
 
@@ -52,17 +52,23 @@ export class SeatsGridComponent implements OnInit {
       .subscribe((asientos: Funciones[]) => {
         this.asientos = asientos;
       });
+      console.log(this.asientos);
+    this.funcionesService.getAsientos("Batman").subscribe((asientos: any[]) => {
+      this.asientos = asientos;
+      console.log(this.asientos);
+    }); 
+
   }
 
-  checkboxClick(event: Event){
+  checkboxClick(event: Event) {
     let isChecked = (<HTMLInputElement>event.target).checked;
     if (isChecked) {
       this.seleccionados.push((<HTMLInputElement>event.target).id);
-      (<HTMLInputElement>document.getElementById("selec")).innerHTML= this.seleccionados.toString();
+      (<HTMLInputElement>document.getElementById("selec")).innerHTML = this.seleccionados.toString();
     } else {
       let index = this.seleccionados.indexOf((<HTMLInputElement>event.target).id);
       this.seleccionados.splice(index, 1);
-      (<HTMLInputElement>document.getElementById("selec")).innerHTML= this.seleccionados.toString();
+      (<HTMLInputElement>document.getElementById("selec")).innerHTML = this.seleccionados.toString();
     }
   }
 }
