@@ -23,7 +23,7 @@ export class InMemoryDataService {
     ];
 
     const funciones: Funciones[] = [
-      { id: '1', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", horario: "21:30", price: 100, seats: [ { seat: "A1" , status: true},
+      { id: '1', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-07", horario: "21:30", price: 100, seats: [ { seat: "A1" , status: true},
       {seat:"A2", status : false},
       {seat:"A3", status : false},
       {seat:"A4", status : false},
@@ -48,10 +48,32 @@ export class InMemoryDataService {
       {seat:"D5", status : false},
       {seat:"D6", status : false},]
      },
+     { id: '2', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-07", horario: "23:30", price: 100, seats: [ { seat: "A1" , status: true},
+      {seat:"A2", status : false},
+      {seat:"A3", status : false},
+      {seat:"A4", status : false},
+      {seat:"A5", status : false},
+      {seat:"A6", status : true},
+      {seat:"B1", status : false},
+      {seat:"B2", status : false},
+      {seat:"B3", status : false},
+      {seat:"B4", status : true},
+      {seat:"B5", status : false},
+      {seat:"B6", status : false},
+      {seat:"C1", status : true},
+      {seat:"C2", status : false},
+      {seat:"C3", status : false},
+      {seat:"C4", status : false},
+      {seat:"C5", status : false},
+      {seat:"C6", status : false},
+      {seat:"D1", status : false},
+      {seat:"D2", status : true},
+      {seat:"D3", status : false},
+      {seat:"D4", status : false},
+      {seat:"D5", status : false},
+      {seat:"D6", status : false},]
+     }
       
-      
-  /* seats: "asiento":"A1", "ocupado" : true},
-      } */
     ];
     return { movies, extras, funciones };
   }

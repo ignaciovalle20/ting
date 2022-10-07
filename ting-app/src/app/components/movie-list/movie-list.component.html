@@ -2,8 +2,8 @@
     <h1>Horarios</h1>
     <br>
     <ul class="list-group list-group-light">
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let peli of peliculas" [value]="peli">
-        <span class="text-danger">{{peli.nombre}}</span> Horario: {{peli.horario}}
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let funcion of funciones">
+        <span class="text-danger">{{funcion.pelicula}}</span> Horario: {{funcion.horario}}
         <button type="button" class="btn btn-primary">Seleccionar</button>
         </li>
     </ul>

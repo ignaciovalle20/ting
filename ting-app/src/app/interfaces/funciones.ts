@@ -5,6 +5,7 @@ export interface Funciones {
     pelicula: string;
     peliculaid: string;
     cine: string;
+    date: string;
     horario: string;
     price: number;
     seats: Seats[];
