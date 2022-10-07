@@ -9,9 +9,9 @@ import { ProcessingPaymentComponent } from './components/processing-payment/proc
 import { SeatsComponent } from './components/seats/seats.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent},
-  { path: 'movies', component: MovieFinderComponent},
+  { path: 'moviefinder', component: MovieFinderComponent},
   { path: 'seats', component: SeatsComponent},
   { path: 'home', component: HomePageComponent},
   { path: 'movielist', component: MovieListComponent},

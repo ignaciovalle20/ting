@@ -37,7 +37,7 @@ export class LoginPageComponent implements OnInit {
         console.log("Login correcto");
         this.wrongUser = false;
         this.userloged = true;
-        this.route.navigate(['/home']);
+        this.route.navigate(['/moviefinder']);
       } else {
         console.log("Login incorrecto");
         this.wrongUser = true;
