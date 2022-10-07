@@ -7,30 +7,32 @@
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila1">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" (change)="checkboxClick($event)"/>
             <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila2">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" (change)="checkboxClick($event)"/>
             <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila3">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" (change)="checkboxClick($event)"/>
             <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
         </div>
     </li>
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila4">
-            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" />
+            <input type="checkbox" [disabled]="asientos[index].ocupado" id="{{asientos[index].asiento}}" (change)="checkboxClick($event)"/>
             <label for="{{asientos[index].asiento}}">{{asientos[index].asiento}}</label>
         </div>
     </li>
 </ol>
-
+<br>
+<h6 class="d-flex justify-content-center">Asientos seleccionados:</h6>
+<span id="selec" class="d-flex justify-content-center"></span>
 
 
 <!--
