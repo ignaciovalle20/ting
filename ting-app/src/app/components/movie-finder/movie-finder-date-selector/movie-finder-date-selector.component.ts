@@ -12,6 +12,12 @@ export class MovieFinderDateSelectorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let dateControl = (<HTMLInputElement>document.getElementById("fecha"));
+    let hoy = new Date().toISOString().slice(0, 10)
+    dateControl.value = hoy;
+    dateControl.min = hoy;
   }
+
+  
 
 }
