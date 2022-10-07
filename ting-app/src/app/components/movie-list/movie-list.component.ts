@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Funciones } from 'src/app/interfaces/funciones';
+import { FuncionesService } from 'src/app/services/funciones.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -7,16 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
-  constructor() { }
+  funciones: Funciones[] = [];
 
-  peliculas = [
-    {"nombre" : "Batman", "horario" : "14:55"},
-    {"nombre" : "Batman", "horario" : "17:55"},
-    {"nombre" : "Batman", "horario" : "22:55"},
-    {"nombre" : "Batman", "horario" : "23:55"}
-  ]
+  constructor(private funcionesService: FuncionesService) { }
 
   ngOnInit(): void {
+    this.funcionesService.getHorarios("Batman","Tres Cruces","2022-10-07").subscribe((funcion: Funciones[]) => {
+      this.funciones = funcion;
+    }); 
   }
-
 }
