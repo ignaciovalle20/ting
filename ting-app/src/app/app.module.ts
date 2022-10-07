@@ -26,13 +26,14 @@ import { ExtrasComponent } from './components/extras/extras.component';
 import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
 import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomePageComponent } from './components/home/home-page/home-page.component';
+import { HomePageComponent } from './components/home/home-page.component';
 import { SectionHeadingComponent } from './components/home/section-heading/section-heading.component';
 import { PostCarouselComponent } from './components/home/post-carousel/post-carousel.component';
 import { FullSizedImageComponent } from './components/home/full-sized-image/full-sized-image.component';
 import { PostImgComponent } from './components/home/post-img/post-img.component';
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
+import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ProcessingPaymentComponent } from './components/processing-payment/proc
     PostImgComponent,
     FullSizedImageComponent,
     InfoPostComponent,
-    ProcessingPaymentComponent
+    ProcessingPaymentComponent,
+    HomeBuyBtnComponent
   ],
   imports: [
     BrowserModule,
