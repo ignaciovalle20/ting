@@ -1,3 +1,5 @@
+import { Seats } from "./seats";
+
 export interface Funciones {
     id: string;
     pelicula: string;
@@ -5,5 +7,5 @@ export interface Funciones {
     cine: string;
     horario: string;
     price: number;
-    seats: any[];
+    seats: Seats[];
 }

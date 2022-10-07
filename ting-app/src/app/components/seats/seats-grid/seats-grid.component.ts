@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { Funciones } from 'src/app/interfaces/funciones';
+import { Seats } from 'src/app/interfaces/seats';
 
 @Component({
   selector: 'app-seats-grid',
@@ -43,19 +44,23 @@ export class SeatsGridComponent implements OnInit {
 
   seleccionados: string[] = [];
 
-  asientos: any[] = [];
+  asientos: Seats[] = [];
 
   constructor(private funcionesService: FuncionesService) { }
 
   ngOnInit(): void {
-    this.funcionesService.getFunciones()
+/*     this.funcionesService.getFunciones()
       .subscribe((asientos: Funciones[]) => {
         this.asientos = asientos;
-      });
-      console.log(this.asientos);
-    this.funcionesService.getAsientos("Batman").subscribe((asientos: any[]) => {
+      }); */
+      //console.log(this.asientos);
+    this.funcionesService.getAsientos("Batman").subscribe((asientos: Seats[]) => {
       this.asientos = asientos;
-      console.log(this.asientos);
+      console.log("this.asientos: ", this.asientos);
+    
+     for (let i = 0; i < this.asientos.length; i++) {
+        console.log(this.asientos[i].seat);
+     }
     }); 
 
   }
