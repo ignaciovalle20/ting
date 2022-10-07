@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './components/home/home-page.component';
 import { ExtrasComponent } from './components/extras/extras.component';
-import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { LoginPageComponent } from './components/login/login-page.component';
 import { MovieFinderComponent } from './components/movie-finder/movie-finder.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
