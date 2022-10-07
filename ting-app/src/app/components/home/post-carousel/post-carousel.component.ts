@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Movie } from '../../../interfaces/movie';
+import { Movie } from 'src/app/interfaces/movie';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-post-carousel',
@@ -10,6 +11,9 @@ import { Movie } from '../../../interfaces/movie';
 export class PostCarouselComponent implements OnInit {
   @Input() movies!: Movie[];
 
+
+  userloged: boolean = false;
+
   swipeStartXPos?: number = undefined;
 
   // NGB Carousel reference and config
@@ -17,7 +21,7 @@ export class PostCarouselComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = false;
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(private loginService: LoginService ,config: NgbCarouselConfig, ) {
     config.interval = 0;
   }
 
@@ -46,5 +50,9 @@ export class PostCarouselComponent implements OnInit {
     this.swipeStartXPos = undefined;
   }
 
+ /*  ngAfterviewInit() {
+    this.userloged = this.loginService.isUserLoged("admin");
+  } */
+  
 
 }

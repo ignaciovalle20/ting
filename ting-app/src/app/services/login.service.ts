@@ -8,16 +8,23 @@ import { USERS } from '../mock-users';
 })
 export class LoginService {
 
+  
   constructor() { }
+
+  logedUsers: string[] = [
+    
+     ];  
 
   getUser(user: string, pass: string): boolean {
 
     let userfound = USERS.filter(u => u.username === user);
     if (userfound.length > 0) {
       if (userfound[0].password === pass) {
+        this.logedUsers.push(user);
         return true;
       }
     }
     return false;
   }
+
 }

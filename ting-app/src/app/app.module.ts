@@ -23,12 +23,13 @@ import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.com
 import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-next.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomePageComponent } from './components/home/home-page/home-page.component';
+import { HomePageComponent } from './components/home/home-page.component';
 import { SectionHeadingComponent } from './components/home/section-heading/section-heading.component';
 import { PostCarouselComponent } from './components/home/post-carousel/post-carousel.component';
 import { FullSizedImageComponent } from './components/home/full-sized-image/full-sized-image.component';
 import { PostImgComponent } from './components/home/post-img/post-img.component';
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
+import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { InfoPostComponent } from './components/home/info-post/info-post.compone
     PostCarouselComponent,
     PostImgComponent,
     FullSizedImageComponent,
-    InfoPostComponent
+    InfoPostComponent,
+    HomeBuyBtnComponent
   ],
   imports: [
     BrowserModule,
