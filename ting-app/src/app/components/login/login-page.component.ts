@@ -1,8 +1,4 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { ngbCarouselTransitionIn } from '@ng-bootstrap/ng-bootstrap/carousel/carousel-transition';
-import { LoginPageInputComponent } from './login-page-input/login-page-input.component';
-import { USERS } from '../../mock-users';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 @Component({
