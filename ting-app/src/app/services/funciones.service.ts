@@ -15,13 +15,15 @@ export class FuncionesService {
   seats: Seats[] = [];
   horarios: Funciones[] = [];
 
+  cinema: string[] = [];
+
   getFunciones(): Observable<Funciones[]> {
     return this.http.get<Funciones[]>(this.funcionesUrl);
   }
 
   getAsientos(pelicula: string): Observable<any[]> {
     return this.http.get<Funciones[]>(this.funcionesUrl)
-      .pipe(map((funciones: Funciones[]) => { 
+      .pipe(map((funciones: Funciones[]) => {
         funciones.filter((funcion) => {
           if (funcion.pelicula === pelicula) {
             this.seats = funcion.seats;
@@ -32,16 +34,29 @@ export class FuncionesService {
       }));
   }
 
-    getHorarios(pelicula: string, cine : string, date: string): Observable<any[]> {
+  getCinemaByMovie(pelicula: string): Observable<any[]> {
+    return this.http.get<Funciones[]>(this.funcionesUrl)
+      .pipe(map((funciones: Funciones[]) => {
+        funciones.filter((funcion) => {
+          if (funcion.pelicula === pelicula) {
+            if (this.cinema.indexOf(funcion.cine) === -1) {
+              this.cinema.push(funcion.cine);
+            }
+          }});
+        return this.cinema;
+      }));
+    }
+
+    getHorarios(pelicula: string, cine : string, date: string): Observable < any[] > {
       return this.http.get<Funciones[]>(this.funcionesUrl)
-       .pipe(map((funciones: Funciones[]) => { 
-         funciones.filter((funcion) => {
-           if (funcion.pelicula === pelicula && funcion.cine === cine && funcion.date === date) {
-            this.horarios.push(funcion);
-           }
-         });
-         return this.horarios;
-       }));
-     }
-}
+        .pipe(map((funciones: Funciones[]) => {
+          funciones.filter((funcion) => {
+            if (funcion.pelicula === pelicula && funcion.cine === cine && funcion.date === date) {
+              this.horarios.push(funcion);
+            }
+          });
+          return this.horarios;
+        }));
+    }
+  }
 

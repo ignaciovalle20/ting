@@ -19,12 +19,6 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
   ]
   */
 
-  listaCines = [
-    {"peliculaN": "Pelicula1","cine": "Life Tres Cruces"},
-    {"peliculaN": "Batman","cine": "Movie Montevideo Shopping"},
-    {"peliculaN": "Minions","cine": "Movie Montevideo Shopping"},
-    {"peliculaN": "Deadpool","cine": "Movie Punta Carretas"}
-  ]
 
   constructor() { }
 
