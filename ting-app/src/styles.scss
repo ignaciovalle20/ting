@@ -2,10 +2,11 @@
 .carousel-control-next {
     height: 500px;
 }
-
+/*
 html{
     background-color: black;
 }
+*/
 /*
 .carousel-caption {
     touch-action: none;
@@ -13,6 +14,23 @@ html{
     overflow-block: none;
 }
 */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../src/assets/seats-background.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center, center;
+   }
+
+   @media (min-width: 500px) {
+    #body {
+       width: 25%;
+   }
+ }
+
 @font-face {
     font-family: "Comfortaa";
     src: local("Comfortaa"), url(./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf) format("truetype");
