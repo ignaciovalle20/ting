@@ -1,8 +1,8 @@
 <nav class="navbar">
-  <div class="container-fluid">
+  <div class="container ml-lg">
     <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block align-text-top">
-    <div>
-      <a href="#">
+    <div *ngIf="isHomePage">
+      <a href="/login">
         <button class="btn"><i class="bi bi-person-circle justify-content-end m-3 "></i></button>
       </a>
     </div>
