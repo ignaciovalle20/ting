@@ -43,9 +43,9 @@ Thumbs.db
 
 
 #images files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.ico
+#*.png
+#*.jpg
+#*.jpeg
+#*.gif
+#*.svg
+#*.ico

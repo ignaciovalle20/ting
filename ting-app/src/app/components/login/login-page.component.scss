@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Inter:wght@800&display=swap');
 
 .principal {
     background-color: #182670;
@@ -8,6 +8,8 @@
     margin: 0;
     padding: 0;
     color: #fdfdfd;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 3px 3px #000000;
   }
   .custom-form {
     min-width: 300px;
@@ -16,11 +18,16 @@
     padding: 2rem 1rem;
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
-    background-color: #262b4f;
-    position: fixed;
-    //left: 0px;
-    //right: 0px;
-    bottom: 0px;
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+    /*background-color: #262b4f;*/
+    background: #232748;
+    background: -moz-linear-gradient(top, #232748 0%, #5E69C2 50%, #232748 100%);
+    background: -webkit-linear-gradient(top, #232748 0%, #5E69C2 50%, #232748 100%);
+    background: linear-gradient(to bottom, #232748 0%, #5E69C2 50%, #232748 100%);
+    color: black;
+    -webkit-box-shadow: 0px 0px 58px 23px rgba(0,0,0,0.76); 
+    box-shadow: 0px 0px 58px 23px rgba(0,0,0,0.76);
     
 }
   .custom-form input {
@@ -31,14 +38,14 @@
     background: #fdfdfd;
     justify-content: center;
   } 
-/*
+
   #login{
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
-*/
+
   @media (min-width: 500px) {
     #login {
        width: 25%;
