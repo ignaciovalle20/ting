@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Funciones } from 'src/app/interfaces/funciones';
 import { FuncionesService } from 'src/app/services/funciones.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-scheduler',
@@ -17,12 +17,12 @@ export class MovieSchedComponent implements OnInit {
   theater?: string;
   date?: string;
 
-  constructor(private funcionesService: FuncionesService, private route: ActivatedRoute) { }
+  constructor(private funcionesService: FuncionesService, private route: Router, private activeRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
     /* this.route.snapshot.queryParamMap.get('movie'); */
-    this.route.queryParams.subscribe(params => {
+    this.activeRoute.queryParams.subscribe(params => {
       this.funcionesService.getSchedule(params['movie'], params['theater'], params['date']).subscribe((schedule: any) => {
         this.funciones = schedule;
         this.movie = params['movie'];
@@ -36,6 +36,11 @@ export class MovieSchedComponent implements OnInit {
       /*   this.funcionesService.getSchedule("Batman","Tres Cruces","2022-10-07").subscribe((funcion: Funciones[]) => {
           this.funciones = funcion;
         });  */
+    }
+
+    goNext() {
+      console.log("goNext");
+      this.route.navigate(['/snacks']);
     }
 }
 

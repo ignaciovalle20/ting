@@ -5,7 +5,7 @@
     <ul class="list-group list-group-light">
         <li #hours class="list-group-item d-flex justify-content-between align-items-center d-inline-block" *ngFor="let funcion of funciones">
         <span class="text-danger">{{funcion['movie'].name}} </span> <div class="ml-sm"> Horario: {{funcion.horario}} </div>
-        <button type="button" class="btn btn-primary">Seleccionar</button>
+        <button type="button" class="btn btn-primary" (click)="goNext()">Seleccionar</button>
         </li>
     </ul>
 </div>
