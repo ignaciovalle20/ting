@@ -4,12 +4,14 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 20px;
-    &.light {
+    background-color: rgba(255, 255, 255, 0.8);
+   /*  &.light {
       color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(255, 255, 255, 0.8);
     }
     &.dark {
       color: rgba(255, 255, 255, 0.8);
-    }
+    } */
    #film{
     color: cornflowerblue;
     font-weight: bold;
