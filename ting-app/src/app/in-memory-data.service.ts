@@ -35,6 +35,10 @@ export class InMemoryDataService {
       { id: '1', movie:  movies[0] , theater: "Interior", date: "2022-10-09", horario: "21:40", price: 100, seats: [seats[0]]},
       { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:00", price: 100, seats: [seats[0]]},
       { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:20", price: 100, seats: [seats[0]]},      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:00", price: 100, seats: [seats[0]]},
+      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:20", price: 100, seats: [seats[0]]},      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:00", price: 100, seats: [seats[0]]},
+      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:10", price: 100, seats: [seats[0]]},
       { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-09", horario: "22:20", price: 100, seats: [seats[0]]},
       { id: '1', movie:  movies[1] , theater: "18 Julio", date: "2022-10-09", horario: "22:10", price: 100, seats: [seats[0]]},
       { id: '2', movie: movies[1], theater: "Costa Urbana", date: "2022-10-09", horario: "22:20", price: 100, seats: [ seats[0]]}

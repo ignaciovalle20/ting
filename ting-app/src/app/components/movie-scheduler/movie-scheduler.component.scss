@@ -16,7 +16,6 @@ h1 {
     border-bottom-right-radius: 2.5rem;
     background-color: #262b4f;
     color: #fdfdfd;
-
     position: fixed;
     left: 50%;
     top: 50%;
@@ -28,7 +27,12 @@ li{
     background-color: #262b4f;
     color: #fdfdfd;
     border: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+
+
 
 
 @media (min-width: 500px) {
