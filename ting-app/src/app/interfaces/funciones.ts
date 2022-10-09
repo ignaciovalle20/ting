@@ -1,10 +1,9 @@
 import { Seats } from "./seats";
-
+import { Movie } from "./movie";
 export interface Funciones {
     id: string;
-    pelicula: string;
-    peliculaid: string;
-    cine: string;
+    movie: Movie;
+    theater: string;
     date: string;
     horario: string;
     price: number;

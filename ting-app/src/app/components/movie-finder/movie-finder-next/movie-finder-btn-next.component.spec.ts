@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieFinderNextComponent } from './movie-finder-next.component';
+import { MovieFinderNextComponent } from './movie-finder-btn-next.component';
 
 describe('MovieFinderNextComponent', () => {
   let component: MovieFinderNextComponent;

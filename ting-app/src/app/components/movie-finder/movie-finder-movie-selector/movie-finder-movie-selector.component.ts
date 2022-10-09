@@ -8,15 +8,12 @@ import { MovieService } from '../../../services/movie.service';
   styleUrls: ['./movie-finder-movie-selector.component.scss']
 })
 export class MovieFinderMovieSelectorComponent implements OnInit {
-String(arg0: string) {
-throw new Error('Method not implemented.');
-}
 
-  @Output() peliculaSeleccionada = new EventEmitter<Movie>();
+  @Output() movieSelectedEvent = new EventEmitter<Movie>();
 
   movies: Movie[] = [];
 
-
+  movie: Movie | undefined;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -27,14 +24,22 @@ throw new Error('Method not implemented.');
   }
   
 
-  getMovie(){
+/*   getMovie(){
     let moviee = (<HTMLInputElement>document.getElementById("inputGroupSelectMovie")).value;
     console.log(String(moviee));
     var peli = this.movies.find(obj => {
       return obj.name === moviee
     });
     this.peliculaSeleccionada.emit(peli);
-  }
+  } */
 
+  getMovie(value: string ){
+    console.log("SELECCION" , value);
+    this.movieService.getMovieByName(value).subscribe((movie: Movie) => {
+      this.movie = movie;
+      console.log("MOVI", this.movie.name);
+      this.movieSelectedEvent.emit(this.movie);
+    });
+  }
   
 }

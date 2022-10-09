@@ -15,7 +15,7 @@ export class FuncionesService {
   seats: Seats[] = [];
   horarios: Funciones[] = [];
 
-  cinema: string[] = [];
+  theaters: string[] = [];
 
   getFunciones(): Observable<Funciones[]> {
     return this.http.get<Funciones[]>(this.funcionesUrl);
@@ -25,7 +25,7 @@ export class FuncionesService {
     return this.http.get<Funciones[]>(this.funcionesUrl)
       .pipe(map((funciones: Funciones[]) => {
         funciones.filter((funcion) => {
-          if (funcion.pelicula === pelicula) {
+          if (funcion.movie.name === pelicula) {
             this.seats = funcion.seats;
           }
           //console.log("this.seats: ", this.seats);
@@ -34,29 +34,46 @@ export class FuncionesService {
       }));
   }
 
-  getCinemaByMovie(pelicula: string): Observable<any[]> {
+  getTheaterByMovie(pelicula: string): Observable<any[]> {
+    this.theaters = [];
     return this.http.get<Funciones[]>(this.funcionesUrl)
       .pipe(map((funciones: Funciones[]) => {
         funciones.filter((funcion) => {
-          if (funcion.pelicula === pelicula) {
-            if (this.cinema.indexOf(funcion.cine) === -1) {
-              this.cinema.push(funcion.cine);
+          if (funcion.movie.name === pelicula) {
+            if (this.theaters.indexOf(funcion.theater) === -1) {
+              this.theaters.push(funcion.theater);
             }
           }});
-        return this.cinema;
+        return this.theaters;
       }));
     }
 
-    getHorarios(pelicula: string, cine : string, date: string): Observable < any[] > {
+    getSchedule(movie: string, theater : string, date: string): Observable < any[] > {
+      this.horarios = [];
       return this.http.get<Funciones[]>(this.funcionesUrl)
         .pipe(map((funciones: Funciones[]) => {
           funciones.filter((funcion) => {
-            if (funcion.pelicula === pelicula && funcion.cine === cine && funcion.date === date) {
+            if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
               this.horarios.push(funcion);
             }
           });
           return this.horarios;
         }));
     }
+
+/*     checkScheduler(movie:string, theater: string, date: string): boolean {
+      let found = false;
+      this.http.get<Funciones[]>(this.funcionesUrl)
+        .pipe(map((funciones: Funciones[]) => {
+          funciones.filter((funcion) => {
+            if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date ) {
+              found = true;
+            }
+          });
+        }));
+      return found;
+    } */
+
+
   }
 
