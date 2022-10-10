@@ -12,7 +12,7 @@
 
 
 <div class="input-group mb-3" >
-  <select [(ngModel)]="selectedTheater" class="form-select" id="inputGroupSelect01" [disabled]="isDisabled" (change)="enableDateForm()" >
+  <select [(ngModel)]="selectedTheater" class="form-select" id="inputGroupSelectTheater" [disabled]="isDisabled" (change)="enableDateForm()" >
     <option selected disabled value="undefined">Elegir cine...</option>
     <ng-container>
       <option [ngValue]="theater" *ngFor='let theater of theaters'>
