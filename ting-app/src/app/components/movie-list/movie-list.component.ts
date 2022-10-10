@@ -10,11 +10,14 @@ import { FuncionesService } from 'src/app/services/funciones.service';
 export class MovieListComponent implements OnInit {
 
   funciones: Funciones[] = [];
+  pelicula = "Batman";
+  cine = "Tres Cruces";
+  fecha = "2022-10-31"
 
   constructor(private funcionesService: FuncionesService) { }
 
   ngOnInit(): void {
-    this.funcionesService.getHorarios("Batman","Tres Cruces","2022-10-07").subscribe((funcion: Funciones[]) => {
+    this.funcionesService.getHorarios(this.pelicula,this.cine,"2022-10-31").subscribe((funcion: Funciones[]) => {
       this.funciones = funcion;
     }); 
   }
