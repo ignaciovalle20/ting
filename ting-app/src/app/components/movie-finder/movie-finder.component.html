@@ -2,11 +2,12 @@
 <div class="principal">
     <div class="input-group mb-5" id="buscador">
         <form class="custom-form" method="post">
-            <h1 class="text-center">Buscar películas</h1>
-            <app-movie-finder-movie-selector (peliculaSeleccionada)="getPelicula($event)"></app-movie-finder-movie-selector>
-            <app-movie-finder-theater-selector [pelicula]="peliculaSelec"></app-movie-finder-theater-selector>
+            <h1>Buscar películas</h1>
+            <app-movie-finder-movie-selector (movieSelectedEvent)="getPelicula($event)"></app-movie-finder-movie-selector>
+            <app-movie-finder-theater-selector (enableDateFormEvent)="enableDateForm()"></app-movie-finder-theater-selector>
             <app-movie-finder-date-selector></app-movie-finder-date-selector>
-            <app-movie-finder-next></app-movie-finder-next> 
+            <p *ngIf="schedNotFound" style="color: red; font-weight: bold;">No hay funciones disponibles</p>
+            <app-movie-finder-btn-next (SearchMovieFunctionsEvent)="getMovieSchedule()" ></app-movie-finder-btn-next> 
         </form>
     </div>
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 
 @Component({
   selector: 'app-movie-finder-date-selector',
@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class MovieFinderDateSelectorComponent implements OnInit {
 
   
-  
-  constructor() { }
+  isDisabled: boolean = true;
 
+  selectedDate?: string;
+  today= new Date().toISOString().slice(0, 10)
+  constructor() {
+  }
+  
   ngOnInit(): void {
-    let dateControl = (<HTMLInputElement>document.getElementById("fecha"));
-    let hoy = new Date().toISOString().slice(0, 10)
-    dateControl.value = hoy;
-    dateControl.min = hoy;
+
   }
 
-  
-
+  showDate() {
+    this.isDisabled = false;
+  }
+  selectedDateFunction() {
+    return this.selectedDate;
+  }
 }
