@@ -23,7 +23,7 @@ export class InMemoryDataService {
     ];
 
     const funciones: Funciones[] = [
-      { id: '1', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-07", horario: "21:30", price: 100, seats: [ { seat: "A1" , status: true},
+      { id: '1', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-31", horario: "21:30", price: 100, seats: [ { seat: "A1" , status: true},
       {seat:"A2", status : false},
       {seat:"A3", status : false},
       {seat:"A4", status : false},
@@ -48,7 +48,7 @@ export class InMemoryDataService {
       {seat:"D5", status : false},
       {seat:"D6", status : false},]
      },
-     { id: '2', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-07", horario: "23:30", price: 100, seats: [ { seat: "A1" , status: true},
+     { id: '2', pelicula: "Batman", peliculaid: "1", cine: "Tres Cruces", date: "2022-10-31", horario: "23:30", price: 100, seats: [ { seat: "A1" , status: true},
       {seat:"A2", status : false},
       {seat:"A3", status : false},
       {seat:"A4", status : false},

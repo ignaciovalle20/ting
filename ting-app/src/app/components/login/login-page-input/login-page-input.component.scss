@@ -1,5 +1,35 @@
 input{
+    /*
     border-radius: 1.5rem;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.527);
     background-color: #ffffff;
+    */
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+label{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #0d6efd;
+  font-size: 12px;
 }
