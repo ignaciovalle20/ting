@@ -20,8 +20,7 @@ import { MovieFinderTheaterSelectorComponent } from './components/movie-finder/m
 import { MovieFinderDateSelectorComponent } from './components/movie-finder/movie-finder-date-selector/movie-finder-date-selector.component';
 import { SeatsComponent } from './components/seats/seats.component';
 import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.component';
-import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-btn-next.component';
-import { MovieSchedComponent } from './components/movie-scheduler/movie-scheduler.component';
+
 import { ExtrasComponent } from './components/extras/extras.component';
 import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
 import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
@@ -34,6 +33,9 @@ import { PostImgComponent } from './components/home/post-img/post-img.component'
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
+import { MovieSchedComponent } from './components/movie-scheduler/movie-scheduler.component';
+import { MovieFinderNextComponent } from './components/movie-finder/movie-finder-next/movie-finder-btn-next.component';
+import { SeatsBtnNextComponent } from './components/seats/seats-btn-next/seats-btn-next.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn
     FullSizedImageComponent,
     InfoPostComponent,
     ProcessingPaymentComponent,
-    HomeBuyBtnComponent
+    HomeBuyBtnComponent,
+    SeatsBtnNextComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionesService } from 'src/app/services/funciones.service';
+import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
 
 @Component({
@@ -45,12 +46,21 @@ export class SeatsGridComponent implements OnInit {
 
   asientos: Seats[] = [];
 
+  room: Room[] = [];
+
   constructor(private funcionesService: FuncionesService) { }
 
   ngOnInit(): void {
-    this.funcionesService.getAsientos("Batman").subscribe((asientos: Seats[]) => {
+/*     this.funcionesService.getAsientos("Batman").subscribe((asientos: Seats[]) => {
       this.asientos = asientos;
-    }); 
+    });  */
+
+    this.funcionesService.getAsientos("Batman").subscribe((sala: Room[]) => {
+      this.room = sala;
+      this.asientos = this.room.map((sala) => sala.seats).flat();
+      console.log("this.sala", this.room);
+      console.log("this.asientos", this.asientos);
+    } );
 
   }
 

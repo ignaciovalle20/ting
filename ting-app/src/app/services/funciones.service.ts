@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Funciones } from '../interfaces/funciones';
-import { Seats } from '../interfaces/seats';
+import { Seats } from "../interfaces/seats";
+import { Room } from '../interfaces/room';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class FuncionesService {
   private funcionesUrl = 'api/funciones';
 
   seats: Seats[] = [];
+  rooms: Room[] = [];
   horarios: Funciones[] = [];
 
   theaters: string[] = [];
@@ -26,11 +28,11 @@ export class FuncionesService {
       .pipe(map((funciones: Funciones[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === pelicula) {
-            this.seats = funcion.seats;
+            this.rooms = funcion.room ;
           }
-          //console.log("this.seats: ", this.seats);
+          //console.log("this.seats: ", this.salas);
         });
-        return this.seats;
+        return this.rooms;
       }));
   }
 
