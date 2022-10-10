@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { Seats } from 'src/app/interfaces/seats';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-seats-grid',
@@ -36,20 +37,26 @@ export class SeatsGridComponent implements OnInit {
     {"asiento":"D6", "ocupado" : false},
   ]
   */
-  fila1 = [0, 1, 2, 3, 4, 5]
-  fila2 = [6, 7, 8, 9, 10, 11]
-  fila3 = [12, 13, 14, 15, 16, 17]
-  fila4 = [18, 19, 20, 21, 22, 23]
+  fila1 = [0, 1, 2, 3, 4, 5];
+  fila2 = [6, 7, 8, 9, 10, 11];
+  fila3 = [12, 13, 14, 15, 16, 17];
+  fila4 = [18, 19, 20, 21, 22, 23];
 
   seleccionados: string[] = [];
 
   asientos: Seats[] = [];
 
-  constructor(private funcionesService: FuncionesService) { }
+  funcion: string = "";
+
+  constructor(private funcionesService: FuncionesService, private dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
-    this.funcionesService.getAsientos("Batman").subscribe((asientos: Seats[]) => {
+    this.dataSharing.selectedFuncion$.subscribe((value) => {
+      this.funcion = value;
+    });
+    this.funcionesService.getAsientos(this.funcion).subscribe((asientos: Seats[]) => {
       this.asientos = asientos;
+      console.log(this.asientos)
     }); 
 
   }
