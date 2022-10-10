@@ -1,12 +1,14 @@
 .carousel-control-prev,
 .carousel-control-next {
-    height: 500px;
+    height: 50vh;
 }
-/*
-html{
-    background-color: black;
+
+@media (min-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        height: 65vh;
+    }
 }
-*/
 /*
 .carousel-caption {
     touch-action: none;

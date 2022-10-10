@@ -1,6 +1,7 @@
 
   <div class="post-image-cropper">
-    <img class="fi-post-image" src="{{image.url}}" alt="{{image.alt}}" (click)="openImage()">
+    <img class="fi-post-image mobile" src="{{image.url}}" alt="{{image.alt}}" (click)="openImage()">
+     <img class="fi-post-image wide" src="{{image.urlWide}}" alt="{{image.alt}}" (click)="openImage()">
   </div>
 
 <!--  <app-full-sized-image #hiddenElement [image]="image" [movie]="movie"></app-full-sized-image>
