@@ -28,7 +28,6 @@ export class FuncionesService {
           if (funcion.movie.name === pelicula) {
             this.seats = funcion.seats;
           }
-          //console.log("this.seats: ", this.seats);
         });
         return this.seats;
       }));

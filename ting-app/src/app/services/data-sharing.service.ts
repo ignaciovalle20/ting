@@ -14,6 +14,9 @@ export class DataSharingService {
 
   private date$ = new BehaviorSubject<any>({});
   selectedDate$ = this.date$.asObservable();
+
+  private funcion$ = new BehaviorSubject<any>({});
+  selectedFuncion$ = this.funcion$.asObservable();
   constructor() { }
 
   setMovie(movie: any) {
@@ -26,5 +29,9 @@ export class DataSharingService {
 
   setDate(date: any) {
     this.date$.next(date);
+  }
+
+  setFuncion(funcion: any) {
+    this.funcion$.next(funcion);
   }
 }

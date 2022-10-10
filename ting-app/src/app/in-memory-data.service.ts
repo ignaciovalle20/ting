@@ -16,10 +16,10 @@ export class InMemoryDataService {
       { id: '3', postImg: { id: "imagen3", url: '/assets/images/harry.jpg', urlWide: '/assets/images/spider-wide.jpg', alt: 'img2' }, name: 'HarryPotter', description: "Aenean cursus nisi augue, vel sodales elit faucibus quis. Nulla ultrices vitae ligula ut placerat. Morbi fermentum ante id urna laoreet, id sollicitudin lacus efficitur. Sed tristique laoreet sapien insollicitudin imperdiibh sollicitudid tristique laoreet sapien insollicitudin imperdiibh sollicitudin imperdiefeugiat mauris, eu blandit libero. Nam", tags: ['tag1', 'tag2', 'tag3']},
     ];
 
-    const seats: Seats[] = [ {seat: "A1" , status: true}, {seat:"A2", status : false}, {seat:"A3", status : false}, {seat:"A4", status : false}, {seat:"A5", status : false},      {seat:"A6", status : true}, {seat:"B1", status : false}, {seat:"B2", status : false}, {seat:"B3", status : false}, {seat:"B4", status : true}, {seat:"B5", status : false},
+    const seats: Seats[] = [ {seat: "A1" , status: false}, {seat:"A2", status : false}, {seat:"A3", status : false}, {seat:"A4", status : false}, {seat:"A5", status : false},      {seat:"A6", status : true}, {seat:"B1", status : false}, {seat:"B2", status : false}, {seat:"B3", status : false}, {seat:"B4", status : true}, {seat:"B5", status : false},
     {seat:"B6", status : false}, {seat:"C1", status : true}, {seat:"C2", status : false}, {seat:"C3", status : false}, {seat:"C4", status : false}, {seat:"C5", status : false},
     {seat:"C6", status : false}, {seat:"D1", status : false}, {seat:"D2", status : true}, {seat:"D3", status : false}, {seat:"D4", status : false}, {seat:"D5", status : false},
-    {seat:"D6", status : false},];
+    {seat:"D6", status : false}];
 
     const extras: Extra[] = [
       { id: '1', name: "Coca Cola", price: 50},
@@ -28,22 +28,22 @@ export class InMemoryDataService {
     ];
 
     const funciones: Funciones[] = [
-      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-10-30", horario: "21:00", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[0] , theater: "Mdeo Shop", date: "2022-10-30", horario: "21:10", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[0] , theater: "Punta Carretas ", date: "2022-10-30", horario: "21:20", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[0] , theater: "Nuevo Centro", date: "2022-10-30", horario: "21:30", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[0] , theater: "Interior", date: "2022-10-30", horario: "21:40", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
-      { id: '1', movie:  movies[1] , theater: "18 Julio", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
-      { id: '2', movie: movies[1], theater: "Costa Urbana", date: "2022-10-30", horario: "22:20", price: 100, seats: [ seats[0]]}
+      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-10-30", horario: "21:00", price: 100, seats: [seats[1]]},
+      { id: '2', movie:  movies[0] , theater: "Mdeo Shop", date: "2022-10-30", horario: "21:10", price: 100, seats: [seats[0]]},
+      { id: '3', movie:  movies[0] , theater: "Punta Carretas ", date: "2022-10-30", horario: "21:20", price: 100, seats: [seats[0]]},
+      { id: '4', movie:  movies[0] , theater: "Nuevo Centro", date: "2022-10-30", horario: "21:30", price: 100, seats: [seats[0]]},
+      { id: '5', movie:  movies[0] , theater: "Interior", date: "2022-10-30", horario: "21:40", price: 100, seats: [seats[0]]},
+      { id: '6', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
+      { id: '7', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '8', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
+      { id: '9', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
+      { id: '10', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '11', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
+      { id: '12', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, seats: [seats[0]]},
+      { id: '13', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '14', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, seats: [seats[0]]},
+      { id: '15', movie:  movies[1] , theater: "18 Julio", date: "2022-10-30", horario: "22:10", price: 100, seats: [seats[0]]},
+      { id: '16', movie: movies[1], theater: "Costa Urbana", date: "2022-10-30", horario: "22:20", price: 100, seats: [ seats[0]]}
     ];
 
 

@@ -35,9 +35,9 @@ export class MovieSchedComponent implements OnInit {
     });
     }
 
-    goNext() {
-      console.log("goNext");
-      this.route.navigate(['/snacks']);
+    goNext(id: string) {
+      this.dataSharing.setFuncion(id);
+      this.route.navigate(['/seats']);
     }
 }
 
