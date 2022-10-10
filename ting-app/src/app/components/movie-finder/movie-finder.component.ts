@@ -4,6 +4,8 @@ import { MovieFinderDateSelectorComponent } from './movie-finder-date-selector/m
 import { MovieFinderTheaterSelectorComponent } from './movie-finder-theater-selector/movie-finder-theater-selector.component';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+
 @Component({
   selector: 'app-movie-finder',
   templateUrl: './movie-finder.component.html',
@@ -17,7 +19,7 @@ export class MovieFinderComponent implements OnInit {
   
   schedNotFound: boolean = false;
 
-  constructor(private funcionesService : FuncionesService, private route: Router) { }
+  constructor(private funcionesService : FuncionesService, private route: Router, private dataSharing: DataSharingService) { }
 
   ngOnInit(): void {
   }
@@ -43,7 +45,11 @@ export class MovieFinderComponent implements OnInit {
       if (schedule.length > 0) {
         console.log("schedule", schedule);
         this.schedNotFound = false;
-        this.route.navigate(['/moviescheduler'], { queryParams: { movie: this.selectedMovie, theater: this.selectedTheater, date: this.selectedDate } });
+        this.dataSharing.setMovie(this.selectedMovie);
+        this.dataSharing.setTheater(this.selectedTheater);
+        this.dataSharing.setDate(this.selectedDate);
+        this.route.navigate(['/moviescheduler']);
+        //this.route.navigate(['/moviescheduler'], { queryParams: { movie: this.selectedMovie, theater: this.selectedTheater, date: this.selectedDate } });
       } else {
         this.schedNotFound = true;
         console.log("No hay funciones para la pelicula seleccionada");
