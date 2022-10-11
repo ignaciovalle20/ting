@@ -21,6 +21,7 @@ export class DataSharingService {
   private seats$ = new BehaviorSubject<any>({});
   selectedSeats$ = this.seats$.asObservable();
   
+ 
   constructor() { }
 
   setMovie(movie: any) {

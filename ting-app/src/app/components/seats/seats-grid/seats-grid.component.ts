@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
-
+import  {SeatsComponent } from 'src/app/components/seats/seats.component';
 @Component({
   selector: 'app-seats-grid',
   templateUrl: './seats-grid.component.html',
@@ -49,31 +49,40 @@ export class SeatsGridComponent implements OnInit {
 
   room: Room[] = [];
 
-  function_id?: string;
+  function_id: string | undefined;
 
   checked?: boolean ;
 
+  loaded: boolean = false;
+
   constructor(private funcionesService: FuncionesService, private datasharing: DataSharingService) { }
 
-  
+
+  @Output () gridChangeEvent = new EventEmitter<Event>();
+
   ngOnInit(): void {
     this.checked = false;
+    
     this.datasharing.selectedFunction$.subscribe((function_id) => {
       this.function_id = function_id.id;
       console.log("function_id", this.function_id);
     });
   console.log(this.function_id)
+
+  if(this.function_id != undefined){
     this.funcionesService.getAsientosByFunction(this.function_id!).subscribe((sala: Room[]) => {
       this.room = sala;
       console.log("this.sala", this.room);
       console.log("this.asientos", this.seats);
       //retorna un array de arrays, por eso el flat(), para acceder a los elementos dentro.
       this.seats = this.room.map((sala) => sala.seats).flat();
-
+      this.loaded = true;
     });
+  }
 
   }
  
+
   checkboxClick(event: any) {
     if (event.target.checked) {
       // Si esta seleccionado, lo agregamos a la lista
@@ -82,10 +91,10 @@ export class SeatsGridComponent implements OnInit {
       //Si se setea en False borramos el elemento del array
       this.seleccionados = this.seleccionados.filter((seat: string) => seat !== event.target.id);
     }
-
     (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.toString();
     console.log("this.seleccionados", this.seleccionados);
     console.log("this.seats", this.seats);
+    this.gridChangeEvent.emit();
   }
 
   getSeats(): string[] {
