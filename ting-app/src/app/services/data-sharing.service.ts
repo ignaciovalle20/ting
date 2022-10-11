@@ -14,6 +14,13 @@ export class DataSharingService {
 
   private date$ = new BehaviorSubject<any>({});
   selectedDate$ = this.date$.asObservable();
+
+  private function$ = new BehaviorSubject<any>({});
+  selectedFunction$ = this.function$.asObservable();
+  
+  private seats$ = new BehaviorSubject<any>({});
+  selectedSeats$ = this.seats$.asObservable();
+  
   constructor() { }
 
   setMovie(movie: any) {
@@ -26,5 +33,11 @@ export class DataSharingService {
 
   setDate(date: any) {
     this.date$.next(date);
+  }
+  setFunction(f: any) {
+    this.function$.next(f);
+  }
+  setSeats(seats: any) {
+    this.seats$.next(seats);
   }
 }

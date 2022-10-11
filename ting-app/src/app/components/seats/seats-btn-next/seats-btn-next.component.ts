@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-seats-btn-next',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeatsBtnNextComponent implements OnInit {
 
+  @Output () goNextEvent = new EventEmitter<MouseEvent>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  goNext() {
+    console.log("goNext");
+    this.goNextEvent.emit();
+    // this.route.navigate(['/snacks']);
+  }
 }

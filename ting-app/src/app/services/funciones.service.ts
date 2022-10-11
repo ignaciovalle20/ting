@@ -23,18 +23,31 @@ export class FuncionesService {
     return this.http.get<Funciones[]>(this.funcionesUrl);
   }
 
-  getAsientos(pelicula: string): Observable<any[]> {
-    return this.http.get<Funciones[]>(this.funcionesUrl)
-      .pipe(map((funciones: Funciones[]) => {
-        funciones.filter((funcion) => {
-          if (funcion.movie.name === pelicula) {
-            this.rooms = funcion.room ;
-          }
-          //console.log("this.seats: ", this.salas);
-        });
-        return this.rooms;
-      }));
+    getAsientos(pelicula: string): Observable<any[]> {
+      return this.http.get<Funciones[]>(this.funcionesUrl)
+        .pipe(map((funciones: Funciones[]) => {
+          funciones.filter((funcion) => {
+            if (funcion.movie.name === pelicula) {
+              this.rooms = funcion.room ;
+            }
+            //console.log("this.seats: ", this.salas);
+          });
+          return this.rooms;
+        }));
+    } 
+
+  getAsientosByFunction(id: string): Observable<any[]> {
+    return this.http.get<Funciones[]>(this.funcionesUrl).pipe(map((funciones: Funciones[]) => {
+      funciones.filter((funcion) => {
+        if (funcion.id === id) {
+          this.rooms = funcion.room;
+        }
+      });
+      return this.rooms;
+    }));
   }
+
+
 
   getTheaterByMovie(pelicula: string): Observable<any[]> {
     this.theaters = [];
@@ -45,37 +58,38 @@ export class FuncionesService {
             if (this.theaters.indexOf(funcion.theater) === -1) {
               this.theaters.push(funcion.theater);
             }
-          }});
+          }
+        });
         return this.theaters;
       }));
-    }
-
-    getSchedule(movie: string, theater : string, date: string): Observable < any[] > {
-      this.horarios = [];
-      return this.http.get<Funciones[]>(this.funcionesUrl)
-        .pipe(map((funciones: Funciones[]) => {
-          funciones.filter((funcion) => {
-            if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
-              this.horarios.push(funcion);
-            }
-          });
-          return this.horarios;
-        }));
-    }
-
-/*     checkScheduler(movie:string, theater: string, date: string): boolean {
-      let found = false;
-      this.http.get<Funciones[]>(this.funcionesUrl)
-        .pipe(map((funciones: Funciones[]) => {
-          funciones.filter((funcion) => {
-            if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date ) {
-              found = true;
-            }
-          });
-        }));
-      return found;
-    } */
-
-
   }
+
+  getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
+    this.horarios = [];
+    return this.http.get<Funciones[]>(this.funcionesUrl)
+      .pipe(map((funciones: Funciones[]) => {
+        funciones.filter((funcion) => {
+          if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
+            this.horarios.push(funcion);
+          }
+        });
+        return this.horarios;
+      }));
+  }
+
+  /*     checkScheduler(movie:string, theater: string, date: string): boolean {
+        let found = false;
+        this.http.get<Funciones[]>(this.funcionesUrl)
+          .pipe(map((funciones: Funciones[]) => {
+            funciones.filter((funcion) => {
+              if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date ) {
+                found = true;
+              }
+            });
+          }));
+        return found;
+      } */
+
+
+}
 
