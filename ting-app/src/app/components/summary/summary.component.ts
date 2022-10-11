@@ -14,6 +14,8 @@ export class SummaryComponent implements OnInit {
   movie : string = "";
   theater : String = "";
   date : String = "";
+  hora : String = "";
+  seats: string = "";
 
   ngOnInit(): void {
     this.dataSharing.selectedMovie$.subscribe((value) => {
@@ -23,7 +25,13 @@ export class SummaryComponent implements OnInit {
       this.theater = value;
     });
     this.dataSharing.selectedDate$.subscribe((value) => {
-      this.date = value;
+      this.date = value.split("-").reverse().join("/");;
+    });
+    this.dataSharing.selectedFunction$.subscribe((value) => {
+      this.hora = value.horario;
+    });
+    this.dataSharing.selectedSeats$.subscribe((value) => {
+      this.seats = value;
     });
   }
 

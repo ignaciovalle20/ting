@@ -1,10 +1,13 @@
 <app-navbar></app-navbar>
 <div id="listaPeliculas">
-    <h1>Horarios</h1>
+    <h1 class="text-center">Horarios</h1>
+    <h5 class="text-center">Para: {{movie}}</h5>
+    <h5 class="text-center">En: {{theater}}</h5>
+    <h5 class="text-center">El: {{date}}</h5>
     <br>
     <ul class="list-group list-group-light">
         <li #hours class="list-group-item d-flex justify-content-between align-items-center d-inline-block" *ngFor="let funcion of funciones">
-        <span class="text-danger">{{funcion['movie'].name}} </span> <div class="ml-sm"> Horario: {{funcion.horario}} </div>
+        <div class="ml-sm"> Horario: {{funcion.horario}} </div>
         <button type="button" class="btn btn-primary" (click)="goNext(funcion)">Seleccionar</button>
         </li>
     </ul>

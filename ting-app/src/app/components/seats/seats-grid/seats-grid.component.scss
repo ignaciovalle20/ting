@@ -13,7 +13,8 @@
     font-weight: bold;
     margin-bottom: 20px;
     width: 75%;
-    background: #00ffea;
+    background: #0a0c2c;
+    color: white;
     border-radius: 5px;
 }
 
@@ -34,7 +35,7 @@
     }
     input[type=checkbox]:checked {
         + label {
-          background: #ff0000;
+          background: #0B5ED7;
           &:hover {
             cursor: pointer;
           }
@@ -47,7 +48,8 @@
         font-size: 14px;
         font-weight: bold;
         padding: 10px;
-        background: #00ffea;
+        background: #0a0c2c;
+        color: white;
         border-radius: 5px;
         &:hover {
           cursor: pointer;
@@ -56,6 +58,7 @@
     input[type=checkbox]:disabled {
         + label {
           background: #dddddd;
+          color: black;
           overflow: hidden;
           padding: 10px;
           &:hover {
