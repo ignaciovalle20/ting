@@ -20,6 +20,9 @@ export class DataSharingService {
   
   private seats$ = new BehaviorSubject<any>({});
   selectedSeats$ = this.seats$.asObservable();
+
+  private extras$ = new BehaviorSubject<any>({});
+  selectedExtras$ = this.extras$.asObservable();
   
  
   constructor() { }
@@ -40,5 +43,8 @@ export class DataSharingService {
   }
   setSeats(seats: any) {
     this.seats$.next(seats);
+    
+  setExtras(extras: any) {
+    this.extras$.next(extras);
   }
 }

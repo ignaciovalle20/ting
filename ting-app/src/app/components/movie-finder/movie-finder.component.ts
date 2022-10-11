@@ -48,7 +48,7 @@ export class MovieFinderComponent implements OnInit {
         this.dataSharing.setMovie(this.selectedMovie);
         this.dataSharing.setTheater(this.selectedTheater);
         this.dataSharing.setDate(this.selectedDate);
-        this.route.navigate(['/moviescheduler']);
+        this.route.navigate(['/summary']);
         //this.route.navigate(['/moviescheduler'], { queryParams: { movie: this.selectedMovie, theater: this.selectedTheater, date: this.selectedDate } });
       } else {
         this.schedNotFound = true;

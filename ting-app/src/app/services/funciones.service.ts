@@ -45,6 +45,7 @@ export class FuncionesService {
       });
       return this.rooms;
     }));
+
   }
 
 

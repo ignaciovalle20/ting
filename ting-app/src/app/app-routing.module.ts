@@ -7,6 +7,7 @@ import { MovieFinderComponent } from './components/movie-finder/movie-finder.com
 import { MovieSchedComponent } from './components/movie-scheduler/movie-scheduler.component';
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { SeatsComponent } from './components/seats/seats.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'moviescheduler', component: MovieSchedComponent},
   { path: 'snacks', component: ExtrasComponent},
-  { path: 'processing', component: ProcessingPaymentComponent}
+  { path: 'processing', component: ProcessingPaymentComponent},
+  { path: 'summary', component: SummaryComponent}
 ];
 
 @NgModule({
