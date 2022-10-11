@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-extras',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExtrasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router, private dataSharing: DataSharingService) { }
+
+  @ViewChild('extrasList') extrasList!: any;
 
   ngOnInit(): void {
+  }
+
+  extrasNext(){
+    this.dataSharing.setExtras(this.extrasList.compras);
+    this.route.navigate(['/processing']);
   }
 
 }

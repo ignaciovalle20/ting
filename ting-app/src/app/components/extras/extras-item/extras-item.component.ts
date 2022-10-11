@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-extras-item',
@@ -7,12 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExtrasItemComponent implements OnInit {
 
-  @Input() precioO : number | undefined;
-  @Input() nombreE : string | undefined;
+  @Input() price : number | undefined;
+  @Input() name : string = "";
+  @Input() id : string = "";
+  @Output() ExtraEvent = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  click(value : any, id : string){
+    let total = id + "-" + value.value;
+    this.ExtraEvent.emit(total);
+  }
 }

@@ -34,6 +34,7 @@ import { PostImgComponent } from './components/home/post-img/post-img.component'
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
+import { ExtrasNextComponent } from './components/extras/extras-next/extras-next.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn
     FullSizedImageComponent,
     InfoPostComponent,
     ProcessingPaymentComponent,
-    HomeBuyBtnComponent
+    HomeBuyBtnComponent,
+    ExtrasNextComponent
   ],
   imports: [
     BrowserModule,
