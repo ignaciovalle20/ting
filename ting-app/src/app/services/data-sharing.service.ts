@@ -43,7 +43,7 @@ export class DataSharingService {
   }
   setSeats(seats: any) {
     this.seats$.next(seats);
-    
+  }
   setExtras(extras: any) {
     this.extras$.next(extras);
   }

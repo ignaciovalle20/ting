@@ -66,7 +66,7 @@ import { SummaryComponent } from './components/summary/summary.component';
     InfoPostComponent,
     ProcessingPaymentComponent,
     HomeBuyBtnComponent,
-    SeatsBtnNextComponent
+    SeatsBtnNextComponent,
     ExtrasNextComponent,
     SummaryComponent
   ],
