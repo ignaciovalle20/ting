@@ -18,7 +18,7 @@ export class ExtrasComponent implements OnInit {
 
   extrasNext(){
     this.dataSharing.setExtras(this.extrasList.compras);
-    this.route.navigate(['/processing']);
+    this.route.navigate(['/summary']);
   }
 
 }

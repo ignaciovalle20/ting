@@ -35,6 +35,7 @@ import { InfoPostComponent } from './components/home/info-post/info-post.compone
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
 import { ExtrasNextComponent } from './components/extras/extras-next/extras-next.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ExtrasNextComponent } from './components/extras/extras-next/extras-next
     InfoPostComponent,
     ProcessingPaymentComponent,
     HomeBuyBtnComponent,
-    ExtrasNextComponent
+    ExtrasNextComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
