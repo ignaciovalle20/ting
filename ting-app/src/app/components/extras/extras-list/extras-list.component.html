@@ -1,5 +1,6 @@
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let extra of extras">
-        <app-extras-item [nombreE]="extra.name" [precioO]="extra.price"></app-extras-item>
+        <app-extras-item [id]="extra.id" [name]="extra.name" [price]="extra.price" (ExtraEvent)="items($event)"></app-extras-item>
     </li>
-  </ul>
+</ul>
+<span id="selec">hola</span>

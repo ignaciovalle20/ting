@@ -23,16 +23,6 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
       }); 
   }
   
-
-/*   getMovie(){
-    let moviee = (<HTMLInputElement>document.getElementById("inputGroupSelectMovie")).value;
-    console.log(String(moviee));
-    var peli = this.movies.find(obj => {
-      return obj.name === moviee
-    });
-    this.peliculaSeleccionada.emit(peli);
-  } */
-
   getMovie(value: string ){
     console.log("SELECCION" , value);
     this.movieService.getMovieByName(value).subscribe((movie: Movie) => {

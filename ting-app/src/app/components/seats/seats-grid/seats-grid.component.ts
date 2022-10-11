@@ -38,16 +38,17 @@ export class SeatsGridComponent implements OnInit {
     {"asiento":"D6", "ocupado" : false},
   ]
   */
-  fila1 = [0, 1, 2, 3, 4, 5]
-  fila2 = [6, 7, 8, 9, 10, 11]
-  fila3 = [12, 13, 14, 15, 16, 17]
-  fila4 = [18, 19, 20, 21, 22, 23]
+  fila1 = [0, 1, 2, 3, 4, 5];
+  fila2 = [6, 7, 8, 9, 10, 11];
+  fila3 = [12, 13, 14, 15, 16, 17];
+  fila4 = [18, 19, 20, 21, 22, 23];
 
   seleccionados: string[] = [];
 
   seats: Seats[] = [];
 
   room: Room[] = [];
+
 
   function_id?: string;
 
