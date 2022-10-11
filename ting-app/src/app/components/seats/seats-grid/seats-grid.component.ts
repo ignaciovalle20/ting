@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionesService } from 'src/app/services/funciones.service';
+import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 
@@ -44,32 +45,52 @@ export class SeatsGridComponent implements OnInit {
 
   seleccionados: string[] = [];
 
-  asientos: Seats[] = [];
+  seats: Seats[] = [];
 
-  funcion: string = "";
+  room: Room[] = [];
 
-  constructor(private funcionesService: FuncionesService, private dataSharing: DataSharingService) { }
 
+  function_id?: string;
+
+  checked?: boolean ;
+
+  constructor(private funcionesService: FuncionesService, private datasharing: DataSharingService) { }
+
+  
   ngOnInit(): void {
-    this.dataSharing.selectedFuncion$.subscribe((value) => {
-      this.funcion = value;
+    this.checked = false;
+    this.datasharing.selectedFunction$.subscribe((function_id) => {
+      this.function_id = function_id.id;
+      console.log("function_id", this.function_id);
     });
-    this.funcionesService.getAsientos(this.funcion).subscribe((asientos: Seats[]) => {
-      this.asientos = asientos;
-      console.log(this.asientos)
-    }); 
+  console.log(this.function_id)
+    this.funcionesService.getAsientosByFunction(this.function_id!).subscribe((sala: Room[]) => {
+      this.room = sala;
+      console.log("this.sala", this.room);
+      console.log("this.asientos", this.seats);
+      //retorna un array de arrays, por eso el flat(), para acceder a los elementos dentro.
+      this.seats = this.room.map((sala) => sala.seats).flat();
+
+    });
 
   }
-
-  checkboxClick(event: Event) {
-    let isChecked = (<HTMLInputElement>event.target).checked;
-    if (isChecked) {
-      this.seleccionados.push((<HTMLInputElement>event.target).id);
-      (<HTMLInputElement>document.getElementById("selec")).innerHTML = this.seleccionados.toString();
+ 
+  checkboxClick(event: any) {
+    if (event.target.checked) {
+      // Si esta seleccionado, lo agregamos a la lista
+      this.seleccionados.push(event.target.id);
     } else {
-      let index = this.seleccionados.indexOf((<HTMLInputElement>event.target).id);
-      this.seleccionados.splice(index, 1);
-      (<HTMLInputElement>document.getElementById("selec")).innerHTML = this.seleccionados.toString();
+      //Si se setea en False borramos el elemento del array
+      this.seleccionados = this.seleccionados.filter((seat: string) => seat !== event.target.id);
     }
+
+    (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.toString();
+    console.log("this.seleccionados", this.seleccionados);
+    console.log("this.seats", this.seats);
+  }
+
+  getSeats(): string[] {
+    return this.seleccionados;
   }
 }
+

@@ -15,8 +15,11 @@ export class DataSharingService {
   private date$ = new BehaviorSubject<any>({});
   selectedDate$ = this.date$.asObservable();
 
-  private funcion$ = new BehaviorSubject<any>({});
-  selectedFuncion$ = this.funcion$.asObservable();
+  private function$ = new BehaviorSubject<any>({});
+  selectedFunction$ = this.function$.asObservable();
+  
+  private seats$ = new BehaviorSubject<any>({});
+  selectedSeats$ = this.seats$.asObservable();
 
   private extras$ = new BehaviorSubject<any>({});
   selectedExtras$ = this.extras$.asObservable();
@@ -34,11 +37,12 @@ export class DataSharingService {
   setDate(date: any) {
     this.date$.next(date);
   }
-
-  setFuncion(funcion: any) {
-    this.funcion$.next(funcion);
+  setFunction(f: any) {
+    this.function$.next(f);
   }
-
+  setSeats(seats: any) {
+    this.seats$.next(seats);
+    
   setExtras(extras: any) {
     this.extras$.next(extras);
   }

@@ -30,13 +30,14 @@ export class MovieSchedComponent implements OnInit {
     this.dataSharing.selectedDate$.subscribe((value) => {
       this.date = value;
     });
+    
     this.funcionesService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
       this.funciones = schedule;
     });
     }
 
-    goNext(id: string) {
-      this.dataSharing.setFuncion(id);
+    goNext(f:any) {
+      this.dataSharing.setFunction(f)
       this.route.navigate(['/seats']);
     }
 }
