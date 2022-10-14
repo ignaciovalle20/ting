@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/interfaces/movie';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { Extra } from 'src/app/interfaces/extras';
+import { ExtrasService } from 'src/app/services/extras.service';
 
 @Component({
   selector: 'app-summary',
@@ -9,13 +10,14 @@ import { DataSharingService } from 'src/app/services/data-sharing.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private dataSharing: DataSharingService) { }
+  constructor(private dataSharing: DataSharingService, private extrasService : ExtrasService) { }
 
   movie : string = "";
   theater : String = "";
   date : String = "";
   hora : String = "";
   seats: string = "";
+  extras : string[] = [];
 
   ngOnInit(): void {
     this.dataSharing.selectedMovie$.subscribe((value) => {
@@ -33,6 +35,10 @@ export class SummaryComponent implements OnInit {
     this.dataSharing.selectedSeats$.subscribe((value) => {
       this.seats = value;
     });
+    this.dataSharing.selectedExtras$.subscribe((value) => {
+      this.extras = value;
+    });
   }
 
+  
 }

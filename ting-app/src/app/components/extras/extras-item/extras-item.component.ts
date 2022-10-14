@@ -17,8 +17,8 @@ export class ExtrasItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  click(value : any, id : string){
-    let total = id + "-" + value.value;
+  click(value : any, name : string){
+    let total = name + " x" + value.value;
     this.ExtraEvent.emit(total);
   }
 }
