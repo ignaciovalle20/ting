@@ -24,11 +24,13 @@ String(arg0: string) {
   }
 
   items(item : String){
-    let id = item.slice(0,1);
-    let quantity = item.slice(2,3);
+    let name = item.replace(" x", "");
+    name = name.slice(0, -1);
+    let quantity = item.substring(item.length - 1);
     this.compras.forEach((element,index)=> {
-      let idElem = element.slice(0,1);
-      if (id === idElem){
+      let name2 = element.replace(" x", "");
+      name2 = name2.slice(0, -1);
+      if (name === name2){
         this.compras.splice(index,1);
       }
     });

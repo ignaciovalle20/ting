@@ -7,7 +7,7 @@
     </div>
     <div class="col d-inline-flex align-items-center">
         <span class="pe-3 align-middle">${{price}}</span>
-        <select class="form-select form-select-sm" aria-label="cantidad" style="width:auto;" (change)="click($event.target,id)">
+        <select class="form-select form-select-sm" name="{{name}}" aria-label="cantidad" style="width:auto;" (change)="click($event.target,name)">
             <option selected value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
