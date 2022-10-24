@@ -1,72 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
 
-* {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    background: #ecf0f3;
-    justify-content: center;
-    display: flex;
-    top: 50%;
-  }
-
-  h1 {
-    margin: 0;
-    padding: 0;
-    color: #fdfdfd;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-
-  }
-  .custom-form {
-    min-width: 300px;
-    width: 100%;
-    height: 60%;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem 1rem;
-    border-top-left-radius: 2.5rem;
-    border-top-right-radius: 2.5rem;
-    border-bottom-left-radius: 2.5rem;
-    border-bottom-right-radius: 2.5rem;
-    background-color: #262b4f;
-    color: black;
-    -webkit-box-shadow: 0px 0px 58px 23px rgba(0,0,0,0.76); 
-    box-shadow: 0px 0px 58px 23px rgba(0,0,0,0.76);
+body {
+  background-image: var(--BgImageWide);
 }
-  .custom-form input {
-    width: 95%;
-    border-radius: 0.5rem;
-    padding: 0.8rem;
-    border: 0 none;
-    background: #fdfdfd;
-  } 
-  
-  .custom-form button {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border: none;
-    font-size: 0.875rem;
-    color: #ffffff;
-    font-weight: bold;
-    background-color: #0a0c2c;
-    width: 80%;
-    display: block;
-    padding: 0.875rem 1rem;
-    border-radius: 1.5rem;
-  }
 
-  #asientos{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
-  @media (min-width: 500px) {
-    #asientos {
-       width: 25%;
-   }
- }
+@media (max-width: 500px) {
+  body {
+    background-image: var(--BgImageMobile);
+  }
+}

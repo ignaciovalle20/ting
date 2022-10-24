@@ -1,14 +1,34 @@
+
+<body [style.--BgImageWide]="'url('+movieUrlWide+')'" [style.--BgImageMobile]="'url('+movieUrlMobile+')'" > 
 <app-navbar></app-navbar>
-<div id="listaPeliculas">
-    <h1 class="text-center">Horarios</h1>
-    <h5 class="text-center">Para: {{movie}}</h5>
-    <h5 class="text-center">En: {{theater}}</h5>
-    <h5 class="text-center">El: {{date}}</h5>
-    <br>
-    <ul class="list-group list-group-light">
-        <li #hours class="list-group-item d-flex justify-content-between align-items-center d-inline-block" *ngFor="let funcion of funciones">
-        <div class="ml-sm"> Horario: {{funcion.horario}} </div>
-        <button type="button" class="btn btn-primary" (click)="goNext(funcion)">Seleccionar</button>
-        </li>
-    </ul>
+
+<div id="boxContent" >
+    <div class="overflow-auto" id="listaPeliculas">
+        <h1 class="text-center m-3">Horarios</h1>
+        <div class="row">
+            <div class="col-4 mb-1">
+                <h6>Evento: </h6>
+                <p>{{movie}}</p>
+            </div>
+            <div class="col-4 mb-1">
+                <h6>Lugar:  </h6>
+                <p>{{theater}}</p>
+
+            </div>
+            <div class="col-4 mb-1">
+                <h6>Fecha: </h6>
+                <p>{{date}}</p>
+            </div>
+        </div>
+        <ul class="list-group list-group-light">
+            <li #hours class="list-group-item d-flex justify-content-between align-items-center d-inline-block mb-1"
+                *ngFor="let funcion of funciones">
+                <div class="ml-sm ml-1"> Horario: {{funcion.horario}} </div>
+                <button type="button" class="btn btn-primary" (click)="goNext(funcion)">Seleccionar</button>
+            </li>
+        </ul>
+    </div>
 </div>
+<app-footer></app-footer>
+    
+</body>

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SeatsGridComponent } from './seats-grid/seats-grid.component';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { Router } from '@angular/router';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-seats',
@@ -10,15 +11,36 @@ import { Router } from '@angular/router';
 })
 export class SeatsComponent implements OnInit {
 
+  movie: string = "";
+  movieUrlWide: string = "";
+  movieUrlMobile: string = "";
  noSeatsSelected: boolean = false;
 
-  constructor(private datasharing: DataSharingService, private route: Router) { }
+  constructor(private datasharing: DataSharingService, private route: Router, private movieService: MovieService) { }
 
   ngOnInit(): void {
     this.datasharing.selectedSeats$?.subscribe((value) => { 
     console.log("selectedSeats",value);
     });
+
+  this.datasharing.selectedMovie$.subscribe((value) => {
+    this.movie = value;
+  });
+
+  this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
+    this.movieUrlWide = value;
+    console.log("Movie URL: " + this.movieUrlWide);
+  });
+
+  this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
+    this.movieUrlMobile = value;
+    console.log("Movie URL: " + this.movieUrlMobile);
+  });
+
   }
+ 
+  
+
 
   @ViewChild (SeatsGridComponent) seatsGridComponent!: SeatsGridComponent ; 
 

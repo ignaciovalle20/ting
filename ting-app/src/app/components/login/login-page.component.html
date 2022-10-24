@@ -6,7 +6,13 @@
       <app-login-page-input #userinput [type]="'text'" [placeholder]="'Username'"></app-login-page-input>
       <app-login-page-input #passinput [type]="'password'" [placeholder]="'Password'"></app-login-page-input>
 
-      <p *ngIf="wrongUser" style="color: red;">Login Incorrecto</p>
+      <!-- <p *ngIf="wrongUser" style="color: red;">Login Incorrecto</p> -->
+      <ng-container *ngIf="wrongUser">
+        <div class="alert alert-danger" role="alert">
+          Login Incorrecto
+        </div>
+      </ng-container>
+
       <app-login-page-btn (LoginEvent)="login()"></app-login-page-btn>
     </form>
   </div>

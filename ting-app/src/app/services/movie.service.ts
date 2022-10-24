@@ -30,6 +30,29 @@ export class MovieService {
       })); 
   }
 
+  getMovieImageWide(name: string): Observable<any> {
+    return this.http.get<Movie[]>(this.movieUrl)
+      .pipe(map((movies: Movie[]) => {
+        movies.filter((movie) => {
+          if (movie.name === name) {
+            this.movie = movie;
+          }
+        });
+        return this.movie?.postImg.urlWide;
+      }));
+  }
+  getMovieImageMobile(name: string): Observable<any> {
+    return this.http.get<Movie[]>(this.movieUrl)
+      .pipe(map((movies: Movie[]) => {
+        movies.filter((movie) => {
+          if (movie.name === name) {
+            this.movie = movie;
+          }
+        });
+        return this.movie?.postImg.url;
+      }));
+  }
+
  /*  getArrayOfImgs(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.imgsUrl);
   } */
