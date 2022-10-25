@@ -3,11 +3,13 @@
 
 body {
   background-image: var(--BgImageWide);
+  overflow: hidden;
 }
 
 
 @media (max-width: 500px) {
   body {
     background-image: var(--BgImageMobile);
+    overflow: hidden;
   }
 }
