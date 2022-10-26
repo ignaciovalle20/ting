@@ -29,6 +29,11 @@ button {
 
 @media (max-width: 500px) {
 
+
+    body {
+        background-image: var(--BgImageMobile);
+    }
+    
     h1 {
         margin: 0;
         padding: 0;
@@ -37,7 +42,7 @@ button {
         font-weight: 800;
     }
 
-    #listaPeliculas {
+    #movieList {
         min-width: 90vw;
         height: 50vh;
         background: rgba(255, 255, 255, 0.15);
@@ -51,9 +56,6 @@ button {
         transform: translate(-50%, -50%);
     }
 
-    body {
-        background-image: var(--BgImageMobile);
-    }
 }
 
 ul,
@@ -63,7 +65,7 @@ li {
 }
 
 @media (min-width: 500px) {
-    #listaPeliculas {
+    #movieList {
         width: 100%;
         height: 100%;
         padding: 2rem 1rem;

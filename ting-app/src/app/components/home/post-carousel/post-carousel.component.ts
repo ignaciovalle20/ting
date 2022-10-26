@@ -23,6 +23,7 @@ export class PostCarouselComponent implements OnInit {
 
   constructor(private loginService: LoginService ,config: NgbCarouselConfig, ) {
     config.interval = 0;
+    config.wrap = false;
   }
 
   ngOnInit(): void {
