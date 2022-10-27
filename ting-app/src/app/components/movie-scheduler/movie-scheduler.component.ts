@@ -54,8 +54,6 @@ export class MovieSchedComponent implements OnInit {
     this.dataSharing.setFunction(f)
     this.route.navigate(['/seats']);
   }
-  getUrl() {
-    return "url('http://estringsoftware.com/wp-content/uploads/2017/07/estring-header-lowsat.jpg')";
-  }
+
 }
 

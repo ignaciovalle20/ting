@@ -30,10 +30,11 @@
   -ms-user-select: none;
   user-select: none;
 
-    padding: 5px;
+    padding: 2px;
     input[type=checkbox] {
         position: absolute;
         opacity: 0;
+        
         &:hover {
           cursor: pointer;
         }
@@ -52,20 +53,18 @@
         text-align: center;
         font-size: 14px;
         font-weight: bold;
-        padding: 10px;
         background: #0a0c2c;
         color: white;
         border-radius: 5px;
         &:hover {
           cursor: pointer;
         }
-    }
+     }
     input[type=checkbox]:disabled {
         + label {
           background: #dddddd;
           color: black;
           overflow: hidden;
-          padding: 10px;
           &:hover {
             cursor: not-allowed;
           }
