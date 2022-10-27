@@ -29,8 +29,8 @@
     <li class="d-flex justify-content-evenly">
         <div class="asiento" *ngFor="let index of fila4">
             <input type="checkbox" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                (change)="checkboxClick($event)" />
-            <label for="{{seats[index].seat}}">{{seats[index].seat}}</label>
+                (change)="checkboxClick($event)" />          
+            <label for="{{seats[index].seat}}"> {{seats[index].seat}} <img src="/assets/icons/asiento.svg" class="img-fluid" alt=""></label>
         </div>
     </li>
 </ol>
