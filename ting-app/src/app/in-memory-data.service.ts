@@ -27,9 +27,11 @@ export class InMemoryDataService {
     {seat:"D6", status : false}];
 
     const extras: Extra[] = [
-      { id: '1', name: "Coca Cola", price: 50},
-      { id: '2', name: "Coca Cola Zero", price: 50},
-      { id: '3', name: "Coca Cola Ligth", price: 50}
+      { id: '1', name: "Coca Cola", price: 50, img: "/assets/extras/cocacola.png" },
+      { id: '2', name: "Coca Cola Zero", price: 50, img: "/assets/extras/cocacola.png"},
+      { id: '3', name: "Pop", price: 50, img: "/assets/extras/popcorn.png"},
+      { id: '4', name: "Pop Dulce", price: 50, img: "/assets/extras/popcorn.png"},
+      { id: '5', name: "Pop Salado", price: 50, img: "/assets/extras/popcorn.png"}
     ];
 
  const rooms: Room[] = [

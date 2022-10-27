@@ -1,3 +1,6 @@
+span{
+    color: white;
+}
 
 #minus{
     border-top-left-radius: 0.3rem;
@@ -9,6 +12,7 @@
     justify-content: center;
     display: flex;    
 }
+
 #plus{
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
@@ -50,9 +54,6 @@
     justify-content: center;
     display: flex;    
 }
-
-
-
 
 .input-number{
     max-width: 3rem ;
