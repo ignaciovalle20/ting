@@ -1,24 +1,23 @@
-<div class="row align-items-center">
-    <div class="col" style="width: auto;">
-      <img src="../../../../assets/TiNG-Cropped.png" style="width:10px;height:10px;">
-    </div>
-    <div class="col align-items-center text-center">
-        <span class="align-middle">{{name}}</span>
-    </div>
-    <div class="col d-inline-flex align-items-center">
-        <span class="pe-3 align-middle">${{price}}</span>
-        <select class="form-select form-select-sm" name="{{name}}" aria-label="cantidad" style="width:auto;" (change)="click($event.target,name)">
-            <option selected value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-    </div>
+<div class="row">
+  <div class="col align-self-center d-flex justify-content-center">
+    <img src="{{img}}" style="width:100px;height:100px;">
   </div>
+  <div class="col d-flex justify-content-center align-self-center">
+    <span class="align-middle">{{name}}</span>
+  </div>
+  <div class="col d-flex justify-content-center">
+    <span class="pe-3">${{price}}</span>
+    <div class="input-group d-inline-flex">
+      <span class="input-group-btn vertical-align" id="minus">
+        <button type="button" class="btn btn-default btn-number btn-minus" data-type="minus" data-field="quant[0]" (click)="clickMinus()">
+          <i class="bi bi-dash"></i>
+        </button>
+      </span>
+      <input type="text" name="quant[1]" class="form-control input-number" id="cantidad{{id}}" disabled value="0" min="0" max="10">
+      <span class="input-group-btn" id="plus">
+        <button type="button" class="btn btn-default btn-number btn-plus" data-type="plus" data-field="quant[1]" (click)="clickPlus()">
+          <i class="bi bi-plus"></i>
+        </button>
+      </span>
+    </div>
+</div>

@@ -1,10 +1,19 @@
 <nav class="navbar">
-  <div class="container ml-lg">
-    <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block align-text-top">
+  <div class="container">
+    <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block">
     <div *ngIf="isHomePage">
-      <a href="/login">
-        <button class="btn" title="Ingresar"><i class="bi bi-person-circle justify-content-end m-3 "></i></button>
-      </a>
+      <div class="wide">
+        <a href="/login">
+          <button class="btn btn-login" title="Ingresar"> Ingresar </button>
+        </a>
+      </div>
+      <div class="mobile">
+        <a href="/login">
+          <button class="btn" title="Ingresar">
+            <i class="bi bi-person-circle justify-content-end vertical-align"></i>
+          </button>
+        </a>
+      </div>
     </div>
   </div>
 </nav>

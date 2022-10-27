@@ -55,6 +55,7 @@ export class SeatsGridComponent implements OnInit {
   checked?: boolean ;
 
   loaded: boolean = false;
+  
 
   constructor(private funcionesService: FuncionesService, private datasharing: DataSharingService) { }
 

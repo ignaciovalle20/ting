@@ -1,11 +1,18 @@
+<body class="overflow-hidden" [style.--BgImageWide]="'url('+movieUrlWide+')'" [style.--BgImageMobile]="'url('+movieUrlMobile+')'" > 
 <app-navbar></app-navbar>
-<div class="input-group mb-5" id="asientos">
+
+<div id="boxContent" >
+<div class="input-group overflow-auto">
     <form class="custom-form" method="post">
-        <h1 class="text-center">Elegir asiento</h1>
+        <h1 class="text-center m-3">Elegir asiento</h1>
         <div class="mb-3 mt-3">
             <app-seats-grid (gridChangeEvent)="getChangeOnGrid()"></app-seats-grid>
         </div>
         <p *ngIf="noSeatsSelected" style="color: red;">Seleccione al menos 1 asiento</p>
-        <app-seats-btn-next (goNextEvent)="gotoNextPage()" ></app-seats-btn-next>
+        <app-seats-btn-next (goNextEvent)="gotoNextPage()"></app-seats-btn-next>
     </form>
 </div>
+</div>
+<app-footer></app-footer>
+    
+</body>
