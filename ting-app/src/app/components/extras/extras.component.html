@@ -1,10 +1,13 @@
-
-<div class="input-group mb-5" id="extras">
-    <form class="custom-form" method="post">
-        <h1>Snacks</h1>
-        <div class="mb-3 mt-3">
-            <app-extras-list #extrasList></app-extras-list>
-        </div>
-        <app-extras-next (ExtrasNext)="extrasNext()"></app-extras-next>
-    </form>
+<app-navbar></app-navbar>
+<div id="boxContent" >
+    <div class="input-group mb-5 overflow-auto" id="extras">
+        <form class="custom-form" method="post">
+            <h1>Snacks</h1>
+            <div class="mb-3 mt-3">
+                <app-extras-list #extrasList [extras]="extras" (ExtraEvent)="getCompras($event)"></app-extras-list>
+            </div>
+            <app-extras-next (ExtrasNext)="extrasNext()"></app-extras-next>
+        </form>
+    </div>
 </div>
+<app-footer></app-footer>

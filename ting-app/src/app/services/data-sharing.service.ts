@@ -24,10 +24,13 @@ export class DataSharingService {
   private extras$ = new BehaviorSubject<any>({});
   selectedExtras$ = this.extras$.asObservable();
 
+  private extrasSelec$ = new BehaviorSubject<any>({});
+  selectedExtrasSelec$ = this.extrasSelec$.asObservable();
+
   
   
  
-  constructor() { }
+  constructor() {}
 
   setMovie(movie: any) {
     this.movie$.next(movie);
@@ -48,5 +51,9 @@ export class DataSharingService {
   }
   setExtras(extras: any) {
     this.extras$.next(extras);
+  }
+
+  setExtrasSelec(extrasS: any) {
+    this.extrasSelec$.next(extrasS);
   }
 }
