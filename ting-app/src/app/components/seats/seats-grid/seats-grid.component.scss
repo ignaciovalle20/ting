@@ -1,73 +1,108 @@
-
-.asientosGrid { 
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.asientosGrid {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #seatsSelectedBox {
   color: white;
 }
 
-.pantalla{
-    padding: 5px;
-    display: block;
-    position: relative;    
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    width: 75%;
-    background: #0a0c2c;
-    color: white;
-    border-radius: 5px;
+.pantalla {
+  padding: 5px;
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 75%;
+  background: #0a0c2c;
+  color: white;
+  border-radius: 5px;
 }
 
-.asiento{
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.asiento {
+  width: 2rem;
+  height: 2rem;
 
-    padding: 2px;
-    input[type=checkbox] {
-        position: absolute;
-        opacity: 0;
-        
-        &:hover {
-          cursor: pointer;
-        }
+/*   user-select: none;
+ */  /*  background-size: contain;
+  background-image: url("/assets/icons/asiento.svg");
+  object-fit: fill; */
+
+  input[type=checkbox] {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    opacity: 0;
+
+    &:hover {
+      cursor: pointer;
     }
-    input[type=checkbox]:checked {
-        + label {
-          background: #0B5ED7;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-      label {    
-        display: block;
-        position: relative;    
-        text-align: center;
-        font-size: 14px;
-        font-weight: bold;
-        background: #0a0c2c;
-        color: white;
-        border-radius: 5px;
-        &:hover {
-          cursor: pointer;
-        }
-     }
-    input[type=checkbox]:disabled {
-        + label {
-          background: #dddddd;
-          color: black;
-          overflow: hidden;
-          &:hover {
-            cursor: not-allowed;
-          }
-        }
+
+    +img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asiento.svg");
     }
+  }
+
+  input[type=checkbox]:checked {
+    &:hover {
+      cursor: pointer;
+    }
+    +img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asientoSeleccionado.svg");
+    }
+  }
+
+  input[type=checkbox]:disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+    /*     label {
+            color: black;
+            overflow: hidden;
+            &:hover {
+              cursor: not-allowed;
+            } */
+  
+    +img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asientoOcupado.svg");
+    }
+  }
 }
+
+/* label {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background: #0a0c2c;
+  color: white;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+} */
+
+
+
+
+
+/* img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  content: url("/assets/icons/asiento.svg");
+} */
