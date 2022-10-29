@@ -12,6 +12,7 @@ export class ExtrasItemComponent implements OnInit {
   @Input() id : string = "";
   @Input() img : string = "";
   @Output() ExtraEvent = new EventEmitter<any>();
+  quantity:number = 0;
 
   constructor() { }
 
@@ -19,20 +20,16 @@ export class ExtrasItemComponent implements OnInit {
   }
 
   clickPlus(){
-    let cantidadActual = (<HTMLInputElement>document.getElementById("cantidad"+this.id)).value;
-    let cantidad = parseInt(cantidadActual);
-    if (cantidad <= 7){
-      (<HTMLInputElement>document.getElementById("cantidad"+this.id)).value = ""+(cantidad+1);
-      this.ExtraEvent.emit(this.id+(cantidad+1));
+    if (this.quantity <= 7){
+      this.quantity = this.quantity + 1;
+      this.ExtraEvent.emit(this.id+this.quantity);
     }
   }
 
   clickMinus(){
-    let cantidadActual = (<HTMLInputElement>document.getElementById("cantidad"+this.id)).value;
-    let cantidad = parseInt(cantidadActual);
-    if (cantidad >= 1){
-      (<HTMLInputElement>document.getElementById("cantidad"+this.id)).value = ""+(cantidad-1);
-      this.ExtraEvent.emit(this.id+(cantidad-1));
+    if (this.quantity >= 1){
+      this.quantity = this.quantity - 1;
+      this.ExtraEvent.emit(this.id+this.quantity);
     }
   }
 }

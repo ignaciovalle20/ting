@@ -15,7 +15,7 @@ export class ExtrasComponent implements OnInit {
   Seleccionados = new Map();
   
   ///
-  constructor(private route: Router, private dataSharing: DataSharingService, private extrasService: ExtrasService) { }
+  constructor(private route: Router, private extrasService: ExtrasService) { }
 
   @ViewChild('extrasList') extrasList!: any;
 
@@ -27,8 +27,10 @@ export class ExtrasComponent implements OnInit {
   }
 
   extrasNext(){
-    this.Seleccionados.forEach((value: any, key: any) => {
-      
+    this.extras.forEach((extra) => {
+      if (this.Seleccionados.has(extra.id)){
+       //Añadir al carrito 
+      }
     });
     this.route.navigate(['/summary']);
   }
