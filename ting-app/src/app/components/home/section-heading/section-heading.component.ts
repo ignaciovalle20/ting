@@ -6,9 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./section-heading.component.scss']
 })
 export class SectionHeadingComponent implements OnInit {
-  @Input() 
-  
-  text: string | undefined;
+  @Input() text: string | undefined;
   constructor() { }
 
   ngOnInit(): void {

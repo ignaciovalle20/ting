@@ -37,6 +37,7 @@ import { MovieFinderNextComponent } from './components/movie-finder/movie-finder
 import { SeatsBtnNextComponent } from './components/seats/seats-btn-next/seats-btn-next.component';
 import { ExtrasNextComponent } from './components/extras/extras-next/extras-next.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { SeatComponent } from './components/seats/seat/seat.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { SummaryComponent } from './components/summary/summary.component';
     HomeBuyBtnComponent,
     SeatsBtnNextComponent,
     ExtrasNextComponent,
-    SummaryComponent
+    SummaryComponent,
+    SeatComponent
   ],
   imports: [
     BrowserModule,

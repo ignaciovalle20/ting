@@ -88,13 +88,18 @@
                                 <p class="m-2">{{row}}</p>
                                 <ng-container *ngFor="let seat of seats">
                                     <td *ngIf="seat.row == row">
-                                        <div class="asiento">
+<!--                                         <div class="asiento">
                                             <input type="checkbox" value="{{seat.empty}}" [checked]="checked"
                                                 [disabled]="!seat.available"
                                                 id="Fila: {{seat.row}} Asiento:{{seat.seat}}"
                                                 (change)="checkboxClick($event)" />
                                             <img alt="">
-                                        </div>
+                                        </div> -->
+<!--                                         <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" [disabled]="seat.available" [id]="'Fila: '+ seat.row + 'Asiento: ' + seat.seat" (change)="checkboxClick($event)"></app-seat>
+ -->                                        <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" 
+                                                [disabled]="seat.available" [id]="'Fila: '+ seat.row + ' Asiento: ' + seat.seat" (seatClickEvent)="checkboxClick($event)" >
+                                            </app-seat>
+
                                     </td>
                                 </ng-container>
                             </tr>
