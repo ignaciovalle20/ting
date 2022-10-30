@@ -9,4 +9,5 @@ export interface Funciones {
     horario: string;
     price: number;
     room: Room[];
+    seatsunavailable: Seats[];
 }
