@@ -47,13 +47,13 @@ export class SeatsGridComponent implements OnInit {
     console.log(this.function_id)
 
     if (this.function_id != undefined) {
-      this.funcionesService.getAsientosByFunction(this.function_id!).subscribe((room: Room[]) => {
-        this.room = room;
-        console.log("this.sala", this.room);
+      this.funcionesService.getAsientosByFunction2(this.function_id!).subscribe((seats: Seats[]) => {
+        this.seats = seats;
+        //console.log("this.sala", this.room);
         console.log("this.asientos", this.seats);
         //retorna un array de arrays, por eso el flat(), para acceder a los elementos dentro.
-        this.seats = this.room.map((sala) => sala.seats).flat();
-        console.log("Carga de asientos", this.seats)
+       /*  this.seats = this.room.map((sala) => sala.seats).flat();
+        console.log("Carga de asientos", this.seats) */
         //cargamos la lista de filas para luego armar la tabla
         this.seats.forEach((seat) => {
 

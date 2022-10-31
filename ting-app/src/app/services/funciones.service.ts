@@ -14,7 +14,7 @@ export class FuncionesService {
   private funcionesUrl = 'api/funciones';
 
   seats: Seats[] = [];
-  rooms: Room[] = [];
+  room?: Room;
   horarios: Funciones[] = [];
 
   theaters: string[] = [];
@@ -23,30 +23,79 @@ export class FuncionesService {
     return this.http.get<Funciones[]>(this.funcionesUrl);
   }
 
-    getAsientos(pelicula: string): Observable<any[]> {
-      return this.http.get<Funciones[]>(this.funcionesUrl)
-        .pipe(map((funciones: Funciones[]) => {
-          funciones.filter((funcion) => {
-            if (funcion.movie.name === pelicula) {
-              this.rooms = funcion.room ;
-            }
-            //console.log("this.seats: ", this.salas);
-          });
-          return this.rooms;
-        }));
-    } 
+  /*     getAsientos(pelicula: string): Observable<any[]> {
+        return this.http.get<Funciones[]>(this.funcionesUrl)
+          .pipe(map((funciones: Funciones[]) => {
+            funciones.filter((funcion) => {
+              if (funcion.movie.name === pelicula) {
+                funcion.room.map((room) => {
+                  this.room = room;
+                });
+              }
+            });
+            return this.room.seats;
+          }));
+      }  */
 
   getAsientosByFunction(id: string): Observable<any[]> {
-    return this.http.get<Funciones[]>(this.funcionesUrl).pipe(map((funciones: Funciones[]) => {
-      funciones.filter((funcion) => {
-        if (funcion.id === id) {
-          this.rooms = funcion.room;
-        }
-      });
-      return this.rooms;
-    }));
+    return this.http.get<Funciones[]>(this.funcionesUrl)
+      .pipe(map((funciones: Funciones[]) => {
+        funciones.filter((funcion) => {
+          if (funcion.id === id) {
+            funcion.room.map((room) => {
+              this.room = room;
+            });
+          }
+          console.log("Antes de salir ", this.room?.seats);
+        });
 
+        // Seteamos lo asientos unavailable de la funcion
+        /*           funcion.seatsunavailable.filter(seat => {
+                    this.room?.seats.filter((seatRoom) => {
+                      if (seatRoom.row === seat.row && seatRoom.seat === seat.seat) {
+                        seatRoom.available = false;
+                        console.log("seatRoom", seatRoom);
+                      }
+                    });
+                  });
+                } */
+
+
+        console.log("this.room.seats", this.room?.seats);
+        return this.room!.seats;
+      }));
   }
+
+  getAsientosByFunction2(id: string): Observable<any[]> {
+    return this.http.get<Funciones[]>(this.funcionesUrl)
+      .pipe(map((funciones: Funciones[]) => {
+        funciones.filter((funcion) => {
+          if (funcion.id === id) {
+            funcion.room.map((room) => {
+              this.room = room;
+              for (let i = 0; i < funcion.seatsunavailable.length; i++) {
+                for (let j = 0; j < this.room.seats.length; j++) {
+                  if (funcion.seatsunavailable[i].row === this.room.seats[j].row && funcion.seatsunavailable[i].seat === this.room.seats[j].seat) {
+                    console.log("Antes", this.room!.seats[j]);
+                    this.room.seats[j].available = false;
+                    console.log("Despues", this.room!.seats[j]);
+                  }
+                }
+              }
+              
+            });
+            
+          }
+        });
+        console.log ("ESTOS", this.room!.seats);
+        return this.room!.seats;
+
+      }));
+  }
+                 
+
+  
+
 
 
 
