@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Funciones } from 'src/app/interfaces/funciones';
+import { Funcion } from 'src/app/interfaces/funcion';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
@@ -12,7 +12,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MovieSchedComponent implements OnInit {
 
-  funciones: Funciones[] = [];
+  funciones: Funcion[] = [];
 
   movie: string = "";
   theater: string = "";

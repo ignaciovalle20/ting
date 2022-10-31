@@ -47,8 +47,7 @@ export class SeatsGridComponent implements OnInit {
     console.log(this.function_id)
 
     if (this.function_id != undefined) {
-      this.funcionesService.getAsientosByFunction2(this.function_id!).subscribe((seats: Seats[]) => {
-        this.seats = seats;
+      this.seats = this.funcionesService.getAsientosOcupados(this.function_id)
         //console.log("this.sala", this.room);
         console.log("this.asientos", this.seats);
         //retorna un array de arrays, por eso el flat(), para acceder a los elementos dentro.
@@ -62,12 +61,12 @@ export class SeatsGridComponent implements OnInit {
           }
         });
         console.log("this.rows", this.rows);
-      });
+      }
 
 
 
       this.loaded = true;
-    }
+    
 
 
   }
