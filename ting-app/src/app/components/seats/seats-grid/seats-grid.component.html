@@ -1,86 +1,10 @@
-<!-- <div *ngIf="loaded">
-    <ol class="asientosGrid">
-        <li class="d-flex justify-content-center">
-            <div class="pantalla">
-                <label>PANTALLA</label>
-            </div>
-        </li>
-        <li class="d-flex justify-content-evenly"> 
-            <div class="asiento" *ngFor="let index of fila1">
-                <input type="checkbox" empty="" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                    (change)="checkboxClick($event)" />
-                     <img alt="">
-            </div>
-        </li>
-        <li class="d-flex justify-content-evenly"> 
-            <div class="asiento" *ngFor="let index of fila2">
-                <input type="checkbox" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                    (change)="checkboxClick($event)" />
-                     <img alt="">
-            </div>
-        </li>
-        <li class="d-flex justify-content-evenly"> 
-            <div class="asiento" *ngFor="let index of fila3">
-                <input type="checkbox" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                    (change)="checkboxClick($event)" />
-                     <img alt="">
-            </div>
-        </li>
-        <li class="d-flex justify-content-evenly"> 
-            <div class="asiento" *ngFor="let index of fila4">
-                <input type="checkbox" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                    (change)="checkboxClick($event)" />
-                     <img alt="">
-            </div>
-        </li>
-        <li class="d-flex justify-content-evenly"> 
-            <div class="asiento" *ngFor="let index of fila4">
-                <input type="checkbox" [checked]="checked" [disabled]="seats[index].status" id="{{seats[index].seat}}"
-                    (change)="checkboxClick($event)" />
-                     <img alt="">
-            </div>
-        </li>
-    </ol>
-    <br>
-    <div id="seatsSelectedBox">
-         -->
-<!-- NO PUDE HACERLO ANDAR CON NGMMODEL Y RENDERIZAR EL HTML -->
-<!--    <h6 class="d-flex justify-content-center">Asientos seleccionados:</h6> -->
-<!-- Agregamos el ngDefaultControl porque sino no refresca automatico el dom con los datos de seleccionados -->
-<!--        <span id="seatsSelected" class="d-flex justify-content-center" ngDefaultControl> {{seleccionados}} </span>
-    </div>
-
-</div> -->
-
-<!-- <div *ngIf="loaded">
-    <table>
-        <thead>
-            <th>Name</th>
-            <th>Index</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let row of rows">
-                <span *ngFor="let seat of seats">
-                    <td *ngIf="seat.row row" > 
-                        <p style="color:white">{{seat.row}} {{seat.seat}}   </p> 
-                    </td>    
-                </span>
-            </tr>
-        </tbody>
-    </table>
-
-</div>
- -->
-<div *ngIf="loaded">
+<div *ngIf="loaded ; else notladed">
     <div class="asientosGrid m-3 ">
         <div class="row">
             <div id="tableID" class="mb-3">
                 <table>
-                    <!--                 <div class="pantalla mb-3">
-                    <label>PANTALLA</label>
-                </div> -->
                     <thead>
-                            <th class="pantalla" colspan="100%">PANTALLA</th>
+                        <th class="pantalla" colspan="100%">PANTALLA</th>
                     </thead>
                     <tbody>
                         <ng-container class="d-flex" *ngFor="let row of rows">
@@ -88,18 +12,9 @@
                                 <p class="m-2">{{row}}</p>
                                 <ng-container *ngFor="let seat of seats">
                                     <td *ngIf="seat.row == row">
-<!--                                         <div class="asiento">
-                                            <input type="checkbox" value="{{seat.empty}}" [checked]="checked"
-                                                [disabled]="!seat.available"
-                                                id="Fila: {{seat.row}} Asiento:{{seat.seat}}"
-                                                (change)="checkboxClick($event)" />
-                                            <img alt="">
-                                        </div> -->
-<!--                                         <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" [disabled]="seat.available" [id]="'Fila: '+ seat.row + 'Asiento: ' + seat.seat" (change)="checkboxClick($event)"></app-seat>
- -->                                        <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" 
-                                                [disabled]="seat.available" [id]="'Fila: '+ seat.row + ' Asiento: ' + seat.seat" (seatClickEvent)="checkboxClick($event)" >
-                                            </app-seat>
-
+                                        <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" [disabled]="seat.available"
+                                         [id]="'Fila: '+ seat.row + ' Asiento: ' + seat.seat" (seatClickEvent)="checkboxClick($event)">
+                                        </app-seat>
                                     </td>
                                 </ng-container>
                             </tr>
@@ -121,3 +36,9 @@
         </ng-container>
     </div>
 </div>
+<ng-template #notladed>
+    <div class="d-flex justify-content-center text-white loading p-5">
+        <div class="spinner-border" role="status">
+        </div>
+    </div>
+</ng-template>

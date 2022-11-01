@@ -41,6 +41,19 @@ h1 {
 
 
 
+ // Scroll bar para chrome
+ *::-webkit-scrollbar {
+    width: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #262b4f;
+    border-radius: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 4px;
+  }
   
 @media (min-width: 500px) {
 
