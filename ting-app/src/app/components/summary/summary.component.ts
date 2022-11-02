@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { Extra } from 'src/app/interfaces/extras';
 import { ExtrasService } from 'src/app/services/extras.service';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-summary',
@@ -10,7 +11,7 @@ import { ExtrasService } from 'src/app/services/extras.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private dataSharing: DataSharingService, private extrasService : ExtrasService) { }
+  constructor(private dataSharing: DataSharingService, private extrasService : ExtrasService, private movieService: MovieService) { }
 
   movie : string = "";
   theater : String = "";
@@ -19,6 +20,9 @@ export class SummaryComponent implements OnInit {
   seats: string = "";
   extras : string[] = [];
 
+  movieUrlWide: string = "";
+
+  movieUrlMobile: string = "";
   ngOnInit(): void {
     this.dataSharing.selectedMovie$.subscribe((value) => {
       this.movie = value;
@@ -37,6 +41,16 @@ export class SummaryComponent implements OnInit {
     });
     this.dataSharing.selectedExtras$.subscribe((value) => {
       this.extras = value;
+    });
+
+    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
+      this.movieUrlWide = value;
+      console.log("Movie URL: " + this.movieUrlWide);
+    });
+
+    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
+      this.movieUrlMobile = value;
+      console.log("Movie URL: " + this.movieUrlMobile);
     });
   }
 

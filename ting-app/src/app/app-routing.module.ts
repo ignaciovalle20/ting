@@ -8,7 +8,7 @@ import { MovieSchedComponent } from './components/movie-scheduler/movie-schedule
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { SeatsComponent } from './components/seats/seats.component';
 import { SummaryComponent } from './components/summary/summary.component';
-
+import { QrcodeComponent } from './components/qrcode/qrcode.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent},
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'moviescheduler', component: MovieSchedComponent},
   { path: 'snacks', component: ExtrasComponent},
   { path: 'processing', component: ProcessingPaymentComponent},
-  { path: 'summary', component: SummaryComponent}
+  { path: 'summary', component: SummaryComponent},
+  { path: 'qrcode' , component: QrcodeComponent}
 ];
 
 @NgModule({

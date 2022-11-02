@@ -22,7 +22,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url("../src/assets/seats-background.jpg"); 
+    background-image: url("../src/assets/seats-background.jpg");
     background-color: #262b4f;
     background-repeat: repeat;
     /* Do not repeat the image */
@@ -31,6 +31,7 @@ body {
     background-position: center, center;
     align-items: center;
     justify-content: center;
+    
 }
 
 h1 {
@@ -41,20 +42,21 @@ h1 {
 
 
 
- // Scroll bar para chrome
- *::-webkit-scrollbar {
+// Scroll bar para chrome
+*::-webkit-scrollbar {
     width: 8px;
-  }
-  *::-webkit-scrollbar-track {
+}
+
+*::-webkit-scrollbar-track {
     background: #262b4f;
     border-radius: 4px;
-  }
-  
-  *::-webkit-scrollbar-thumb {
+}
+
+*::-webkit-scrollbar-thumb {
     background-color: grey;
     border-radius: 4px;
-  }
-  
+}
+
 @media (min-width: 500px) {
 
     #boxContent {
@@ -70,12 +72,16 @@ h1 {
         justify-content: center;
         background-color: #262b4f;
         opacity: 90%;
-     }
+        overflow-y: auto;
+        overflow-x: hidden;
+  
+    }
 
     #boxContent .custom-form {
         width: 100%;
         padding: 2rem 1rem;
     }
+
     #boxContent .custom-form button {
         width: 90%;
         margin: 0 auto;
@@ -94,26 +100,27 @@ h1 {
         bottom: 0px;
         opacity: 95%;
         overflow-y: auto;
-        overflow-x:hidden;
-      }
-  
-      
-    h1 {
-      margin: 0;
+        overflow-x: hidden;
     }
-  
-    .custom-form {
-      width: 100%;
-      height: 100%;
-      padding: 2rem 1rem;
-      border-top-left-radius: 2.5rem;
-      border-top-right-radius: 2.5rem;
-      background-color: #262b4f;
-      //box-shadow: 0px 0px 58px 23px rgba(0, 0, 0, 0.76);
-    }
-  
 
-  }
+
+    h1 {
+        margin: 0;
+    }
+
+    .custom-form {
+        width: 100%;
+        height: 100%;
+        padding: 2rem 1rem;
+        border-top-left-radius: 2.5rem;
+        border-top-right-radius: 2.5rem;
+        background-color: #262b4f;
+        //box-shadow: 0px 0px 58px 23px rgba(0, 0, 0, 0.76);
+    }
+
+
+}
+
 @font-face {
     font-family: "Comfortaa";
     src: local("Comfortaa"), url(./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf) format("truetype");

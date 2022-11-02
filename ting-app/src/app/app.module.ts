@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { QRCodeModule } from 'angular2-qrcode';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +39,8 @@ import { SeatsBtnNextComponent } from './components/seats/seats-btn-next/seats-b
 import { ExtrasNextComponent } from './components/extras/extras-next/extras-next.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { SeatComponent } from './components/seats/seat/seat.component';
+import { QrcodeComponent } from './components/qrcode/qrcode.component';
+import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/summary-btn-next.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,9 @@ import { SeatComponent } from './components/seats/seat/seat.component';
     SeatsBtnNextComponent,
     ExtrasNextComponent,
     SummaryComponent,
-    SeatComponent
+    SeatComponent,
+    QrcodeComponent,
+    SummaryBtnNextComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,7 @@ import { SeatComponent } from './components/seats/seat/seat.component';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    QRCodeModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
