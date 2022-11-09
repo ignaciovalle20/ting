@@ -1,8 +1,19 @@
-ul{
-    height: 300px;
-    overflow: auto;
-}
 
 li{
     background-color: #262b4f;
+}
+
+
+@media (min-width: 500px) {
+    ul{
+        height: 550px;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    ul{
+        height: 300px;
+        overflow: auto;
+    }
 }

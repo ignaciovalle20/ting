@@ -45,27 +45,21 @@ export class InMemoryDataService {
       }
  ]
     const funciones: Funciones[] = [
-      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-10-30", horario: "21:00", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[0] , theater: "Mdeo Shop", date: "2022-10-30", horario: "21:10", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[0] , theater: "Punta Carretas ", date: "2022-10-30", horario: "21:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[0] , theater: "Nuevo Centro", date: "2022-10-30", horario: "21:30", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[0] , theater: "Interior", date: "2022-10-30", horario: "21:40", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:00", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:10", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "Tres Cruces", date: "2022-10-30", horario: "22:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[1] , theater: "18 Julio", date: "2022-10-30", horario: "22:10", price: 100, room: [rooms[0]]},
-      { id: '2', movie: movies[1], theater: "Costa Urbana", date: "2022-10-30", horario: "22:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[3] , theater: "Tres Cruces", date: "2022-10-30", horario: "21:00", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[3] , theater: "Mdeo Shop", date: "2022-10-30", horario: "21:10", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[3] , theater: "Punta Carretas ", date: "2022-10-30", horario: "21:20", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[3] , theater: "Nuevo Centro", date: "2022-10-30", horario: "21:30", price: 100, room: [rooms[0]]},
-      { id: '1', movie:  movies[3] , theater: "Interior", date: "2022-10-30", horario: "21:40", price: 100, room: [rooms[0]]}
+      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-11-30", horario: "21:00", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Mdeo Shop", date: "2022-11-30", horario: "21:10", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Punta Carretas ", date: "2022-11-30", horario: "21:20", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Nuevo Centro", date: "2022-11-30", horario: "21:30", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Interior", date: "2022-11-30", horario: "21:40", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-11-30", horario: "22:00", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-11-30", horario: "22:10", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-11-30", horario: "22:20", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[1] , theater: "18 Julio", date: "2022-11-30", horario: "22:10", price: 100, room: [rooms[0]]},
+      { id: '2', movie: movies[1], theater: "Costa Urbana", date: "2022-11-30", horario: "22:20", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[3] , theater: "Tres Cruces", date: "2022-11-30", horario: "21:00", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[3] , theater: "Mdeo Shop", date: "2022-11-30", horario: "21:10", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[3] , theater: "Punta Carretas ", date: "2022-11-30", horario: "21:20", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[3] , theater: "Nuevo Centro", date: "2022-11-30", horario: "21:30", price: 100, room: [rooms[0]]},
+      { id: '1', movie:  movies[3] , theater: "Interior", date: "2022-11-30", horario: "21:40", price: 100, room: [rooms[0]]}
     ];
 
 
