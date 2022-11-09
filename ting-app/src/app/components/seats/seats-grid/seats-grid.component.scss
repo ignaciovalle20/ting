@@ -1,73 +1,117 @@
-
-.asientosGrid { 
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.asientosGrid {
+  margin: 0;
+  padding: 0;
+  //display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 }
 
+/* #tableId {
+  display: table;
+  max-width: 100%;
+}
+ */
 #seatsSelectedBox {
   color: white;
 }
 
-.pantalla{
-    padding: 5px;
-    display: block;
-    position: relative;    
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    width: 75%;
-    background: #0a0c2c;
-    color: white;
-    border-radius: 5px;
+tbody:before {
+  content: "-"; 
+  display: block;
+  line-height: 1rem;
+  color: transparent;
 }
 
-.asiento{
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.pantalla {
+  padding: 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  width: 95%;
+  background: #0a0c2c;
+  color: white;
+  border-radius: 5px;
 
-    padding: 2px;
-    input[type=checkbox] {
-        position: absolute;
-        opacity: 0;
-        
-        &:hover {
-          cursor: pointer;
-        }
-    }
-    input[type=checkbox]:checked {
-        + label {
-          background: #0B5ED7;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-      label {    
-        display: block;
-        position: relative;    
-        text-align: center;
-        font-size: 14px;
-        font-weight: bold;
-        background: #0a0c2c;
-        color: white;
-        border-radius: 5px;
-        &:hover {
-          cursor: pointer;
-        }
-     }
-    input[type=checkbox]:disabled {
-        + label {
-          background: #dddddd;
-          color: black;
-          overflow: hidden;
-          &:hover {
-            cursor: not-allowed;
-          }
-        }
-    }
+  /*   right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) */
 }
+
+p {
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.alert {
+  margin: 0.8rem;
+  padding: 0.5rem;
+  max-width: 90%;
+
+}
+/* 
+.asiento {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+ 
+  input[type=checkbox] {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+    position: absolute;
+    display: inline-block;
+        &:hover {
+      cursor: pointer;
+    }
+
+    +img {
+      object-fit: fill;
+    display: inline;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asiento.svg");
+    }
+  }
+
+  input[value=false]:checked {
+    &:hover {
+      cursor: pointer;
+    }
+
+    +img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asientoSeleccionado.svg");
+    }
+  }
+
+  input[value=false]:disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    +img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      content: url("/assets/icons/asientoOcupado.svg");
+    }
+  }
+
+  //Value toma el valor de Empty, si esta vacio el asiento no muestra nada
+  input[value=true] {
+    &:hover {
+      cursor: default;
+    }
+
+    +img {
+      display: none;
+    }
+  }
+
+} */

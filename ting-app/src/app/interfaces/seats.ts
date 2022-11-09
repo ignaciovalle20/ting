@@ -1,4 +1,6 @@
 export interface Seats {
-    seat: string;
-    status: boolean;
+    row: number;
+    seat: number;
+    empty: boolean;
+    available: boolean;
 }

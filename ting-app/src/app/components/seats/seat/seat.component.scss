@@ -1,0 +1,61 @@
+.asiento {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+   
+    input[type=checkbox] {
+      width: 2rem;
+      height: 2rem;
+      opacity: 0;
+      position: absolute;
+      display: inline-block;
+          &:hover {
+        cursor: pointer;
+      }
+  
+      +img {
+        object-fit: fill;
+      display: inline;
+        width: 100%;
+        height: 100%;
+        content: url("/assets/icons/asiento.svg");
+      }
+    }
+  
+    input[value=false]:checked {
+      &:hover {
+        cursor: pointer;
+      }
+  
+      +img {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+        content: url("/assets/icons/asientoSeleccionado.svg");
+      }
+    }
+  
+    input[value=false]:disabled {
+      &:hover {
+        cursor: not-allowed;
+      }
+  
+      +img {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+        content: url("/assets/icons/asientoOcupado.svg");
+      }
+    }
+  
+    //Value toma el valor de Empty, si esta vacio el asiento no muestra nada
+    input[value=true] {
+      &:hover {
+        cursor: default;
+      }
+  
+      +img {
+        display: none;
+      }
+    }
+}
