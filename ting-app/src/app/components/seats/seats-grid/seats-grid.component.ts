@@ -4,6 +4,7 @@ import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { SeatsComponent } from 'src/app/components/seats/seats.component';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-seats-grid',
   templateUrl: './seats-grid.component.html',
@@ -17,14 +18,14 @@ export class SeatsGridComponent implements OnInit {
    fila3 = [12, 13, 14, 15, 16, 17];
    fila4 = [18, 19, 20, 21, 22, 23]; */
 
-  seleccionados: string[] = [];
+  seleccionados: String[] = [];
   seats: Seats[] = [];
 
   seatsUnavailables: Seats[] = [];
   room?: Room;
 
   rows: number[] = [];
-  function_id?: string;
+  function_id?: String;
 
   checked?: boolean;
 
@@ -33,17 +34,20 @@ export class SeatsGridComponent implements OnInit {
 
   maxSeats: boolean = false;
 
-  constructor(private funcionesService: FuncionesService, private datasharing: DataSharingService) { }
+  constructor(private funcionesService: FuncionesService, private cart: CartService) { }
 
 
   @Output() gridChangeEvent = new EventEmitter<Event>();
 
   ngOnInit(): void {
     this.checked = false;
+    this.function_id = this.cart.getFunction();
+    /*
     this.datasharing.selectedFunction$.subscribe((function_id) => {
       this.function_id = function_id.id;
       console.log("function_id", this.function_id);
     });
+    */
     console.log(this.function_id)
     if (this.function_id != undefined) {
       this.buildRoom();
@@ -84,7 +88,7 @@ export class SeatsGridComponent implements OnInit {
       //Si se setea en False borramos el elemento del array
       this.maxSeats = false;
       console.log("entre aca ", this.maxSeats);
-      this.seleccionados = this.seleccionados.filter((seat: string) => seat !== event.target.id + " ");
+      this.seleccionados = this.seleccionados.filter((seat: String) => seat !== event.target.id + " ");
     }
     else {
       //si ya se seleccionaron 8 asientos, no se puede seleccionar mas
@@ -103,7 +107,7 @@ export class SeatsGridComponent implements OnInit {
   }
 
 
-  getSeats(): string[] {
+  getSeats(): String[] {
     return this.seleccionados;
   }
 }

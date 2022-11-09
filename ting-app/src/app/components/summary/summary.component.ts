@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
-import { Extra } from 'src/app/interfaces/extras';
-import { ExtrasService } from 'src/app/services/extras.service';
 import { MovieService } from 'src/app/services/movie.service';
+import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -11,19 +10,30 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private dataSharing: DataSharingService, private extrasService : ExtrasService, private movieService: MovieService) { }
+  constructor(private cart: CartService, private movieService: MovieService, private route: Router) { }
 
-  movie : string = "";
+  movie : String = "";
   theater : String = "";
   date : String = "";
   hora : String = "";
-  seats: string = "";
-  extras : string[] = [];
+  seats: String[] = [];
+  extras : String[] = [];
+  total : number = 0;
 
-  movieUrlWide: string = "";
+  movieUrlWide: String = "";
+  movieUrlMobile: String = "";
 
-  movieUrlMobile: string = "";
   ngOnInit(): void {
+
+    this.movie = this.cart.getMovie();
+    this.theater = this.cart.getTheater();
+    this.date = this.cart.getDate();
+    this.hora = this.cart.getFunction();
+    this.seats = this.cart.getSeats();
+    this.extras = this.cart.getExtras();
+    this.total = this.cart.getTotal();
+
+    /*
     this.dataSharing.selectedMovie$.subscribe((value) => {
       this.movie = value;
     });
@@ -42,6 +52,7 @@ export class SummaryComponent implements OnInit {
     this.dataSharing.selectedExtras$.subscribe((value) => {
       this.extras = value;
     });
+    */
 
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;
@@ -54,5 +65,8 @@ export class SummaryComponent implements OnInit {
     });
   }
 
+  goNext(){
+    this.route.navigate(['/processing']);
+  }
   
 }

@@ -24,7 +24,7 @@
             <li #hours class="list-group-item d-flex justify-content-between align-items-center d-inline-block mb-1"
                 *ngFor="let funcion of funciones">
                 <div class="ml-sm ml-1"> Horario: {{funcion.horario}} </div>
-                <button type="button" class="btn btn-primary" (click)="goNext(funcion)">Seleccionar</button>
+                <button type="button" class="btn btn-primary" (click)="goNext(funcion.id)">Seleccionar</button>
             </li>
         </ul>
     </div>

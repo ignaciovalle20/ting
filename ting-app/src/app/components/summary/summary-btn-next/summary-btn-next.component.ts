@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
 })
 export class SummaryBtnNextComponent implements OnInit {
 
-  constructor(private route: Router) { }
+
+  @Output() SummaryNext = new EventEmitter<MouseEvent>();
+
+  constructor() { }
+
 
   ngOnInit(): void {
   }
 
-  goNext() {
-    console.log("goNext");
-     this.route.navigate(['/processing']);
+  summaryNext(event: MouseEvent) {
+    this.SummaryNext.emit(event);
   }
 }

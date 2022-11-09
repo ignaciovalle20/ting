@@ -29,7 +29,7 @@ export class FuncionesService {
 
 
 
-  getTheaterByMovie(pelicula: string): Observable<any[]> {
+  getTheaterByMovie(pelicula: String): Observable<any[]> {
     this.theaters = [];
     return this.http.get<Funcion[]>(this.funcionesUrl)
       .pipe(map((funciones: Funcion[]) => {
@@ -44,7 +44,7 @@ export class FuncionesService {
       }));
   }
 
-  getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
+  getSchedule(movie: String, theater: String, date: String): Observable<any[]> {
     this.horarios = [];
     return this.http.get<Funcion[]>(this.funcionesUrl)
       .pipe(map((funciones: Funcion[]) => {
@@ -56,7 +56,7 @@ export class FuncionesService {
         return this.horarios;
       }));
   }
-  getAsientosOcupados(id: string): Observable<Seats[]> {
+  getAsientosOcupados(id: String): Observable<Seats[]> {
     this.seatsUnavailable = [];
     return this.http.get<Funcion[]>(this.funcionesUrl)
       .pipe(map((funcion) => {
@@ -70,7 +70,7 @@ export class FuncionesService {
   }
 
 
-  getSala(id: string): Observable<Room> {
+  getSala(id: String): Observable<Room> {
     return this.http.get<Funcion[]>(this.funcionesUrl)
       .pipe(map((funciones: Funcion[]) => {
         funciones.filter((funcion) => {
@@ -83,7 +83,7 @@ export class FuncionesService {
   }
 
 
-  async buildRoom(id: string): Promise<Seats[]> {
+  async buildRoom(id: String): Promise<Seats[]> {
     this.seats = [];
     this.seatsUnavailable = [];
     const sala = this.getSala(id).pipe(map((room) => {
