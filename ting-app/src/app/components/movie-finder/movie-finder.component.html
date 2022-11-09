@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
-<app-footer></app-footer>
+
 
 <div class="principal">
     <div class="input-group" id="boxContent">
         <form class="custom-form" method="post">
-            <h1 class="text-center m-3">Buscar películas</h1>
+            <h1 class="text-center m-3 mt-5">Buscar películas</h1>
             <app-movie-finder-movie-selector (movieSelectedEvent)="getPelicula($event)"></app-movie-finder-movie-selector>
             <app-movie-finder-theater-selector (enableDateFormEvent)="enableDateForm()"></app-movie-finder-theater-selector>
             <app-movie-finder-date-selector></app-movie-finder-date-selector>
@@ -14,3 +14,4 @@
     </div>
 </div>
 
+<app-footer></app-footer>

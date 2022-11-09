@@ -9,13 +9,9 @@ body {
   body {
     background-image: var(--BgImageMobile);
   }
-
 }
 
 @media (min-width: 500px) {
-  #boxContent {
-   overflow: hidden;
-  }
   #seatBox {
       width: 100%;
       height: 100%;

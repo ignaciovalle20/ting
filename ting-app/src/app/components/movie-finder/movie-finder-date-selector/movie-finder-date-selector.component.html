@@ -1,5 +1,6 @@
-<div class="input-group mb-3">
-    <input type="date" #date class="form-control" id="fecha" [min]="today" [disabled]="isDisabled" [(ngModel)]="selectedDate" (change)="selectedDateFunction()">
+<div class="input-group mb-3 ">
+    <input type="date" #date class="form-control" id="fecha" [min]="today | date:'yyyy-MM-dd' "
+    [disabled]="isDisabled" [(ngModel)]="selectedDate" (change)="selectedDateFunction()">
 <!-- 
  <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
  -->

@@ -6,13 +6,13 @@
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+
 }
 
-/* #tableId {
-  display: table;
-  max-width: 100%;
+*::-webkit-scrollbar-thumb {
+  border: 5px solid #262b4f;
 }
- */
+
 #seatsSelectedBox {
   color: white;
 }
@@ -51,6 +51,13 @@ p {
   padding: 0.5rem;
   max-width: 90%;
 
+}
+
+.loading {
+  min-height: 350px;
+  display: flex;
+  background-color: #262b4f;
+  opacity: 90%;
 }
 /* 
 .asiento {
