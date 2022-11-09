@@ -22,13 +22,14 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url("../src/assets/seats-background.jpg");
-    background-color: #cccccc;
+    background-image: url("../src/assets/seats-background.jpg"); 
+    background-color: #262b4f;
     background-repeat: repeat;
     /* Do not repeat the image */
     background-size: cover;
     /* Resize the background image to cover the entire container */
     background-position: center, center;
+    align-items: center;
 }
 
 h1 {
@@ -88,7 +89,7 @@ h1 {
         padding: 2rem 1rem;
     }
     #boxContent .custom-form button {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
     }
 
