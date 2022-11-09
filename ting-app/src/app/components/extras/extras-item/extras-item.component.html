@@ -1,23 +1,22 @@
 <div class="row">
-  <div class="col-2 col-sm-2 align-self-center d-flex justify-content-center">
-    <img src="{{img}}" style="width:80px;height:80px;">
+  <div class="col align-self-center d-flex justify-content-center">
+    <img src="{{img}}">
   </div>
-  <div class="col-4 col-sm-4 d-flex justify-content-center align-self-center text-center">
-    <span class="align-middle">{{name}}</span>
+  <div class="col align-self-center">
+    <span class="align-self-center">{{name}}</span>
+    <br/>
+    <span class="text-center">${{price}}</span>
   </div>
-  <div class=" col-1 col-sm-1 d-flex justify-content-center align-self-center text-center">
-    <span class="pe-3">${{price}}</span>
-  </div>
-  <div class="col-5 col-sm-5 d-flex justify-content-center align-self-center text-center">
-    <div class="input-group d-inline-flex align-self-center">
-      <span class="input-group-btn" id="minus">
-        <button type="button" class="btn btn-default btn-number btn-minus" data-type="minus" data-field="quant[0]" (click)="clickMinus()">
+  <div class="col test d-flex justify-content-center align-self-center">
+    <div class=" input-group d-inline-flex">
+      <span class="input-group-btn vertical-align" id="minus">
+        <button type="button" class="btn btn-default btn-number btn-minus" data-type="minus" [disabled]="disableMinus" data-field="quant[0]" (click)="clickMinus()">
           <i class="bi bi-dash"></i>
         </button>
       </span>
-      <input type="text" name="quant[1]" class="form-control input-number" id="cantidad{{id}}" disabled value="0" min="0" max="10">
+        <input type="text" name="quant[1]" class="form-control input-number" id="cantidad{{id}}" disabled [value]="quantity" min="0" max="10">
       <span class="input-group-btn" id="plus">
-        <button type="button" class="btn btn-default btn-number btn-plus" data-type="plus" data-field="quant[1]" (click)="clickPlus()">
+        <button type="button" class="btn btn-default btn-number btn-plus" data-type="plus" [disabled]="disablePlus" data-field="quant[1]" (click)="clickPlus()">
           <i class="bi bi-plus"></i>
         </button>
       </span>
