@@ -8,11 +8,11 @@
                 <h4 class="text-center">{{movie}}</h4>
                 <h4 class="text-center">{{theater}}</h4>
                 <h4 class="text-center">{{date}}</h4>
-                <h4 class="text-center">{{hora}}hs</h4>
+                <h4 class="text-center">{{time}}hs</h4>
                 <h4 class="text-center">Asientos: {{seats}}</h4>
                 <h4 class="text-center" *ngFor="let extra of extras">{{extra}}</h4>
-                    <!-- <button type="button" class="btn btn-primary mt-5">Pagar</button> -->
-                <app-summary-btn-next></app-summary-btn-next>
+                <h4 class="text-center">Total ${{total}}</h4>
+                <app-summary-btn-next (SummaryNext)="goNext()"></app-summary-btn-next>
             </form>
         </div>
 

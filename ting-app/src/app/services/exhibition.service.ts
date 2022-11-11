@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, map, switchMapTo, lastValueFrom } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Funcion } from '../interfaces/funcion';
+import { Observable, map, lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Exhibition } from '../interfaces/exhibition';
 import { Seats } from "../interfaces/seats";
 import { Room } from '../interfaces/room';
+
 @Injectable({
   providedIn: 'root'
 })
-export class FuncionesService {
+export class ExhibitionService {
 
   constructor(private http: HttpClient) { }
 
-  private funcionesUrl = 'api/funciones';
+  private funcionesUrl = 'api/exhibitions';
 
   seats: Seats[] = [];
   room?: Room;
-  horarios: Funcion[] = [];
+  horarios: Exhibition[] = [];
 
   theaters: string[] = [];
 
   seatsUnavailable: Seats[] = [];
 
-  getFuncion(): Observable<Funcion[]> {
-    return this.http.get<Funcion[]>(this.funcionesUrl);
+  getFuncion(): Observable<Exhibition[]> {
+    return this.http.get<Exhibition[]>(this.funcionesUrl);
   }
 
 
@@ -31,8 +32,8 @@ export class FuncionesService {
 
   getTheaterByMovie(pelicula: string): Observable<any[]> {
     this.theaters = [];
-    return this.http.get<Funcion[]>(this.funcionesUrl)
-      .pipe(map((funciones: Funcion[]) => {
+    return this.http.get<Exhibition[]>(this.funcionesUrl)
+      .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === pelicula) {
             if (this.theaters.indexOf(funcion.theater) === -1) {
@@ -46,8 +47,8 @@ export class FuncionesService {
 
   getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
     this.horarios = [];
-    return this.http.get<Funcion[]>(this.funcionesUrl)
-      .pipe(map((funciones: Funcion[]) => {
+    return this.http.get<Exhibition[]>(this.funcionesUrl)
+      .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
             this.horarios.push(funcion);
@@ -58,7 +59,7 @@ export class FuncionesService {
   }
   getAsientosOcupados(id: string): Observable<Seats[]> {
     this.seatsUnavailable = [];
-    return this.http.get<Funcion[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(this.funcionesUrl)
       .pipe(map((funcion) => {
         if (funcion.find(f => f.id == id)) {
           this.seatsUnavailable = funcion.find(f => f.id == id)!.seatsUnavailable;
@@ -71,8 +72,8 @@ export class FuncionesService {
 
 
   getSala(id: string): Observable<Room> {
-    return this.http.get<Funcion[]>(this.funcionesUrl)
-      .pipe(map((funciones: Funcion[]) => {
+    return this.http.get<Exhibition[]>(this.funcionesUrl)
+      .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.id === id) {
             this.room = funcion.room;
