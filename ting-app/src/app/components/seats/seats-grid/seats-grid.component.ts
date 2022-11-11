@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FuncionesService } from 'src/app/services/funciones.service';
+import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
-import { SeatsComponent } from 'src/app/components/seats/seats.component';
 import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-seats-grid',
@@ -12,20 +10,14 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class SeatsGridComponent implements OnInit {
 
-
-  /*  fila1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-   fila2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-   fila3 = [12, 13, 14, 15, 16, 17];
-   fila4 = [18, 19, 20, 21, 22, 23]; */
-
-  seleccionados: String[] = [];
+  seleccionados: string[] = [];
   seats: Seats[] = [];
 
   seatsUnavailables: Seats[] = [];
   room?: Room;
 
   rows: number[] = [];
-  function_id?: String;
+  function_id?: string;
 
   checked?: boolean;
 
@@ -34,20 +26,14 @@ export class SeatsGridComponent implements OnInit {
 
   maxSeats: boolean = false;
 
-  constructor(private funcionesService: FuncionesService, private cart: CartService) { }
+  constructor(private exhibitionService: ExhibitionService, private cart: CartService) { }
 
 
   @Output() gridChangeEvent = new EventEmitter<Event>();
 
   ngOnInit(): void {
     this.checked = false;
-    this.function_id = this.cart.getFunction();
-    /*
-    this.datasharing.selectedFunction$.subscribe((function_id) => {
-      this.function_id = function_id.id;
-      console.log("function_id", this.function_id);
-    });
-    */
+    this.function_id = this.cart.getExhibition();
     console.log(this.function_id)
     if (this.function_id != undefined) {
       this.buildRoom();
@@ -55,7 +41,7 @@ export class SeatsGridComponent implements OnInit {
   }
 
   buildRoom() {
-    this.funcionesService.buildRoom(this.function_id!)
+    this.exhibitionService.buildRoom(this.function_id!)
       .then((seats) => {
 
         this.seats = seats;
@@ -88,7 +74,7 @@ export class SeatsGridComponent implements OnInit {
       //Si se setea en False borramos el elemento del array
       this.maxSeats = false;
       console.log("entre aca ", this.maxSeats);
-      this.seleccionados = this.seleccionados.filter((seat: String) => seat !== event.target.id + " ");
+      this.seleccionados = this.seleccionados.filter((seat: string) => seat !== event.target.id + " ");
     }
     else {
       //si ya se seleccionaron 8 asientos, no se puede seleccionar mas
@@ -97,7 +83,7 @@ export class SeatsGridComponent implements OnInit {
       //esto es para que se muestre el mensaje de error
       this.gridChangeEvent.emit();
     }
-    // (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.toString();
+    // (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.tostring();
     console.log("this.seleccionados", this.seleccionados);
     console.log("this.seats", this.seats);
 
@@ -107,7 +93,7 @@ export class SeatsGridComponent implements OnInit {
   }
 
 
-  getSeats(): String[] {
+  getSeats(): string[] {
     return this.seleccionados;
   }
 }

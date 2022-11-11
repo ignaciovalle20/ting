@@ -18,7 +18,7 @@ export class MovieService {
     return this.http.get<Movie[]>(this.movieUrl);
   }
 
-  getMovieByName(name: String): Observable<any> {
+  getMovieByName(name: string): Observable<any> {
     return this.http.get<Movie[]>(this.movieUrl)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {
@@ -30,7 +30,7 @@ export class MovieService {
       })); 
   }
 
-  getMovieImageWide(name: String): Observable<any> {
+  getMovieImageWide(name: string): Observable<any> {
     return this.http.get<Movie[]>(this.movieUrl)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {
@@ -41,7 +41,7 @@ export class MovieService {
         return this.movie?.postImg.urlWide;
       }));
   }
-  getMovieImageMobile(name: String): Observable<any> {
+  getMovieImageMobile(name: string): Observable<any> {
     return this.http.get<Movie[]>(this.movieUrl)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {

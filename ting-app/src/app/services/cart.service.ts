@@ -5,13 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
 
-  movie : String = "";
+  movie : string = "";
   moviePrice: number = 0;
-  theater : String = "";
-  date : String = "";
-  funcion : String = "";
-  seats : String[] = [];
-  extras : String[] = [];
+  theater : string = "";
+  date : string = "";
+  time : string = "";
+  exhibition : string = "";
+  seats : string[] = [];
+  extras : string[] = [];
 
   constructor() { }
 
@@ -19,7 +20,7 @@ export class CartService {
     return this.movie;
   }
 
-  setMovie(movie: String) {
+  setMovie(movie: string) {
     this.movie = movie;
   }
 
@@ -35,7 +36,7 @@ export class CartService {
     return this.theater;
   }
 
-  setTheater(theater: String) {
+  setTheater(theater: string) {
     this.theater = theater;
   }
 
@@ -43,23 +44,31 @@ export class CartService {
     return this.date;
   }
 
-  setDate(date: String) {
+  setDate(date: string) {
     this.date = date;
   }
 
-  getFunction() {
-    return this.funcion;
+  getTime() {
+    return this.time;
   }
 
-  setFunction(funcion: String) {  
-    this.funcion = funcion;
+  setTime(time: string) {
+    this.time = time;
+  }
+
+  getExhibition() {
+    return this.exhibition;
+  }
+
+  setExhibition(exhibition: string) {  
+    this.exhibition = exhibition;
   }
 
   getSeats() {
     return this.seats;
   }
 
-  setSeats(seats: String[]) {
+  setSeats(seats: string[]) {
     this.seats = seats;
   }
 
@@ -67,7 +76,7 @@ export class CartService {
     return this.extras;
   }
 
-  setExtras(extras: String[]) {
+  setExtras(extras: string[]) {
     this.extras = extras;
   }
 
@@ -88,7 +97,7 @@ export class CartService {
     this.moviePrice = 0;
     this.theater = "";
     this.date = "";
-    this.funcion = "";
+    this.exhibition = "";
     this.seats = [];
     this.extras = [];
   }

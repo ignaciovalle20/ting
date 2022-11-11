@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Funcion } from 'src/app/interfaces/funcion';
-import { FuncionesService } from 'src/app/services/funciones.service';
-import {  Router } from '@angular/router';
+import { Exhibition } from 'src/app/interfaces/exhibition';
+import { ExhibitionService } from 'src/app/services/exhibition.service';
+import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -12,16 +12,16 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class MovieSchedComponent implements OnInit {
 
-  funciones: Funcion[] = [];
+  exhibitions: Exhibition[] = [];
 
-  movie: String = "";
-  theater: String = "";
-  date: String = "";
-  movieUrlWide: String = "";
+  movie: string = "";
+  theater: string = "";
+  date: string = "";
+  movieUrlWide: string = "";
 
-  movieUrlMobile: String = "";
+  movieUrlMobile: string = "";
 
-  constructor(private funcionesService: FuncionesService, private movieService: MovieService, private route: Router, private cart: CartService) { }
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) { }
 
 
   ngOnInit(): void {
@@ -50,13 +50,14 @@ export class MovieSchedComponent implements OnInit {
       console.log("Movie URL: " + this.movieUrlMobile);
     });
 
-    this.funcionesService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
-      this.funciones = schedule;
+    this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
+      this.exhibitions = schedule;
     });
   }
 
-  goNext(f: String) {
-    this.cart.setFunction(f);
+  goNext(f: string, t: string) {
+    this.cart.setExhibition(f);
+    this.cart.setTime(t);
     this.route.navigate(['/seats']);
   }
 

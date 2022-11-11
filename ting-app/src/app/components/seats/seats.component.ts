@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SeatsGridComponent } from './seats-grid/seats-grid.component';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -12,9 +11,9 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class SeatsComponent implements OnInit {
 
-  movie: String = "";
-  movieUrlWide: String = "";
-  movieUrlMobile: String = "";
+  movie: string = "";
+  movieUrlWide: string = "";
+  movieUrlMobile: string = "";
   noSeatsSelected: boolean = false;
 
   constructor(private cart: CartService, private route: Router, private movieService: MovieService) { }
@@ -22,24 +21,15 @@ export class SeatsComponent implements OnInit {
   ngOnInit(): void {
 
     this.movie = this.cart.getMovie();
-    /*
-    this.datasharing.selectedSeats$?.subscribe((value) => { 
-    console.log("selectedSeats",value);
+    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
+      this.movieUrlWide = value;
+      console.log("Movie URL: " + this.movieUrlWide);
     });
 
-    this.datasharing.selectedMovie$.subscribe((value) => {
-      this.movie = value;
+    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
+      this.movieUrlMobile = value;
+      console.log("Movie URL: " + this.movieUrlMobile);
     });
-    */
-  this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-    this.movieUrlWide = value;
-    console.log("Movie URL: " + this.movieUrlWide);
-  });
-
-  this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-    this.movieUrlMobile = value;
-    console.log("Movie URL: " + this.movieUrlMobile);
-  });
 
   }
  
@@ -59,15 +49,6 @@ export class SeatsComponent implements OnInit {
     } else {
       this.noSeatsSelected = false;
     }
-    /*
-    this.datasharing.selectedSeats$?.subscribe((value) => { 
-      if (value.length == 0) {
-        this.noSeatsSelected = true;
-      } else {
-        this.noSeatsSelected = false;
-      }
-    });
-    */
   }
 
   gotoNextPage(){

@@ -12,47 +12,26 @@ export class SummaryComponent implements OnInit {
 
   constructor(private cart: CartService, private movieService: MovieService, private route: Router) { }
 
-  movie : String = "";
-  theater : String = "";
-  date : String = "";
-  hora : String = "";
-  seats: String[] = [];
-  extras : String[] = [];
+  movie : string = "";
+  theater : string = "";
+  date : string = "";
+  time : string = "";
+  seats: string[] = [];
+  extras : string[] = [];
   total : number = 0;
 
-  movieUrlWide: String = "";
-  movieUrlMobile: String = "";
+  movieUrlWide: string = "";
+  movieUrlMobile: string = "";
 
   ngOnInit(): void {
 
     this.movie = this.cart.getMovie();
     this.theater = this.cart.getTheater();
     this.date = this.cart.getDate();
-    this.hora = this.cart.getFunction();
+    this.time = this.cart.getTime();
     this.seats = this.cart.getSeats();
     this.extras = this.cart.getExtras();
     this.total = this.cart.getTotal();
-
-    /*
-    this.dataSharing.selectedMovie$.subscribe((value) => {
-      this.movie = value;
-    });
-    this.dataSharing.selectedTheater$.subscribe((value) => {
-      this.theater = value;
-    });
-    this.dataSharing.selectedDate$.subscribe((value) => {
-      this.date = value.split("-").reverse().join("/");;
-    });
-    this.dataSharing.selectedFunction$.subscribe((value) => {
-      this.hora = value.horario;
-    });
-    this.dataSharing.selectedSeats$.subscribe((value) => {
-      this.seats = value;
-    });
-    this.dataSharing.selectedExtras$.subscribe((value) => {
-      this.extras = value;
-    });
-    */
 
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;

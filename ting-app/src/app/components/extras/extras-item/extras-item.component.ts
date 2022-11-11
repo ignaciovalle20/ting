@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Extra } from 'src/app/interfaces/extras';
 
 @Component({
   selector: 'app-extras-item',
