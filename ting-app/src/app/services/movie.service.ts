@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Movie } from '../interfaces/movie';
 
+const MOVIE_URL = `${environment.baseApiUrl}/api/movies`;
 @Injectable({
   providedIn: 'root'
 })
@@ -10,16 +12,16 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  private movieUrl = 'api/movies';
+  //private movieUrl = 'api/movies';
 
   movie?: Movie ;
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.movieUrl);
+    return this.http.get<Movie[]>(MOVIE_URL);
   }
 
   getMovieByName(name: string): Observable<any> {
-    return this.http.get<Movie[]>(this.movieUrl)
+    return this.http.get<Movie[]>(MOVIE_URL)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {
           if (movie.name === name) {
@@ -31,7 +33,7 @@ export class MovieService {
   }
 
   getMovieImageWide(name: string): Observable<any> {
-    return this.http.get<Movie[]>(this.movieUrl)
+    return this.http.get<Movie[]>(MOVIE_URL)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {
           if (movie.name === name) {
@@ -42,7 +44,7 @@ export class MovieService {
       }));
   }
   getMovieImageMobile(name: string): Observable<any> {
-    return this.http.get<Movie[]>(this.movieUrl)
+    return this.http.get<Movie[]>(MOVIE_URL)
       .pipe(map((movies: Movie[]) => {
         movies.filter((movie) => {
           if (movie.name === name) {

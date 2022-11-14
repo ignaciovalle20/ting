@@ -83,9 +83,9 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     HttpClientModule,
     BrowserAnimationsModule,
     QRCodeModule,
-    HttpClientInMemoryWebApiModule.forRoot(
+   /*  HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    ),
+    ), */
   ],
   providers: [],
   bootstrap: [AppComponent]

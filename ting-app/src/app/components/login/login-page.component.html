@@ -9,7 +9,7 @@
       <!-- <p *ngIf="wrongUser" style="color: red;">Login Incorrecto</p> -->
       <ng-container *ngIf="wrongUser">
         <div class="alert alert-danger" role="alert">
-          Login Incorrecto
+          {{ msgerror}}
         </div>
       </ng-container>
 
