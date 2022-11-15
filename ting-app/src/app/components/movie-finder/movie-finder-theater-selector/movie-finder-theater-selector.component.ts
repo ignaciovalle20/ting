@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { Movie } from 'src/app/interfaces/movie';
-import { FuncionesService } from 'src/app/services/funciones.service';
+import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { MovieFinderDateSelectorComponent } from '../movie-finder-date-selector/movie-finder-date-selector.component';
 
 @Component({
@@ -10,7 +9,7 @@ import { MovieFinderDateSelectorComponent } from '../movie-finder-date-selector/
 })
 export class MovieFinderTheaterSelectorComponent implements OnInit {
 
-  constructor(private funcionesService: FuncionesService) { }
+  constructor(private exhibitionService: ExhibitionService) { }
   isDisabled: boolean = true;
   selectedTheater?: any ;
   theaters: string[] = [];
@@ -33,7 +32,7 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
   //Obtengo los teathers de la pelicula seleccionada
   getTheater(value: string) {
     console.log("getTheater", value);
-    this.funcionesService.getTheaterByMovie(value).subscribe((theaters: string[]) => {
+    this.exhibitionService.getTheaterByMovie(value).subscribe((theaters: string[]) => {
       this.theaters = theaters;
     });
     this.isDisabled = false;

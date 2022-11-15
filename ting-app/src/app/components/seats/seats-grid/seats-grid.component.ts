@@ -1,9 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FuncionesService } from 'src/app/services/funciones.service';
+import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { Room } from "src/app/interfaces/room";
 import { Seats } from 'src/app/interfaces/seats';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
-import { SeatsComponent } from 'src/app/components/seats/seats.component';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-seats-grid',
   templateUrl: './seats-grid.component.html',
@@ -27,17 +26,14 @@ export class SeatsGridComponent implements OnInit {
 
   maxSeats: boolean = false;
 
-  constructor(private funcionesService: FuncionesService, private datasharing: DataSharingService) { }
+  constructor(private exhibitionService: ExhibitionService, private cart: CartService) { }
 
 
   @Output() gridChangeEvent = new EventEmitter<Event>();
 
   ngOnInit(): void {
     this.checked = false;
-    this.datasharing.selectedFunction$.subscribe((function_id) => {
-      this.function_id = function_id.id;
-      console.log("function_id", this.function_id);
-    });
+    this.function_id = this.cart.getExhibition();
     console.log(this.function_id)
     if (this.function_id != undefined) {
       this.buildRoom();
@@ -45,7 +41,7 @@ export class SeatsGridComponent implements OnInit {
   }
 
   buildRoom() {
-    this.funcionesService.buildRoom(this.function_id!)
+    this.exhibitionService.buildRoom(this.function_id!)
       .then((seats) => {
 
         this.seats = seats;
@@ -87,7 +83,7 @@ export class SeatsGridComponent implements OnInit {
       //esto es para que se muestre el mensaje de error
       this.gridChangeEvent.emit();
     }
-    // (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.toString();
+    // (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.tostring();
     console.log("this.seleccionados", this.seleccionados);
     console.log("this.seats", this.seats);
 

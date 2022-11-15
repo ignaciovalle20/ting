@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
-import { Extra } from 'src/app/interfaces/extras';
-import { ExtrasService } from 'src/app/services/extras.service';
 import { MovieService } from 'src/app/services/movie.service';
+import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -11,37 +10,28 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private dataSharing: DataSharingService, private extrasService : ExtrasService, private movieService: MovieService) { }
+  constructor(private cart: CartService, private movieService: MovieService, private route: Router) { }
 
   movie : string = "";
-  theater : String = "";
-  date : String = "";
-  hora : String = "";
-  seats: string = "";
+  theater : string = "";
+  date : string = "";
+  time : string = "";
+  seats: string[] = [];
   extras : string[] = [];
+  total : number = 0;
 
   movieUrlWide: string = "";
-
   movieUrlMobile: string = "";
+
   ngOnInit(): void {
-    this.dataSharing.selectedMovie$.subscribe((value) => {
-      this.movie = value;
-    });
-    this.dataSharing.selectedTheater$.subscribe((value) => {
-      this.theater = value;
-    });
-    this.dataSharing.selectedDate$.subscribe((value) => {
-      this.date = value.split("-").reverse().join("/");;
-    });
-    this.dataSharing.selectedFunction$.subscribe((value) => {
-      this.hora = value.horario;
-    });
-    this.dataSharing.selectedSeats$.subscribe((value) => {
-      this.seats = value;
-    });
-    this.dataSharing.selectedExtras$.subscribe((value) => {
-      this.extras = value;
-    });
+
+    this.movie = this.cart.getMovie();
+    this.theater = this.cart.getTheater();
+    this.date = this.cart.getDate();
+    this.time = this.cart.getTime();
+    this.seats = this.cart.getSeats();
+    this.extras = this.cart.getExtras();
+    this.total = this.cart.getTotal();
 
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;
@@ -54,5 +44,8 @@ export class SummaryComponent implements OnInit {
     });
   }
 
+  goNext(){
+    this.route.navigate(['/processing']);
+  }
   
 }

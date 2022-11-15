@@ -2,6 +2,115 @@ span{
     color: white;
 }
 
+#test{
+    display: inline-block
+}
+
+//WEB
+@media (min-width: 500px) {
+    img{
+        width:100px;
+        height:100px;
+    }
+    #minus,#plus{
+        max-height: 2.5rem;
+        max-width: 2.0rem;
+    }
+    .btn-plus,.btn-minus{
+        max-height: 2.5rem;
+        max-width: 2.0rem;
+    }
+    .input-number{
+        max-height: 3rem;
+        max-width: 2.5rem;
+    }
+}
+
+//MOBILE
+@media (max-width: 500px) {
+    img{
+        width:50px;
+        height:50px;
+    }
+    #minus,#plus{
+        max-height: 2.5rem;
+        max-width: 1.0rem;
+    }
+    .btn-plus,.btn-minus{
+        max-height: 2.5rem;
+        max-width: 1.0rem;
+    }
+    .input-number{
+        max-height: 3rem;
+        max-width: 2rem;
+        padding: 0px;
+        margin: 0px;
+    }
+}
+
+#minus{
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border: 1px solid #ccc;
+    align-items: center;
+    justify-content: center;
+    display: flex;    
+}
+
+#plus{
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    border: 1px solid #ccc;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.btn-minus{
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;    
+    color: white;
+}
+
+.btn-minus:disabled{
+    background: #dddddd;
+    color: black;
+    overflow: hidden;
+    border: none;
+    border-radius: 0%;
+    padding: 10px;
+}
+
+.btn-plus{
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;   
+    color: white; 
+}
+
+.input-number{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+#quantity{
+    height: fit-content;
+}
+
+
+/*
+ORIGINAL
+
 #minus{
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
@@ -62,8 +171,11 @@ span{
     align-items: center;
     justify-content: center;
     display: flex;
+    background-color: red;
 }
 
 #quantity{
     height: fit-content;
 }
+
+*/
