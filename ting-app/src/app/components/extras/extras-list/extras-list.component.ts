@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Extra } from '../../../interfaces/extras';
-import { ExtrasService } from '../../../services/extras.service';
+import { Extra } from '../../../interfaces/extra';
 
 @Component({
   selector: 'app-extras-list',
@@ -8,7 +7,7 @@ import { ExtrasService } from '../../../services/extras.service';
   styleUrls: ['./extras-list.component.scss']
 })
 export class ExtrasListComponent implements OnInit {
-String(arg0: string) {
+string(arg0: string) {
   throw new Error('Method not implemented.');
   }
 

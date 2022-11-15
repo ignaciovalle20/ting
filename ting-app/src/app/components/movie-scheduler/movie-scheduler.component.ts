@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Funcion } from 'src/app/interfaces/funcion';
-import { FuncionesService } from 'src/app/services/funciones.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { Exhibition } from 'src/app/interfaces/exhibition';
+import { ExhibitionService } from 'src/app/services/exhibition.service';
+import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-movie-scheduler',
@@ -12,7 +12,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MovieSchedComponent implements OnInit {
 
-  funciones: Funcion[] = [];
+  exhibitions: Exhibition[] = [];
 
   movie: string = "";
   theater: string = "";
@@ -21,10 +21,15 @@ export class MovieSchedComponent implements OnInit {
 
   movieUrlMobile: string = "";
 
-  constructor(private funcionesService: FuncionesService, private movieService: MovieService, private route: Router, private activeRoute: ActivatedRoute, private dataSharing: DataSharingService) { }
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) { }
 
 
   ngOnInit(): void {
+
+    this.movie = this.cart.getMovie();
+    this.theater = this.cart.getTheater();
+    this.date = this.cart.getDate();
+    /*
     this.dataSharing.selectedMovie$.subscribe((value) => {
       this.movie = value;
     });
@@ -34,7 +39,7 @@ export class MovieSchedComponent implements OnInit {
     this.dataSharing.selectedDate$.subscribe((value) => {
       this.date = value;
     });
-
+    */
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;
       console.log("Movie URL: " + this.movieUrlWide);
@@ -45,13 +50,14 @@ export class MovieSchedComponent implements OnInit {
       console.log("Movie URL: " + this.movieUrlMobile);
     });
 
-    this.funcionesService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
-      this.funciones = schedule;
+    this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
+      this.exhibitions = schedule;
     });
   }
 
-  goNext(f: any) {
-    this.dataSharing.setFunction(f)
+  goNext(f: string, t: string) {
+    this.cart.setExhibition(f);
+    this.cart.setTime(t);
     this.route.navigate(['/seats']);
   }
 
