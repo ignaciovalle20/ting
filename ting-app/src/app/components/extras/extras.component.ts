@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Extra } from 'src/app/interfaces/extras';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { Extra } from 'src/app/interfaces/extra';
 import { ExtrasService } from 'src/app/services/extras.service';
 
 @Component({
@@ -14,8 +13,7 @@ export class ExtrasComponent implements OnInit {
   extras: Extra[] = [];
   Seleccionados = new Map();
   
-  ///
-  constructor(private route: Router, private dataSharing: DataSharingService, private extrasService: ExtrasService) { }
+  constructor(private route: Router, private extrasService: ExtrasService) { }
 
   @ViewChild('extrasList') extrasList!: any;
 
@@ -27,8 +25,10 @@ export class ExtrasComponent implements OnInit {
   }
 
   extrasNext(){
-    this.Seleccionados.forEach((value: any, key: any) => {
-      
+    this.extras.forEach((extra) => {
+      if (this.Seleccionados.has(extra.id)){
+       //Añadir al carrito 
+      }
     });
     this.route.navigate(['/summary']);
   }
