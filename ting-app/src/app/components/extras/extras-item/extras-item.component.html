@@ -11,15 +11,18 @@
   <div class="col-5 col-sm-5 d-flex justify-content-end align-self-center text-center">
     <div class="input-group">
       <span class="input-group-btn" id="minus">
-        <button type="button" class="btn btn-default btn-number btn-minus" data-type="minus" data-field="quant[0]" (click)="clickMinus()">
+        <button type="button" class="btn btn-default btn-number btn-minus" data-type="minus" data-field="quant[0]"
+          (click)="clickMinus()">
           <i class="bi bi-dash"></i>
         </button>
       </span>
-      <input type="text" name="quant[1]" class="form-control input-number" id="cantidad{{id}}" disabled value="0" min="0" max="10">
+      <input type="text" name="quant[1]" class="form-control input-number" id="cantidad{{id}}" disabled value="0"
+        min="0" max="10">
       <span class="input-group-btn" id="plus">
-        <button type="button" class="btn btn-default btn-number btn-plus" data-type="plus" data-field="quant[1]" (click)="clickPlus()">
+        <button type="button" class="btn btn-default btn-number btn-plus" data-type="plus" data-field="quant[1]"
+          (click)="clickPlus()">
           <i class="bi bi-plus"></i>
         </button>
       </span>
     </div>
-</div>
+  </div>
