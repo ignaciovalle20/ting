@@ -14,8 +14,7 @@ export class ProcessingPaymentComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.router.navigate(['qrcode']);
-  }, this.sleep);  //5s
-
+  }, this.sleep);  
   } 
 
 }

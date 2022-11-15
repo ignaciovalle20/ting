@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QRCodeModule } from 'angular2-qrcode';
-
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +21,7 @@ import { MovieFinderTheaterSelectorComponent } from './components/movie-finder/m
 import { MovieFinderDateSelectorComponent } from './components/movie-finder/movie-finder-date-selector/movie-finder-date-selector.component';
 import { SeatsComponent } from './components/seats/seats.component';
 import { SeatsGridComponent } from './components/seats/seats-grid/seats-grid.component';
-
+import { AuthInterceptor } from './http-interceptors/auth-interceptor';
 import { ExtrasComponent } from './components/extras/extras.component';
 import { ExtrasListComponent } from './components/extras/extras-list/extras-list.component';
 import { ExtrasItemComponent } from './components/extras/extras-item/extras-item.component';
@@ -83,11 +83,16 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     HttpClientModule,
     BrowserAnimationsModule,
     QRCodeModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }), // ToastrModule added
+    /*  HttpClientInMemoryWebApiModule.forRoot(
+       InMemoryDataService, { dataEncapsulation: false }
+     ), */
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

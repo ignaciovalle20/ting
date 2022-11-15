@@ -10,8 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class LoginPageBtnComponent implements OnInit {
 
   @Output() LoginEvent = new EventEmitter<MouseEvent>();
-  @Input() user: string | undefined;
-  @Input() password: string | undefined;
+
   constructor() { }
   ngOnInit(): void {
 

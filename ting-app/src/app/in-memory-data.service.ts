@@ -47,7 +47,7 @@ export class InMemoryDataService {
                     ] 
           }
     ];
- 
+
     const exhibitions: Exhibition[] = [
       { id: '1', movie:  movies[0] , theater: "Tres Cruces", date: "2022-11-01", time: "21:00", price: 100, room: rooms[0] ,
        seatsUnavailable: [{row: 1 , seat: 1 , empty: false,  available: false}, {row: 1 , seat: 2 , empty: false,  available: false}, {row: 1 , seat: 3 ,
@@ -56,6 +56,7 @@ export class InMemoryDataService {
          {row: 1 , seat: 7 , empty: false,  available: false}, {row: 1 , seat: 8 , empty: false,  available: false},
           {row: 1 , seat: 9 , empty: false,  available: false}, {row: 1 , seat: 10 , empty: false,  available: false},
            {row: 1 , seat: 11 , empty: false,  available: false}]},
+
       { id: '2', movie:  movies[0] , theater: "Mdeo Shop", date: "2022-11-30", time: "21:10", price: 100, room: rooms[0], seatsUnavailable: []},
       { id: '3', movie:  movies[0] , theater: "Punta Carretas ", date: "2022-11-30", time: "21:20", price: 100, room: rooms[0], seatsUnavailable: []},
       { id: '4', movie:  movies[0] , theater: "Nuevo Centro", date: "2022-11-30", time: "21:30", price: 100, room: rooms[0], seatsUnavailable: []},
@@ -76,6 +77,7 @@ export class InMemoryDataService {
       { id: '19', movie:  movies[3] , theater: "Punta Carretas ", date: "2022-11-30", time: "21:20", price: 100, room: rooms[0], seatsUnavailable: []},
       { id: '20', movie:  movies[3] , theater: "Nuevo Centro", date: "2022-11-30", time: "21:30", price: 100, room: rooms[0], seatsUnavailable: []},
       { id: '21', movie:  movies[3] , theater: "Interior", date: "2022-11-30", time: "21:40", price: 100, room: rooms[0], seatsUnavailable: []}
+
     ];
 
     return { movies, extras, exhibitions, rooms };

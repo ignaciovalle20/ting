@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 @Component({
@@ -13,8 +13,9 @@ export class LoginPageComponent implements OnInit {
   password: string | undefined;
 
   wrongUser: boolean = false;
+  msgerror: string | undefined;
   userloged: boolean = false;
-  constructor(private loginService: LoginService , private route: Router) { }
+  constructor(private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,16 +29,22 @@ export class LoginPageComponent implements OnInit {
     this.username = this.userinput.input;
     this.password = this.passinput.input;
     if (this.username && this.password) {
-      console.log(this.loginService.getUser(this.username, this.password))
-      if (this.loginService.getUser(this.username, this.password)) {
-        console.log("Login correcto");
-        this.wrongUser = false;
-        this.userloged = true;
-        this.route.navigate(['/moviefinder']);
-      } else {
-        console.log("Login incorrecto");
-        this.wrongUser = true;
-      }
+      console.log(this.loginService.login(this.username, this.password))
+      this.loginService.login(this.username, this.password)
+        .subscribe({
+          next: res => {
+            this.wrongUser = false;
+            this.userloged = true;
+            this.route.navigate(['/moviefinder']);
+          }, error: err => {
+            this.wrongUser = true;
+            this.msgerror = "Usuario o contraseña incorrectos";
+          }
+        });
+    }
+    else{
+      this.wrongUser = true;
+      this.msgerror = "Debe ingresar ambos campos";
     }
   }
 
