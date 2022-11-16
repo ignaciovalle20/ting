@@ -85,7 +85,7 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     QRCodeModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
     }), // ToastrModule added
     /*  HttpClientInMemoryWebApiModule.forRoot(

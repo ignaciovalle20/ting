@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Exhibition } from '../interfaces/exhibition';
 import { Seats } from "../interfaces/seats";
 import { Room } from '../interfaces/room';
+import { environment } from 'src/environments/environment';
+
+const EXHIBITION_URL = `${environment.baseApiUrl}/api/exhibition`;
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class ExhibitionService {
 
   constructor(private http: HttpClient) { }
 
-  private funcionesUrl = 'api/exhibitions';
+  //private funcionesUrl = 'api/exhibitions';
 
   seats: Seats[] = [];
   room?: Room;
@@ -23,16 +26,13 @@ export class ExhibitionService {
   seatsUnavailable: Seats[] = [];
 
   getFuncion(): Observable<Exhibition[]> {
-    return this.http.get<Exhibition[]>(this.funcionesUrl);
+    return this.http.get<Exhibition[]>(EXHIBITION_URL);
   }
-
-
-
 
 
   getTheaterByMovie(pelicula: string): Observable<any[]> {
     this.theaters = [];
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === pelicula) {
@@ -47,7 +47,7 @@ export class ExhibitionService {
 
   getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
     this.horarios = [];
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
@@ -59,7 +59,7 @@ export class ExhibitionService {
   }
   getAsientosOcupados(id: string): Observable<Seats[]> {
     this.seatsUnavailable = [];
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funcion) => {
         if (funcion.find(f => f.id == id)) {
           this.seatsUnavailable = funcion.find(f => f.id == id)!.seatsUnavailable;
@@ -72,7 +72,7 @@ export class ExhibitionService {
 
 
   getSala(id: string): Observable<Room> {
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.id === id) {
