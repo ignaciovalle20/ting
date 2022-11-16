@@ -25,16 +25,19 @@ export class AuthInterceptor implements HttpInterceptor {
             return next.handle(cloned).pipe(catchError(err => {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
-                        this.toastr.error("Error 401 - Unauthorized: Sesion expirada");
                         localStorage.removeItem("id_token");
                         localStorage.removeItem("expires_at");
-                        this.route.navigate(['/home']);
+                        this.toastr.error("Error 401 - Unauthorized: Sesion expirada")
+                        .onHidden.subscribe(() => {
+                            this.route.navigate(["/login"]);
+                        });
                     }
                 }
                 throw err;
             }));
         }
         else {
+            this.route.navigate(["/login"]);
             return next.handle(req);
         }
     }

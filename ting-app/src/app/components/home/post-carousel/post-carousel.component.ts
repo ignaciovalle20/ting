@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Movie } from 'src/app/interfaces/movie';
-import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-post-carousel',
@@ -10,7 +9,6 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class PostCarouselComponent implements OnInit {
   @Input() movies!: Movie[];
-
 
   userloged: boolean = false;
 
@@ -21,7 +19,7 @@ export class PostCarouselComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = false;
 
-  constructor(private loginService: LoginService ,config: NgbCarouselConfig, ) {
+  constructor(config: NgbCarouselConfig, ) {
     config.interval = 0;
     config.wrap = false;
   }
