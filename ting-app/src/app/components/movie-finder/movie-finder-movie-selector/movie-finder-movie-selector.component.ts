@@ -11,19 +11,19 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
 
   @Output() movieSelectedEvent = new EventEmitter<string>();
 
-  movies: string[] = [];
-
+  movienames: string[] = [];
+  movie: Movie | undefined;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMoviesList()
-      .subscribe(movies => {
-        this.movies = movies;
-      }); 
+    this.movieService.getMovieNames().subscribe((movies: string[]) => {
+      this.movienames = movies;
+      //console.log("MOVIES", this.movienames);
+    });
   }
   
   getMovie(movie: string ){
     this.movieSelectedEvent.emit(movie);
   }
-  
+
 }

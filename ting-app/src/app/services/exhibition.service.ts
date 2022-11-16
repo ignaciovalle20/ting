@@ -6,7 +6,9 @@ import { Seats } from "../interfaces/seats";
 import { Room } from '../interfaces/room';
 import { environment } from 'src/environments/environment';
 
+
 const EXHIBITIONS_URL = `${environment.baseApiUrl}/api/exhibitions`;
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class ExhibitionService {
 
   constructor(private http: HttpClient) { }
 
-  private funcionesUrl = 'api/exhibitions';
+  //private funcionesUrl = 'api/exhibitions';
 
   seats: Seats[] = [];
   room?: Room;
@@ -26,8 +28,9 @@ export class ExhibitionService {
   seatsUnavailable: Seats[] = [];
 
   getFuncion(): Observable<Exhibition[]> {
-    return this.http.get<Exhibition[]>(this.funcionesUrl);
+    return this.http.get<Exhibition[]>(EXHIBITION_URL);
   }
+
 
   getTheaterByMovie(movie: string): Observable<string[]> {
     return this.http.get<string[]>(EXHIBITIONS_URL+"/gettheaters/:"+movie);
@@ -35,7 +38,7 @@ export class ExhibitionService {
 
   getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
     this.horarios = [];
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.movie.name === movie && funcion.theater === theater && funcion.date === date) {
@@ -48,7 +51,7 @@ export class ExhibitionService {
   
   getAsientosOcupados(id: string): Observable<Seats[]> {
     this.seatsUnavailable = [];
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funcion) => {
         if (funcion.find(f => f.id == id)) {
           this.seatsUnavailable = funcion.find(f => f.id == id)!.seatsUnavailable;
@@ -61,7 +64,7 @@ export class ExhibitionService {
 
 
   getSala(id: string): Observable<Room> {
-    return this.http.get<Exhibition[]>(this.funcionesUrl)
+    return this.http.get<Exhibition[]>(EXHIBITION_URL)
       .pipe(map((funciones: Exhibition[]) => {
         funciones.filter((funcion) => {
           if (funcion.id === id) {

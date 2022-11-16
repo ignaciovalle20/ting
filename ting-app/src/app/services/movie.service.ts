@@ -7,6 +7,7 @@ import { Movie } from '../interfaces/movie';
 const MOVIE_URL = `${environment.baseApiUrl}/api/movies`;
 const MOVIELIST_URL = `${environment.baseApiUrl}/api/movieslist`;
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,10 @@ export class MovieService {
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(MOVIE_URL);
   }
+  getMovieNames(): Observable<any[]> {
+    return this.http.get<any[]>(MOVIELIST_URL);
+  }
+
 
   getMoviesList(): Observable<string[]> {
     return this.http.get<string[]>(MOVIELIST_URL);
