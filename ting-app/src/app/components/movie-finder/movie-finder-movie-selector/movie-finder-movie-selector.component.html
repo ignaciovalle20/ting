@@ -1,8 +1,6 @@
 <div class="input-group mb-3">
     <select class="form-select col" #inputGroupSelectMovie id="inputGroupSelectMovie" (change)="getMovie(inputGroupSelectMovie.value)">
         <option selected disabled>Elegir película...</option>
-        <option *ngFor="let movie of movies">
-            {{movie.name}}
-        </option>
+        <option *ngFor="let movie of movies">{{movie}}</option>
     </select>
 </div>

@@ -28,10 +28,9 @@ export class MovieFinderComponent implements OnInit {
   @ViewChild(MovieFinderTheaterSelectorComponent) theaterSelector: MovieFinderTheaterSelectorComponent | undefined;
   @ViewChild(MovieFinderDateSelectorComponent) dateSelector: MovieFinderDateSelectorComponent | undefined;
 
-  getPelicula(movie: Movie) {
-    console.log("getPelicula", movie.name);
-    this.selectedMovie = movie.name;
-    this.theaterSelector?.getTheater(movie.name);
+  getPelicula(movie: string) {
+    this.selectedMovie = movie;
+    this.theaterSelector?.getTheater(movie);
   }
 
   enableDateForm() {
