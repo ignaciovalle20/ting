@@ -9,34 +9,21 @@ import { MovieService } from '../../../services/movie.service';
 })
 export class MovieFinderMovieSelectorComponent implements OnInit {
 
-  @Output() movieSelectedEvent = new EventEmitter<Movie>();
-
-  //movies: Movie[] = [];
+  @Output() movieSelectedEvent = new EventEmitter<string>();
 
   movienames: string[] = [];
   movie: Movie | undefined;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-/*     this.movieService.getMovies()
-      .subscribe(movies => {
-        this.movies = movies;
-        console.log("this.movies", this.movies);
-      });
- */
     this.movieService.getMovieNames().subscribe((movies: string[]) => {
       this.movienames = movies;
-      console.log("MOVIES", this.movienames);
+      //console.log("MOVIES", this.movienames);
     });
   }
-
-  getMovie(value: string) {
-    console.log("SELECCION", value);
-    this.movieService.getMovieByName(value).subscribe((movie: Movie) => {
-      this.movie = movie;
-      console.log("MOVI", this.movie.name);
-      this.movieSelectedEvent.emit(this.movie);
-    });
+  
+  getMovie(movie: string ){
+    this.movieSelectedEvent.emit(movie);
   }
 
 }

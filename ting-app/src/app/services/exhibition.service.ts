@@ -6,7 +6,9 @@ import { Seats } from "../interfaces/seats";
 import { Room } from '../interfaces/room';
 import { environment } from 'src/environments/environment';
 
-const EXHIBITION_URL = `${environment.baseApiUrl}/api/exhibition`;
+
+const EXHIBITIONS_URL = `${environment.baseApiUrl}/api/exhibitions`;
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,19 +32,8 @@ export class ExhibitionService {
   }
 
 
-  getTheaterByMovie(pelicula: string): Observable<any[]> {
-    this.theaters = [];
-    return this.http.get<Exhibition[]>(EXHIBITION_URL)
-      .pipe(map((funciones: Exhibition[]) => {
-        funciones.filter((funcion) => {
-          if (funcion.movie.name === pelicula) {
-            if (this.theaters.indexOf(funcion.theater) === -1) {
-              this.theaters.push(funcion.theater);
-            }
-          }
-        });
-        return this.theaters;
-      }));
+  getTheaterByMovie(movie: string): Observable<string[]> {
+    return this.http.get<string[]>(EXHIBITIONS_URL+"/gettheaters/:"+movie);
   }
 
   getSchedule(movie: string, theater: string, date: string): Observable<any[]> {
@@ -57,6 +48,7 @@ export class ExhibitionService {
         return this.horarios;
       }));
   }
+  
   getAsientosOcupados(id: string): Observable<Seats[]> {
     this.seatsUnavailable = [];
     return this.http.get<Exhibition[]>(EXHIBITION_URL)
@@ -95,12 +87,9 @@ export class ExhibitionService {
     }
     ));
 
-
     const asientosOcupados = this.getAsientosOcupados(id).pipe(map((seats) => {
       return this.seatsUnavailable;
     }));
-
-
 
     const fillRoomasync = async () => {
       const salaFinal = await lastValueFrom(sala);

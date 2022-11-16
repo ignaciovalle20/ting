@@ -56,10 +56,6 @@ export class SeatsGridComponent implements OnInit {
       );
   }
 
-
-
-
-
   checkboxClick(event: any) {
     console.log("maxseatAfuera", this.maxSeats);
     console.log("event", event.target);

@@ -13,17 +13,10 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
   isDisabled: boolean = true;
   selectedTheater?: any ;
   theaters: string[] = [];
-  /* Original
-  listaCines = [
-    "Life Tres Cruces",
-    "Movie Montevideo Shopping",
-    "Movie Punta Carretas"
-  ]
-  */
+
   @Output() enableDateFormEvent = new EventEmitter<Event>();
 
   @ViewChild(MovieFinderDateSelectorComponent) dateSelector: MovieFinderDateSelectorComponent | undefined;
-
 
   ngOnInit(): void {
 
@@ -32,9 +25,10 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
   //Obtengo los teathers de la pelicula seleccionada
   getTheater(value: string) {
     console.log("getTheater", value);
-    this.exhibitionService.getTheaterByMovie(value).subscribe((theaters: string[]) => {
-      this.theaters = theaters;
-    });
+    this.exhibitionService.getTheaterByMovie(value).subscribe(theater => {
+      this.theaters = theater;
+    }); 
+    console.log("getTheater", this.theaters);
     this.isDisabled = false;
   }
   //Emitimos el evento para habilitar el formulario de fecha
