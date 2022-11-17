@@ -43,15 +43,18 @@ export class SeatsComponent implements OnInit {
   }
  
   getChangeOnGrid(){
+    /*
     let seats = this.cart.getSeats();
     if (seats.length === 0){
       this.noSeatsSelected = true;
     } else {
       this.noSeatsSelected = false;
     }
+    */
   }
 
   gotoNextPage(){
+    /*
     console.log("getseats",this.seatsGridComponent.getSeats());
     if (this.seatsGridComponent.getSeats().length > 0) {
       this.cart.setSeats(this.seatsGridComponent.getSeats());
@@ -60,6 +63,7 @@ export class SeatsComponent implements OnInit {
     }else{
       this.noSeatsSelected = true;
     }
+    */
   
   }
 

@@ -33,7 +33,7 @@ export class SeatsGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.checked = false;
-    this.function_id = this.cart.getExhibition();
+    //this.function_id = this.cart.getExhibition();
     console.log(this.function_id)
     if (this.function_id != undefined) {
       this.buildRoom();
@@ -42,7 +42,7 @@ export class SeatsGridComponent implements OnInit {
 
   buildRoom() {
     this.exhibitionService.buildRoom(this.function_id!)
-      .then((seats) => {
+      .subscribe((seats) => {
 
         this.seats = seats;
         console.log("this.seats", this.seats);

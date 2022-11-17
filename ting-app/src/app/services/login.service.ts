@@ -41,8 +41,7 @@ getUser(user:string, pass: string){
         this.setSession(res);
         console.log(res);
       }
-
-      ));
+    ));
   }
 
   setSession(authResult: any) {

@@ -26,12 +26,13 @@ export class SummaryComponent implements OnInit {
   ngOnInit(): void {
 
     this.movie = this.cart.getMovie();
+
     this.theater = this.cart.getTheater();
     this.date = this.cart.getDate();
     this.time = this.cart.getTime();
-    this.seats = this.cart.getSeats();
-    this.extras = this.cart.getExtras();
-    this.total = this.cart.getTotal();
+    //this.seats = this.cart.getSeats();
+    //this.extras = this.cart.getExtras();
+    //this.total = this.cart.getTotal();
 
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;
