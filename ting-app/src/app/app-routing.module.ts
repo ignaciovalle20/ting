@@ -10,6 +10,7 @@ import { SeatsComponent } from './components/seats/seats.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 const routes: Routes = [
+  
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent},
   { path: 'moviefinder', component: MovieFinderComponent},

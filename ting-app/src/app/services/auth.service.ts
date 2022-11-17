@@ -9,7 +9,7 @@ const LOGIN_URL = `${environment.baseApiUrl}/api/login`;
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
 
   constructor(private http: HttpClient) { }
