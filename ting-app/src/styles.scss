@@ -35,11 +35,13 @@ body {
 }
 
 h1 {
-    padding-bottom: 10pt;
-    color: #fdfdfd;
-    font-family: 'Inter', sans-serif;
-}
+    margin: 0;
 
+    padding-bottom: 10pt;
+    color: #fdfdfd;    
+    font-family: 'Inter-bold', 'sans-serif';
+    font-size: 2.5rem;;
+}
 
 
 // Scroll bar para chrome
@@ -104,9 +106,12 @@ h1 {
     }
 
 
-    h1 {
+    h1{
         margin: 0;
-    }
+        font-family: 'Inter-bold', 'sans-serif';
+        font-size: 2.2rem !important;
+        color: #fff;
+      } 
 
     .custom-form {
         width: 100%;
@@ -124,9 +129,26 @@ h1 {
 @font-face {
     font-family: "Comfortaa";
     src: local("Comfortaa"), url(./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf) format("truetype");
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Roboto";
     src: local("Roboto"), url(./assets/fonts/Roboto/Roboto-Black.ttf) format("truetype");
-}
+  }
+  
+  @font-face {
+    font-family: "Roboto-Regular";
+    src: local("Roboto"), url(./assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Archivo";
+    src: local("Archivo"), url(./assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  }
+
+   @font-face {
+    font-family: "Inter-Bold";
+    src: local("Inter-Bold"), url(./assets/fonts/Inter/static/Inter-bold.ttf) format("truetype");
+  } 
+
+  //@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Inter:wght@800&display=swap');
