@@ -22,7 +22,6 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
             console.log("this.movies", this.movies);
           });
      */
-in
     this.movieService.getMovieNames().subscribe((movies: string[]) => {
       this.movienames = movies;
       //console.log("MOVIES", this.movienames);
@@ -31,11 +30,7 @@ in
 
   getMovie(value: string) {
     console.log("SELECCION", value);
-    this.movieService.getMovieByName(value).subscribe((movie: Movie) => {
-      this.movie = movie;
-      console.log("MOVI", this.movie.name);
-      this.movieSelectedEvent.emit(this.movie);
-    });
+    this.movieSelectedEvent.emit(value);
   }
 
 }
