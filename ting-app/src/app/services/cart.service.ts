@@ -1,104 +1,78 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Cart } from '../interfaces/cart';
+
+const CART_URL = `${environment.baseApiUrl}/api/cart`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  movie : string = "";
-  moviePrice: number = 0;
-  theater : string = "";
-  date : string = "";
-  time : string = "";
-  exhibition : string = "";
-  seats : string[] = [];
-  extras : string[] = [];
+  user : string = "";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getMovie() {
-    return this.movie;
+  setUser(user: string) {
+    this.user = user;
   }
 
-  setMovie(movie: string) {
-    this.movie = movie;
+  getCart() : Observable<any>{
+    return this.http.get<Cart>(CART_URL+"/"+this.user);
   }
 
-  getMoviePrice() {
-    return this.moviePrice;
+  setMovie(movie2:string) : Observable<any>{
+    const body = { movie: "Angular PUT Request Example" };
+    console.log("USUARIO "+this.user)
+    return this.http.put(CART_URL+"/pepito", body);
   }
 
-  setMoviePrice(price: number) {
-    this.moviePrice = price;
+  setTheater(theater:string) : Observable<any>{
+    const body = { "theater" : theater };
+    return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  getTheater() {
-    return this.theater;
+  setDate(date:string) : Observable<any>{
+    const body = { "date" : date };
+    return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  setTheater(theater: string) {
-    this.theater = theater;
+  setTime(time:string) : Observable<any>{
+    const body = { "time" : time };
+    return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  getDate() {
-    return this.date;
+  setExhibition(exhibition:string) : Observable<any>{
+    const body = { "exhibition" : exhibition };
+    return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  setDate(date: string) {
-    this.date = date;
+  getMovie() : any {
+    const carrito = this.getCart.toString();
+    console.log(carrito);
   }
 
-  getTime() {
-    return this.time;
+  getTheater() : any {
+    return this.getCart.toString();
   }
 
-  setTime(time: string) {
-    this.time = time;
-  }
-
-  getExhibition() {
-    return this.exhibition;
-  }
-
-  setExhibition(exhibition: string) {  
-    this.exhibition = exhibition;
-  }
-
-  getSeats() {
-    return this.seats;
-  }
-
-  setSeats(seats: string[]) {
-    this.seats = seats;
-  }
-
-  getExtras() {
-    return this.extras;
-  }
-
-  setExtras(extras: string[]) {
-    this.extras = extras;
-  }
-
-
-  getTotal() {
-    let total = 0;
-    /*
-    total += this.moviePrice * this.seats.length;
-    this.extras.forEach(extra => {
-      total += extra.price;
+  getDate() : any {
+    this.getCart().subscribe((value) => {
+      return value.date;
     });
-    */
-    return total;
   }
 
-  clearCart() {
-    this.movie = "";
-    this.moviePrice = 0;
-    this.theater = "";
-    this.date = "";
-    this.exhibition = "";
-    this.seats = [];
-    this.extras = [];
+  getTime() : any {
+    this.getCart().subscribe((value) => {
+      return value.time;
+    });
+  }
+
+  getExhibition() : any {
+    this.getCart().subscribe((value) => {
+      return value.exhibition;
+    });
   }
 }

@@ -29,17 +29,8 @@ export class MovieSchedComponent implements OnInit {
     this.movie = this.cart.getMovie();
     this.theater = this.cart.getTheater();
     this.date = this.cart.getDate();
-    /*
-    this.dataSharing.selectedMovie$.subscribe((value) => {
-      this.movie = value;
-    });
-    this.dataSharing.selectedTheater$.subscribe((value) => {
-      this.theater = value;
-    });
-    this.dataSharing.selectedDate$.subscribe((value) => {
-      this.date = value;
-    });
-    */
+    console.log("TEST " +this.movie)
+
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
       this.movieUrlWide = value;
       console.log("Movie URL: " + this.movieUrlWide);
