@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -15,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   wrongUser: boolean = false;
   msgerror: string | undefined;
   userloged: boolean = false;
-  constructor(private authService: AuthService, private route: Router) { }
+  constructor(private authService: AuthService, private route: Router, private cart : CartService) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +36,7 @@ export class LoginPageComponent implements OnInit {
           next: res => {
             this.wrongUser = false;
             this.userloged = true;
+            this.cart.setUser(this.username!);
             this.route.navigate(['/moviefinder']);
           }, error: err => {
             this.wrongUser = true;
