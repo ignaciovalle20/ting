@@ -16,14 +16,26 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    /*     this.movieService.getMovies()
+          .subscribe(movies => {
+            this.movies = movies;
+            console.log("this.movies", this.movies);
+          });
+     */
+in
     this.movieService.getMovieNames().subscribe((movies: string[]) => {
       this.movienames = movies;
       //console.log("MOVIES", this.movienames);
     });
   }
-  
-  getMovie(movie: string ){
-    this.movieSelectedEvent.emit(movie);
+
+  getMovie(value: string) {
+    console.log("SELECCION", value);
+    this.movieService.getMovieByName(value).subscribe((movie: Movie) => {
+      this.movie = movie;
+      console.log("MOVI", this.movie.name);
+      this.movieSelectedEvent.emit(this.movie);
+    });
   }
 
 }
