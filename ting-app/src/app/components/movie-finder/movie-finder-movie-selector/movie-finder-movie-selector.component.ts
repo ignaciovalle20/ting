@@ -9,9 +9,7 @@ import { MovieService } from '../../../services/movie.service';
 })
 export class MovieFinderMovieSelectorComponent implements OnInit {
 
-  @Output() movieSelectedEvent = new EventEmitter<Movie>();
-
-  //movies: Movie[] = [];
+  @Output() movieSelectedEvent = new EventEmitter<string>();
 
   movienames: string[] = [];
   movie: Movie | undefined;
@@ -24,9 +22,10 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
             console.log("this.movies", this.movies);
           });
      */
+in
     this.movieService.getMovieNames().subscribe((movies: string[]) => {
       this.movienames = movies;
-      console.log("MOVIES", this.movienames);
+      //console.log("MOVIES", this.movienames);
     });
   }
 
@@ -37,7 +36,6 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
       console.log("MOVI", this.movie.name);
       this.movieSelectedEvent.emit(this.movie);
     });
-
   }
 
 }
