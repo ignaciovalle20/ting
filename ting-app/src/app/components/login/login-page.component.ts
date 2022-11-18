@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 @Component({
@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   wrongUser: boolean = false;
   msgerror: string | undefined;
   userloged: boolean = false;
-  constructor(private loginService: LoginService, private route: Router, private cart : CartService) { }
+  constructor(private authService: AuthService, private route: Router, private cart : CartService) { }
 
   ngOnInit(): void {
   }
@@ -30,8 +30,8 @@ export class LoginPageComponent implements OnInit {
     this.username = this.userinput.input;
     this.password = this.passinput.input;
     if (this.username && this.password) {
-      console.log(this.loginService.login(this.username, this.password))
-      this.loginService.login(this.username, this.password)
+      console.log(this.authService.login(this.username, this.password))
+      this.authService.login(this.username, this.password)
         .subscribe({
           next: res => {
             this.wrongUser = false;

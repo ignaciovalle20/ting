@@ -1,17 +1,13 @@
 <nav class="navbar px-3">
     <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block">
-    <div *ngIf="isHomePage">
+    <div *ngIf="isNotLoginPage">
       <div class="wide">
-        <a href="/login">
-          <button class="btn btn-login" title="Ingresar"> Ingresar </button>
-        </a>
+          <button class="btn btn-login" title="{{btnLabel}}" (click)="goNextPage()"> {{btnLabel}} </button>
       </div>
       <div class="mobile">
-        <a href="/login">
-          <button class="btn" title="Ingresar">
-            <i class="bi bi-person-circle justify-content-end vertical-align"></i>
+          <button class="btn" title="{{btnLabel}}" (click)="goNextPage()">
+            <i class="{{biclass}} justify-content-end vertical-align"></i>
           </button>
-        </a>
     </div>
   </div>
 </nav>

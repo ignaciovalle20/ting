@@ -85,10 +85,7 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
       timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    }), // ToastrModule added
-    /*  HttpClientInMemoryWebApiModule.forRoot(
-       InMemoryDataService, { dataEncapsulation: false }
-     ), */
+    }), 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
