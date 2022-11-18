@@ -24,24 +24,24 @@ export class SummaryComponent implements OnInit {
   movieUrlMobile: string = "";
 
   ngOnInit(): void {
+    this.cart.getCart().subscribe(async (cart) => {
+      const movie = await cart[0].movie;
+      const theater = await cart[0].theater;
+      const date = await cart[0].date;
+      const time = await cart[0].time;
 
-    this.movie = this.cart.getMovie();
+      this.movieService.getMovieImageWide(movie).subscribe((res) => {
+        this.movieUrlWide = res;
+      });
 
-    this.theater = this.cart.getTheater();
-    this.date = this.cart.getDate();
-    this.time = this.cart.getTime();
-    //this.seats = this.cart.getSeats();
-    //this.extras = this.cart.getExtras();
-    //this.total = this.cart.getTotal();
+      this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+        this.movieUrlMobile = res;
+      });
 
-    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value;
-      console.log("Movie URL: " + this.movieUrlWide);
-    });
-
-    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value;
-      console.log("Movie URL: " + this.movieUrlMobile);
+      this.movie = movie;
+      this.theater = theater;
+      this.date = date;
+      this.time = time;
     });
   }
 
