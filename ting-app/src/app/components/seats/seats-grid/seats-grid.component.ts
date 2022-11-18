@@ -17,7 +17,7 @@ export class SeatsGridComponent implements OnInit {
   room?: Room;
 
   rows: number[] = [];
-  function_id?: string;
+  exhibition_id?: string;
 
   checked?: boolean;
 
@@ -33,17 +33,19 @@ export class SeatsGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.checked = false;
-    //this.function_id = this.cart.getExhibition();
-    console.log(this.function_id)
-    if (this.function_id != undefined) {
-      this.buildRoom();
-    }
+    this.cart.getCart().subscribe(async (cart) => {
+      const exhibition_id = await cart[0].exhibition;
+      this.exhibition_id = exhibition_id;
+      if (this.exhibition_id != undefined) {
+        this.buildRoom();
+      }
+    });
   }
 
   buildRoom() {
-    this.exhibitionService.buildRoom(this.function_id!)
-      .subscribe((seats) => {
-
+    console.log("BUILD ROOM");
+    this.exhibitionService.buildRoom(this.exhibition_id!)
+      .subscribe(async (seats) => {
         this.seats = seats;
         console.log("this.seats", this.seats);
         this.seats.map((seat) => {
@@ -95,7 +97,7 @@ export class SeatsGridComponent implements OnInit {
 }
 
 
-      /*      this.funcionesService.getSala(this.function_id).subscribe((room) => {
+      /*      this.funcionesService.getSala(this.exhibition_id).subscribe((room) => {
              room.seats.forEach(seat => {
                this.seats.push(seat);
              });
@@ -109,7 +111,7 @@ export class SeatsGridComponent implements OnInit {
              console.log("this.rows", this.rows);
            }) */
       /*
-      this.funcionesService.getAsientosOcupados(this.function_id).subscribe((seats) => {
+      this.funcionesService.getAsientosOcupados(this.exhibition_id).subscribe((seats) => {
         seats.forEach((seat: Seats)  => {
           this.seatsUnavailables.push(seat);
         });
@@ -132,7 +134,7 @@ export class SeatsGridComponent implements OnInit {
 
 
 
-      /*       var asientos: Seats [] = this.funcionesService.armoSala(this.function_id!);
+      /*       var asientos: Seats [] = this.funcionesService.armoSala(this.exhibition_id!);
             console.log("asientos", asientos);
           */
 
