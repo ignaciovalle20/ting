@@ -48,6 +48,11 @@ export class CartService {
     return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
+  setSeats(exhibitionInp:string) : Observable<any>{
+    const body = { exhibition : exhibitionInp };
+    return this.http.put<Cart>(CART_URL+"/"+this.user, body);
+  }
+
   getMovie() : any {
     return "xd";
   }
