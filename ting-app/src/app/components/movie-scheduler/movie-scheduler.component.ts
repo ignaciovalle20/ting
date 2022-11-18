@@ -15,12 +15,10 @@ export class MovieSchedComponent implements OnInit {
 
   exhibitions: Exhibition[] = [];
 
-  cartt!: Cart;
   movie: string = "";
   theater: string = "";
   date: string = "";
   movieUrlWide: string = "";
-
   movieUrlMobile: string = "";
 
   constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) {
@@ -28,34 +26,35 @@ export class MovieSchedComponent implements OnInit {
 
    ngOnInit(){
 
-    this.cart.getCart().subscribe((cart) => {
-      this.movie = cart[0].movie;
-      this.theater = cart[0].theater;
-      this.date = cart[0].date;
-    });
+    this.cart.getCart().subscribe(async (cart) => {
+      const movie = await cart[0].movie;
+      const theater = await cart[0].theater;
+      const date = await cart[0].date;
+    
 
-    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value[0].urlWide;
+    this.movieService.getMovieImageWide(movie).subscribe((res) => {
+      this.movieUrlWide = res;
       console.log("Movie URL: " + this.movieUrlWide);
     });
 
-    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value[0].url;
+    this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+      this.movieUrlMobile = res;
       console.log("Movie URL: " + this.movieUrlMobile);
     });
 
-    this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
+    this.exhibitionService.getSchedule(movie, theater, date).subscribe((schedule: any) => {
       this.exhibitions = schedule;
+    });
+    this.movie = movie;
+    this.theater = theater;
+    this.date = date;
     });
   }
 
-  getCart(){
-    
-  }
-
   goNext(f: string, t: string) {
-    this.cart.setExhibition(f);
-    this.cart.setTime(t);
+    console.log("Exhibition: " + f + " " + t);
+    this.cart.setExhibition(f).subscribe((value) => {});
+    this.cart.setTime(t).subscribe((value) => {});
     this.route.navigate(['/seats']);
   }
 

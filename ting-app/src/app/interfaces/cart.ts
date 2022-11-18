@@ -1,6 +1,5 @@
 import { SelectedExtras } from './selectedExtras';
 import { Seats} from './seats';
-import { Exhibition } from './exhibition';
 
 export interface Cart {
     username: string,
@@ -8,7 +7,7 @@ export interface Cart {
     theater: string,
     date: string,
     time: string,
-    exhibition: Exhibition,
+    exhibition: string,
     seats: Seats[],
     selectedExtras: SelectedExtras,
 }
