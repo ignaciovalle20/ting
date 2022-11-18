@@ -4,6 +4,7 @@ import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Cart } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-movie-scheduler',
@@ -14,6 +15,7 @@ export class MovieSchedComponent implements OnInit {
 
   exhibitions: Exhibition[] = [];
 
+  cartt!: Cart;
   movie: string = "";
   theater: string = "";
   date: string = "";
@@ -21,29 +23,34 @@ export class MovieSchedComponent implements OnInit {
 
   movieUrlMobile: string = "";
 
-  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) { }
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) {
+  }
 
+   ngOnInit(){
 
-  ngOnInit(): void {
-
-    this.movie = this.cart.getMovie();
-    this.theater = this.cart.getTheater();
-    this.date = this.cart.getDate();
-    console.log("TEST " +this.movie)
+    this.cart.getCart().subscribe((cart) => {
+      this.movie = cart[0].movie;
+      this.theater = cart[0].theater;
+      this.date = cart[0].date;
+    });
 
     this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value;
+      this.movieUrlWide = value[0].urlWide;
       console.log("Movie URL: " + this.movieUrlWide);
     });
 
     this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value;
+      this.movieUrlMobile = value[0].url;
       console.log("Movie URL: " + this.movieUrlMobile);
     });
 
     this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
       this.exhibitions = schedule;
     });
+  }
+
+  getCart(){
+    
   }
 
   goNext(f: string, t: string) {

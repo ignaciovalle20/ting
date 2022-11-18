@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Cart } from '../interfaces/cart';
@@ -19,39 +19,37 @@ export class CartService {
     this.user = user;
   }
 
-  getCart() : Observable<any>{
-    return this.http.get<Cart>(CART_URL+"/"+this.user);
+  getCart() : Observable<any> {
+    return this.http.get<any>(CART_URL+"/"+this.user);
   }
 
-  setMovie(movie2:string) : Observable<any>{
-    const body = { movie: "Angular PUT Request Example" };
-    console.log("USUARIO "+this.user)
-    return this.http.put(CART_URL+"/pepito", body);
+  setMovie(movieInp:string) : Observable<any>{
+    const body = { movie: movieInp };
+    return this.http.put(CART_URL+"/"+this.user, body);
   }
 
-  setTheater(theater:string) : Observable<any>{
-    const body = { "theater" : theater };
+  setTheater(theaterInp:string) : Observable<any>{
+    const body = { theater : theaterInp };
     return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  setDate(date:string) : Observable<any>{
-    const body = { "date" : date };
+  setDate(dateInp:string) : Observable<any>{
+    const body = { date : dateInp };
     return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  setTime(time:string) : Observable<any>{
-    const body = { "time" : time };
+  setTime(timeInp:string) : Observable<any>{
+    const body = { time : timeInp };
     return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
-  setExhibition(exhibition:string) : Observable<any>{
-    const body = { "exhibition" : exhibition };
+  setExhibition(exhibitionInp:string) : Observable<any>{
+    const body = { exhibition : exhibitionInp };
     return this.http.put<Cart>(CART_URL+"/"+this.user, body);
   }
 
   getMovie() : any {
-    const carrito = this.getCart.toString();
-    console.log(carrito);
+    return "xd";
   }
 
   getTheater() : any {
