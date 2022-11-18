@@ -22,7 +22,7 @@ export class MovieFinderMovieSelectorComponent implements OnInit {
             console.log("this.movies", this.movies);
           });
      */
-    this.movieService.getMovieNames().subscribe((movies: string[]) => {
+    this.movieService.getMoviesList().subscribe((movies: string[]) => {
       this.movienames = movies;
       //console.log("MOVIES", this.movienames);
     });

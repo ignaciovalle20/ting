@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ToastrModule } from 'ngx-toastr';
@@ -87,10 +85,7 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
       timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-    }), // ToastrModule added
-    /*  HttpClientInMemoryWebApiModule.forRoot(
-       InMemoryDataService, { dataEncapsulation: false }
-     ), */
+    }), 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
