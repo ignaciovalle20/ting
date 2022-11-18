@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (idToken && !whiteListURL.includes(req.url)) {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization",
-                    "Bearer " + idToken)
+                    idToken)
             });
 
             return next.handle(cloned).pipe(catchError(err => {

@@ -28,25 +28,33 @@ export class MovieSchedComponent implements OnInit {
 
    ngOnInit(){
 
-    this.cart.getCart().subscribe((cart) => {
-      this.movie = cart[0].movie;
-      this.theater = cart[0].theater;
-      this.date = cart[0].date;
+    this.cart.getCart().subscribe(async (cart) => {
+      const movie = await cart[0].movie;
+      const theater = await  cart[0].theater;
+      const date = await cart[0].date;
+      
+      this.movieService.getMovieImageWide(movie).subscribe((res) => {
+        console.log("RES", res);
+        console.log("movie", movie);
+        this.movieUrlWide = res;
+        console.log("Movie URL: " + this.movieUrlWide);
+      });
+  
+      this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+        this.movieUrlMobile = res;
+        console.log("Movie URL: " + this.movieUrlMobile);
+      });
+  
+      this.exhibitionService.getSchedule(movie, theater, date).subscribe((schedule: any) => {
+        this.exhibitions = schedule;
+      });
+      this.movie = movie;
+      this.theater = theater;
+      this.date = date;
+
     });
 
-    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value[0].urlWide;
-      console.log("Movie URL: " + this.movieUrlWide);
-    });
 
-    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value[0].url;
-      console.log("Movie URL: " + this.movieUrlMobile);
-    });
-
-    this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
-      this.exhibitions = schedule;
-    });
   }
 
   getCart(){
