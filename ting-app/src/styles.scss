@@ -1,7 +1,8 @@
-.carousel-control-prev,
+ .carousel-control-prev,
 .carousel-control-next {
-    height: 50vh;
+    height: 65vh;
 }
+
 
 @media (min-width: 768px) {
 
@@ -9,15 +10,18 @@
     .carousel-control-next {
         height: 65vh;
     }
+} 
+
+.carousel-inner{
+    position: absolute !important;
 }
 
-/*
-.carousel-caption {
+/* .carousel-caption {
     touch-action: none;
     -webkit-user-drag: none;
     overflow-block: none;
 }
-*/
+ */
 
 body {
     width: 100%;
