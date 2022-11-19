@@ -46,7 +46,6 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     LoginPageComponent,
     LoginPageBtnComponent,
     LoginPageInputComponent,
-    NavbarComponent,
     MovieFinderComponent,
     MovieFinderMovieSelectorComponent,
     MovieFinderTheaterSelectorComponent,
@@ -71,7 +70,8 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     SummaryComponent,
     SeatComponent,
     QrcodeComponent,
-    SummaryBtnNextComponent
+    SummaryBtnNextComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +85,7 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
       timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
+      progressBar: true,
     }), 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
