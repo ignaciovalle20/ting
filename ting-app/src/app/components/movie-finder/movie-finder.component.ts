@@ -45,9 +45,9 @@ export class MovieFinderComponent implements OnInit {
         this.schedNotFound = false;
 
         // Añadir al carrito
-        this.cart.setMovie(this.selectedMovie);
-        this.cart.setTheater(this.selectedTheater);
-        this.cart.setDate(this.selectedDate!);
+        this.cart.setMovie(this.selectedMovie).subscribe((value) => {});
+        this.cart.setTheater(this.selectedTheater).subscribe((value) => {});
+        this.cart.setDate(this.selectedDate!).subscribe((movies) => {});
         //
 
         this.route.navigate(['/moviescheduler']);

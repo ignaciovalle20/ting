@@ -4,6 +4,7 @@ import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Cart } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-movie-scheduler',
@@ -18,37 +19,42 @@ export class MovieSchedComponent implements OnInit {
   theater: string = "";
   date: string = "";
   movieUrlWide: string = "";
-
   movieUrlMobile: string = "";
 
-  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) { }
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cart: CartService) {
+  }
 
+   ngOnInit(){
 
-  ngOnInit(): void {
+    this.cart.getCart().subscribe(async (cart) => {
+      const movie = await cart[0].movie;
+      const theater = await cart[0].theater;
+      const date = await cart[0].date;
+    
 
-    this.movie = this.cart.getMovie();
-    this.theater = this.cart.getTheater();
-    this.date = this.cart.getDate();
-    console.log("TEST " +this.movie)
-
-    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value;
+    this.movieService.getMovieImageWide(movie).subscribe((res) => {
+      this.movieUrlWide = res;
       console.log("Movie URL: " + this.movieUrlWide);
     });
 
-    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value;
+    this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+      this.movieUrlMobile = res;
       console.log("Movie URL: " + this.movieUrlMobile);
     });
 
-    this.exhibitionService.getSchedule(this.movie, this.theater, this.date).subscribe((schedule: any) => {
+    this.exhibitionService.getSchedule(movie, theater, date).subscribe((schedule: any) => {
       this.exhibitions = schedule;
+    });
+    this.movie = movie;
+    this.theater = theater;
+    this.date = date;
     });
   }
 
   goNext(f: string, t: string) {
-    this.cart.setExhibition(f);
-    this.cart.setTime(t);
+    console.log("Exhibition: " + f + " " + t);
+    this.cart.setExhibition(f).subscribe((value) => {});
+    this.cart.setTime(t).subscribe((value) => {});
     this.route.navigate(['/seats']);
   }
 

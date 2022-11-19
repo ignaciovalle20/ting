@@ -14,8 +14,6 @@ export class SeatsBtnNextComponent implements OnInit {
   }
 
   goNext() {
-    console.log("goNext");
     this.goNextEvent.emit();
-    // this.route.navigate(['/snacks']);
   }
 }
