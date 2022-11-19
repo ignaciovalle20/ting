@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../interfaces/movie';
-
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   movies: Movie[] = [];
 
   userloged?: boolean = false;
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.movieService.getMovies()

@@ -11,6 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>,
         next: HttpHandler): Observable<HttpEvent<any>> {
 
+            console.log("INTERCEPTOR", req.url);
         const idToken = localStorage.getItem("id_token");
         const whiteListURL = [
             "http://localhost:3000/api/login",
@@ -20,7 +21,6 @@ export class AuthInterceptor implements HttpInterceptor {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization", idToken)
             });
-
             return next.handle(cloned).pipe(catchError(err => {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
@@ -36,7 +36,6 @@ export class AuthInterceptor implements HttpInterceptor {
             }));
         }
         else {
-            this.route.navigate(["/login"]);
             return next.handle(req);
         }
     }
