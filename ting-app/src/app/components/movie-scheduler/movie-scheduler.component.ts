@@ -4,6 +4,7 @@ import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Cart } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-movie-scheduler',

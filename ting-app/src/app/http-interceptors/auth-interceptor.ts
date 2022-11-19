@@ -25,7 +25,6 @@ export class AuthInterceptor implements HttpInterceptor {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization", idToken)
             });
-
             return next.handle(cloned).pipe(catchError(err => {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
