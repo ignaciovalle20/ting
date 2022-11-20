@@ -16,7 +16,8 @@ export class QrcodeComponent implements OnInit {
 
   qrcode?: string;
   width = 250;
-  qrInfo: string = "";
+  /*   qrInfo: string = "";
+   */
   qrloaded: boolean = false;
   params?: string;
 
@@ -26,22 +27,20 @@ export class QrcodeComponent implements OnInit {
     this.params = this.activeRoute.snapshot.params['qrcodeID'];
     // SI llega un parametro, es porque viene de la pantalla del Historial de compras
     if (this.params != undefined) {
-      this.qrInfo = JSON.stringify(this.params!);
       this.qrcode = this.params!.toString();
       this.qrloaded = true;
       this.btnLabel = "Volver";
     }
-    else {   
+    else {
 
       this.cartService.getCart().subscribe(async (cart) => {
         this.qrcode = await cart[0].qrcode.toString();
-        this.qrInfo = JSON.stringify(this.qrcode!);
         if (this.qrcode?.length != 0) {
           this.qrloaded = true;
         }
         this.btnLabel = "Finalizar";
-        console.log("QR", this.qrcode?.toString());
-        console.log("QR JSON", JSON.stringify(this.qrcode!));
+        /*         console.log("QR", this.qrcode?.toString());
+                console.log("QR JSON", JSON.stringify(this.qrcode!)); */
         //Agregamos a las compras realizadas
         this.purchasesService.addPurchase(cart).subscribe(() => { });
       });

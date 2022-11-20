@@ -16,7 +16,7 @@ export class QrcodeBtnComponent implements OnInit {
   }
 
   goTo(): void {
-    if(this.btnLabel == 'Finish') {
+    if(this.btnLabel == 'Finalizar') {
       this.route.navigate(['/home']);
     }
     else{
