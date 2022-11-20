@@ -12,7 +12,7 @@
                                 <p class="m-2">{{row}}</p>
                                 <ng-container *ngFor="let seat of seats">
                                     <td *ngIf="seat.row == row">
-                                        <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" [disabled]="seat.available"
+                                        <app-seat [seat]="seat" [empty]="seat.empty" [checked]="checked" [disabled]="seat.available"
                                          [id]="'Fila: '+ seat.row + ' Asiento: ' + seat.seat" (seatClickEvent)="checkboxClick($event)">
                                         </app-seat>
                                     </td>

@@ -1,0 +1,18 @@
+li{
+    background-color: #262b4f;
+}
+
+
+@media (min-width: 576px) {
+    ul{
+        max-height: 550px;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    ul{
+        max-height: 25vh;
+        overflow: auto;
+    }
+}

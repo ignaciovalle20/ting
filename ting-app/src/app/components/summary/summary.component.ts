@@ -24,6 +24,8 @@ export class SummaryComponent implements OnInit {
   movieUrlMobile: string = "";
 
   ngOnInit(): void {
+
+    this.cart.generateQR().subscribe((value) => {});
     this.cart.getCart().subscribe(async (cart) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;

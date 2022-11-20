@@ -1,13 +1,15 @@
+<body [style.--BgImageWide]="'url('+movieUrlWide+')'" [style.--BgImageMobile]="'url('+movieUrlMobile+')'" > 
 <app-navbar></app-navbar>
 <div id="boxContent" >
     <div class="input-group overflow-auto" id="extras">
-        <form class="custom-form" method="post">
-            <h1 class="text-center">Snacks</h1>
-            <div class="mt-3">
+        <form class="custom-form">
+            <h1 class="text-center mb-0">Snacks</h1>
+            <div class="mb-0">
             <app-extras-list #extrasList [extras]="extras" (ExtraEvent)="getCompras($event)"></app-extras-list>
             <app-extras-next (ExtrasNext)="extrasNext()"></app-extras-next>
             </div>
         </form>
     </div>
 </div>
-<app-footer></app-footer>
+<app-footer></app-footer>    
+</body>

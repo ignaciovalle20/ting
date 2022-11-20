@@ -12,11 +12,19 @@ const LOGIN_URL = `${environment.baseApiUrl}/api/login`;
 export class AuthService {
 
 
+
   constructor(private http: HttpClient) { }
 
-  logedUsers: string[] = [
+  user : string = "";
+  logedUsers: string[] = [];
 
-  ];
+  setUser(user: string) {
+    this.user = user;
+  }
+
+  getUser() {
+    return this.user;
+  }
 
   /*   getUser(user: string, pass: string): boolean {
   

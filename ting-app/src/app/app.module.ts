@@ -27,7 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './components/home/home-page.component';
 import { SectionHeadingComponent } from './components/home/section-heading/section-heading.component';
 import { PostCarouselComponent } from './components/home/post-carousel/post-carousel.component';
-import { PostImgComponent } from './components/home/post-img/post-img.component';
+import { MovieImgComponent } from './components/home/post-img/post-img.component';
 import { InfoPostComponent } from './components/home/info-post/info-post.component';
 import { ProcessingPaymentComponent } from './components/processing-payment/processing-payment.component';
 import { HomeBuyBtnComponent } from './components/home/home-buy-btn/home-buy-btn.component';
@@ -39,6 +39,11 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { SeatComponent } from './components/seats/seat/seat.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/summary-btn-next.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+import { PurchasesBtnReturnComponent } from './components/purchases/purchases-btn-return/purchases-btn-return.component';
+import { PurchasesListComponent } from './components/purchases/purchases-list/purchases-list.component';
+import { PurchasesItemComponent } from './components/purchases/purchases-item/purchases-item.component';
+import { QrcodeBtnComponent } from './components/qrcode/qrcode-btn/qrcode-btn.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +66,7 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     HomePageComponent,
     FooterComponent,
     PostCarouselComponent,
-    PostImgComponent,
+    MovieImgComponent,
     InfoPostComponent,
     ProcessingPaymentComponent,
     HomeBuyBtnComponent,
@@ -71,7 +76,12 @@ import { SummaryBtnNextComponent } from './components/summary/summary-btn-next/s
     SeatComponent,
     QrcodeComponent,
     SummaryBtnNextComponent,
-    NavbarComponent
+    NavbarComponent,
+    PurchasesComponent,
+    PurchasesBtnReturnComponent,
+    PurchasesListComponent,
+    PurchasesItemComponent,
+    QrcodeBtnComponent
   ],
   imports: [
     BrowserModule,

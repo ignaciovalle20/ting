@@ -1,8 +1,8 @@
-import { PostImg } from './postImg';
+import { MovieImg } from './movieImg';
 
 export interface Movie {
     id: string,
-    postImg: PostImg,
+    movieImg: MovieImg,
     name: string,
     description: string,
     tags?: string[],

@@ -1,7 +1,18 @@
 <app-navbar></app-navbar>
 <div id="boxContent">
-    <div class="d-flex justify-content-center " id="qrcode">
-        <qr-code class="mt-5" [value]="qrInfo" [size]='width' ></qr-code>
-    </div>
+  <div *ngIf="qrloaded; else notloaded" class="d-flex justify-content-center p-0 m-1" id="qrcode">
+    <qr-code [value]="qrInfo" [size]='width'></qr-code>
+  </div>
+  <div class="d-flex justify-content-center m-3">
+    <h3> QRCode: {{qrcode}}</h3>
+  </div>
+  <app-qrcode-btn [btnLabel]="btnLabel!"> </app-qrcode-btn>
 </div>
+<ng-template #notloaded>
+  <div class="d-flex justify-content-center text-white loading p-5">
+      <div class="spinner-border" role="status">
+      </div>
+  </div>
+</ng-template>
+
 <app-footer></app-footer>

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Extra } from 'src/app/interfaces/extra';
+import { CartService } from 'src/app/services/cart.service';
 import { ExtrasService } from 'src/app/services/extras.service';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-extras',
@@ -12,8 +14,12 @@ export class ExtrasComponent implements OnInit {
   
   extras: Extra[] = [];
   Seleccionados = new Map();
+
+  movieUrlWide: string = "";
+  movieUrlMobile: string = "";
   
-  constructor(private route: Router, private extrasService: ExtrasService) { }
+  constructor(private route: Router, private extrasService: ExtrasService,
+     private cartService: CartService, private movieService: MovieService) { }
 
   @ViewChild('extrasList') extrasList!: any;
 
@@ -21,6 +27,22 @@ export class ExtrasComponent implements OnInit {
     this.extrasService.getExtras()
       .subscribe(extras => {
         this.extras = extras;
+        console.log("this Extra", this.extras)
+      });
+
+      this.cartService.getCart().subscribe(async (cart) => {
+        const movie = await cart[0].movie;
+
+      this.movieService.getMovieImageWide(movie).subscribe((res) => {
+        this.movieUrlWide = res;
+        console.log("Movie URL: " + this.movieUrlWide);
+      });
+  
+      this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+        this.movieUrlMobile = res;
+        console.log("Movie URL: " + this.movieUrlMobile);
+      });
+  
       });
   }
 

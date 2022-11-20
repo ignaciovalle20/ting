@@ -7,7 +7,7 @@ span{
 }
 
 //WEB
-@media (min-width: 500px) {
+@media (min-width: 576px) {
     img{
         width:100px;
         height:100px;
@@ -27,7 +27,7 @@ span{
 }
 
 //MOBILE
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     img{
         width:50px;
         height:50px;

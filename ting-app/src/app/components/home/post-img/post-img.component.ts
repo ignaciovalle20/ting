@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { PostImg } from 'src/app/interfaces/postImg';
+import { MovieImg } from 'src/app/interfaces/movieImg';
 import { User } from 'src/app/interfaces/user';
 
 @Component({
@@ -7,9 +7,9 @@ import { User } from 'src/app/interfaces/user';
   templateUrl: './post-img.component.html',
   styleUrls: ['./post-img.component.scss']
 })
-export class PostImgComponent implements OnInit {
+export class MovieImgComponent implements OnInit {
 
-  @Input() image!: PostImg;
+  @Input() image!: MovieImg;
   @Input() movie!: string;;
 
   constructor() { }

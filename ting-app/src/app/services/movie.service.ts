@@ -51,7 +51,7 @@ export class MovieService {
             this.movie = movie;
           }
         });
-        return this.movie?.postImg.urlWide;
+        return this.movie?.movieImg.urlWide;
       }));
   }
   getMovieImageMobile(name: string): Observable<any> {
@@ -62,7 +62,7 @@ export class MovieService {
             this.movie = movie;
           }
         });
-        return this.movie?.postImg.url;
+        return this.movie?.movieImg.url;
       }));
   }
 

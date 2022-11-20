@@ -1,0 +1,13 @@
+#boxContent {
+    background-color: #262b4f;
+}
+
+body {
+    background-image: var(--BgImageWide);
+}
+
+@media (max-width: 576px) {
+    body {
+        background-image: var(--BgImageMobile);
+    }
+}
