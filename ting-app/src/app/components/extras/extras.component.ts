@@ -37,13 +37,11 @@ export class ExtrasComponent implements OnInit {
         const movie = await cart[0].movie;
 
       this.movieService.getMovieImageWide(movie).subscribe((res) => {
-        this.movieUrlWide = res;
-        console.log("Movie URL: " + this.movieUrlWide);
+        this.movieUrlWide = res[0].movieImg.urlWide;
       });
   
       this.movieService.getMovieImageMobile(movie).subscribe((res) => {
-        this.movieUrlMobile = res;
-        console.log("Movie URL: " + this.movieUrlMobile);
+        this.movieUrlMobile = res[0].movieImg.url;
       });
   
       });
@@ -60,7 +58,7 @@ export class ExtrasComponent implements OnInit {
         this.selectedExtras.push(selec);
       }
     });
-    this.cart.setExtras(this.selectedExtras).subscribe((res) => {});
+    this.cartService.setExtras(this.selectedExtras).subscribe((res) => {});
     this.route.navigate(['/summary']);
   }
 

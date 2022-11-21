@@ -91,7 +91,6 @@ export class SummaryComponent implements OnInit {
   //Botón de pagar
   goNext(){
     this.exhibitionService.putSeats(this.exhibition, this.seats).subscribe();
-    this.cart.clearCart().subscribe(() => {});
     this.route.navigate(['/processing']);
   }
   

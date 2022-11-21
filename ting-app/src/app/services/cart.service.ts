@@ -53,11 +53,6 @@ export class CartService {
     return this.http.put<Cart>(CART_URL, body);
   }
 
-  setSeats(exhibitionInp:string) : Observable<any>{
-    const body = { exhibition : exhibitionInp };
-    return this.http.put<Cart>(CART_URL+"/"+this.authService.getUser(), body);
-  }
-
   generateQR() : Observable<any> {
     this.getCart().subscribe((value) => {
       this.qrbody = { qr : value };
