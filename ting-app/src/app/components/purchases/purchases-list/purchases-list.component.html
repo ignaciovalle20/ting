@@ -1,0 +1,6 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let purchase of purchases">
+        <app-purchases-item [date]="purchase.date" [time]="purchase.time" [movie]="purchase.movie" [qrcode]="purchase.qrcode"
+            [theater]="purchase.theater"></app-purchases-item>
+    </li>
+</ul>

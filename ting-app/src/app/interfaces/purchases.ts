@@ -1,6 +1,6 @@
 export interface Purchases {
     username: string;
-    qr: string;
+    qrcode: string;
     movie: string;
     theater: string;
     date: string;

@@ -13,7 +13,7 @@
     //text-shadow: 3px 3px #000000;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 576px) {
   .custom-form {
     min-width: 300px;
     width: 100%;
@@ -64,7 +64,7 @@
   }
 
 
-  @media (min-width: 500px) {
+  @media (min-width: 576px) {
     #buscador {
       width: 45%;
       position: fixed;

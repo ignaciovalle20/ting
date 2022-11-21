@@ -12,7 +12,7 @@ export class SeatComponent implements OnInit {
 
 @Output() seatClickEvent = new EventEmitter<Event>();
 
-@Input() value?: any ;
+@Input() empty?: boolean ;
 @Input() seat?: Seats;
 
 @Input() checked?: boolean;

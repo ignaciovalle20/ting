@@ -10,16 +10,16 @@ export class NavbarComponent implements OnInit {
 
 
   isNotLoginPage?: boolean;
-
   btnLabel?: string;
-
   gotoPage?: string;
   biclass?: string;
+  isLoggedIn?: boolean;
+  btnisDisabled?: boolean;
+  btnPurchases?: string;
 
-  btnFunction?: string;
   constructor(private router: Router, private authService: AuthService) { }
 
-
+  public isMenuCollapsed = true;
   ngOnInit(): void {
     this.getRoute();
   }
@@ -28,19 +28,25 @@ export class NavbarComponent implements OnInit {
   getRoute() {
     if (this.router.url === "/home") {
       this.isNotLoginPage = true;
+      this.isLoggedIn = false;
       this.btnLabel = "Ingresar";
       this.gotoPage = "login";
       this.biclass = "bi bi-person-circle";
     }
     else if (this.router.url === "/login") {
       this.isNotLoginPage = false;
+      this.isLoggedIn = false;
+      this.btnisDisabled = true;
     }
     else{
+      this.isLoggedIn = true;
       this.isNotLoginPage = true;
       this.btnLabel = "Salir";
       this.gotoPage = "home";
+      this.btnPurchases = "Mis compras";
       this.biclass = "bi bi-box-arrow-right";
     }
+    console.log("LOGEDIN", this.isLoggedIn);
 
   }
 
@@ -52,6 +58,9 @@ export class NavbarComponent implements OnInit {
       this.authService.logout();
       this.router.navigate([this.gotoPage]);
     }
+  }
+  goToPurchases(){
+    this.router.navigate(["/purchases"]);
   }
 }
 
