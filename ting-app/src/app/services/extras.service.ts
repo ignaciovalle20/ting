@@ -13,10 +13,6 @@ export class ExtrasService {
 
   constructor(private http: HttpClient) { }
 
-  snack! : Extra;
-
-  snackS : string = "";
-
   getExtras(): Observable<Extra[]> {
     return this.http.get<any>(EXTRAS_URL);
   }

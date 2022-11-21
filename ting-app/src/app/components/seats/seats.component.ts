@@ -3,6 +3,7 @@ import { SeatsGridComponent } from './seats-grid/seats-grid.component';
 import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { CartService } from 'src/app/services/cart.service';
+import { Seats } from 'src/app/interfaces/seats';
 
 @Component({
   selector: 'app-seats',
@@ -24,29 +25,15 @@ export class SeatsComponent implements OnInit {
       const movie = await cart[0].movie;
 
       this.movieService.getMovieImageWide(movie).subscribe((res) => {
-        this.movieUrlWide = res;
-        console.log("Movie URL: " + this.movieUrlWide);
+        this.movieUrlWide = res[0].movieImg.urlWide;
       });
 
       this.movieService.getMovieImageMobile(movie).subscribe((res) => {
-        this.movieUrlMobile = res;
-        console.log("Movie URL: " + this.movieUrlMobile);
+        this.movieUrlMobile = res[0].movieImg.url;
       });
     
     this.movie = movie;
     });
-    /*
-    this.movie = this.cart.getMovie();
-    this.movieService.getMovieImageWide(this.movie).subscribe((value) => {
-      this.movieUrlWide = value;
-      console.log("Movie URL: " + this.movieUrlWide);
-    });
-
-    this.movieService.getMovieImageMobile(this.movie).subscribe((value) => {
-      this.movieUrlMobile = value;
-      console.log("Movie URL: " + this.movieUrlMobile);
-    });
-    */
   }
  
   
@@ -59,20 +46,29 @@ export class SeatsComponent implements OnInit {
   }
  
   getChangeOnGrid(){
-    /*
     let seats = this.cart.getSeats();
     if (seats.length === 0){
       this.noSeatsSelected = true;
     } else {
       this.noSeatsSelected = false;
     }
-    */
   }
 
   gotoNextPage(){
     console.log("getseats",this.seatsGridComponent.getSeats());
+    const seats = this.seatsGridComponent.getSeats();
+    var selectedSeats : Seats[] = [];
     if (this.seatsGridComponent.getSeats().length > 0) {
       //this.cart.setSeats(this.seatsGridComponent.getSeats());
+      seats.forEach(seat => {
+        let row = Number(seat.charAt(0));
+        let seatN = Number(seat.charAt(2));
+        var newSeat: Seats = { row: row, seat: seatN, empty: false, available: false };
+        selectedSeats.push(newSeat);
+      });
+      console.log("ASIENTOS SELECCIONADOS :",selectedSeats);
+      this.cart.clearSeats().subscribe();
+      this.cart.setSeats(selectedSeats).subscribe();
       this.route.navigate(['/snacks']);
       this.noSeatsSelected = false;
     }else{

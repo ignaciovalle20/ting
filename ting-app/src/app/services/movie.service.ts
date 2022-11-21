@@ -15,62 +15,19 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  //private movieUrl = 'api/movies';
-
-  movie?: Movie ;
-
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(MOVIE_URL);
   }
-  getMovieNames(): Observable<any[]> {
-    return this.http.get<any[]>(MOVIELIST_URL);
-  }
-
 
   getMoviesList(): Observable<string[]> {
     return this.http.get<string[]>(MOVIELIST_URL);
   }
 
-  getMovieByName(name: string): Observable<any> {
-    return this.http.get<Movie[]>(MOVIE_URL)
-      .pipe(map((movies: Movie[]) => {
-        movies.filter((movie) => {
-          if (movie.name === name) {
-            this.movie = movie;
-          }
-        });
-        return this.movie;
-      })); 
-  }
-
   getMovieImageWide(name: string): Observable<any> {
-    return this.http.get<Movie[]>(MOVIE_URL)
-      .pipe(map((movies: Movie[]) => {
-        movies.filter((movie) => {
-          if (movie.name === name) {
-            this.movie = movie;
-          }
-        });
-        return this.movie?.movieImg.urlWide;
-      }));
+    return this.http.get<any>(MOVIE_URL+"/imgwide/"+name)
   }
+  
   getMovieImageMobile(name: string): Observable<any> {
-    return this.http.get<Movie[]>(MOVIE_URL)
-      .pipe(map((movies: Movie[]) => {
-        movies.filter((movie) => {
-          if (movie.name === name) {
-            this.movie = movie;
-          }
-        });
-        return this.movie?.movieImg.url;
-      }));
+    return this.http.get<any>(MOVIE_URL+"/img/"+name)
   }
-
- /*  getArrayOfImgs(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.imgsUrl);
-  } */
-  /* 
-  getArrayOfSearchedImgs(value: string): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.imgsUrl + `?tags=${value}`);
-  } */
 }

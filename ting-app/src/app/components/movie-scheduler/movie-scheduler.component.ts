@@ -33,13 +33,11 @@ export class MovieSchedComponent implements OnInit {
     
 
     this.movieService.getMovieImageWide(movie).subscribe((res) => {
-      this.movieUrlWide = res;
-      console.log("Movie URL: " + this.movieUrlWide);
+      this.movieUrlWide = res[0].movieImg.urlWide;
     });
 
     this.movieService.getMovieImageMobile(movie).subscribe((res) => {
-      this.movieUrlMobile = res;
-      console.log("Movie URL: " + this.movieUrlMobile);
+      this.movieUrlMobile = res[0].movieImg.url;
     });
 
     this.exhibitionService.getSchedule(movie, theater, date).subscribe((schedule: any) => {
@@ -51,10 +49,10 @@ export class MovieSchedComponent implements OnInit {
     });
   }
 
-  goNext(f: string, t: string) {
-    console.log("Exhibition: " + f + " " + t);
-    this.cart.setExhibition(f).subscribe((value) => {});
-    this.cart.setTime(t).subscribe((value) => {});
+  goNext(exhibition: string, time: string, price : number) {
+    this.cart.setExhibition(exhibition).subscribe((value) => {});
+    this.cart.setTime(time).subscribe((value) => {});
+    this.cart.setPrice(price).subscribe((value) => {});
     this.route.navigate(['/seats']);
   }
 

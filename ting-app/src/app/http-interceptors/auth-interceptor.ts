@@ -11,7 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>,
         next: HttpHandler): Observable<HttpEvent<any>> {
 
-            console.log("INTERCEPTOR", req.url);
+            //console.log("INTERCEPTOR", req.url);
         const idToken = localStorage.getItem("id_token");
         const whiteListURL = [
             "/login",

@@ -11,7 +11,10 @@ import { CartService } from 'src/app/services/cart.service';
 export class SeatsGridComponent implements OnInit {
 
   seleccionados: string[] = [];
+  seleccionadosDisplay: string[] = [];
   seats: Seats[] = [];
+
+  seatsFromCart: Seats[] = [];
 
   seatsUnavailables: Seats[] = [];
   room?: Room;
@@ -40,6 +43,9 @@ export class SeatsGridComponent implements OnInit {
         this.buildRoom();
       }
     });
+    this.cart.getSeats().subscribe(async (seatscart : any) => {
+      this.seatsFromCart = seatscart;
+    });
   }
 
   buildRoom() {
@@ -59,20 +65,27 @@ export class SeatsGridComponent implements OnInit {
   }
 
   checkboxClick(event: any) {
-    console.log("maxseatAfuera", this.maxSeats);
-    console.log("event", event.target);
     if (event.target.checked && this.seleccionados.length < 8) {
       // Si esta seleccionado, lo agregamos a la lista
       console.log(event.target)
       // Con el push no refresca automaticamente el dom
-      //this.seleccionados.push(event.target.id);
       let nuevoAsiento = event.target.id + " ";
       this.seleccionados = [...this.seleccionados, nuevoAsiento];
+      this.seleccionadosDisplay = [];
+      this.seleccionados.forEach(seat => {
+        var seatString = "Fila: " + seat.charAt(0) + " Asiento: " + seat.charAt(2);
+        this.seleccionadosDisplay = [...this.seleccionadosDisplay, seatString];
+      });
+
     } else if (!event.target.checked) {
       //Si se setea en False borramos el elemento del array
       this.maxSeats = false;
-      console.log("entre aca ", this.maxSeats);
       this.seleccionados = this.seleccionados.filter((seat: string) => seat !== event.target.id + " ");
+      this.seleccionadosDisplay = [];
+      this.seleccionados.forEach(seat => {
+        var seatString = "Fila: " + seat.charAt(0) + " Asiento: " + seat.charAt(2);
+        this.seleccionadosDisplay.push(seatString);
+      });
     }
     else {
       //si ya se seleccionaron 8 asientos, no se puede seleccionar mas
@@ -82,8 +95,6 @@ export class SeatsGridComponent implements OnInit {
       this.gridChangeEvent.emit();
     }
     // (<HTMLInputElement>document.getElementById("seatsSelected")).innerHTML = this.seleccionados.tostring();
-    console.log("this.seleccionados", this.seleccionados);
-    console.log("this.seats", this.seats);
 
     //esto es para que se borre el mensaje de error cuando se selecciona un asiento
     this.gridChangeEvent.emit();

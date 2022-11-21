@@ -12,8 +12,8 @@
                                 <p class="m-2">{{row}}</p>
                                 <ng-container *ngFor="let seat of seats">
                                     <td *ngIf="seat.row == row">
-                                        <app-seat [seat]="seat" [empty]="seat.empty" [checked]="checked" [disabled]="seat.available"
-                                         [id]="'Fila: '+ seat.row + ' Asiento: ' + seat.seat" (seatClickEvent)="checkboxClick($event)">
+                                        <app-seat [seat]="seat" [value]="seat.empty" [checked]="checked" [disabled]="seat.available"
+                                         [id]="seat.row + ',' + seat.seat" (seatClickEvent)="checkboxClick($event)">
                                         </app-seat>
                                     </td>
                                 </ng-container>
@@ -28,7 +28,7 @@
         <!-- NO PUDE HACERLO ANDAR CON NGMMODEL Y RENDERIZAR EL HTML -->
         <h6 class="d-flex justify-content-center">Asientos seleccionados:</h6>
         <!-- Agregamos el ngDefaultControl porque sino no refresca automatico el dom con los datos de seleccionados -->
-        <span id="seatsSelected" class="d-flex justify-content-center" ngDefaultControl> {{seleccionados}} </span>
+        <span id="seatsSelected" class="d-flex justify-content-center" ngDefaultControl *ngFor="let seat of seleccionadosDisplay"> {{seat}} </span>
         <ng-container *ngIf="maxSeats">
             <div class="alert alert-danger" role="alert">
                 Limite de asientos alcanzado
