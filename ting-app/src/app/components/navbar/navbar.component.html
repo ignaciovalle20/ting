@@ -1,13 +1,29 @@
-<nav class="navbar px-3">
-    <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block">
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">
+      <img src="./assets/icons/TiNG-Cropped.png" alt="TiNG Logo" width="40" height="34" class="d-inline-block">
+    </a>
     <div *ngIf="isNotLoginPage">
-      <div class="wide">
-          <button class="btn btn-login" title="{{btnLabel}}" (click)="goNextPage()"> {{btnLabel}} </button>
-      </div>
-      <div class="mobile">
-          <button class="btn" title="{{btnLabel}}" (click)="goNextPage()">
-            <i class="{{biclass}} justify-content-end vertical-align"></i>
-          </button>
+    <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+    <button class="navbar-toggler  border disabled border-light text-white" type="button"
+      (click)="isMenuCollapsed = !isMenuCollapsed" [disabled]="btnisDisabled">&#9776;</button>
+    </div>
+
+    <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse align-items-end justify-content-end">
+      <ul class="navbar-nav align-items-end">
+        <div *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <button class="btn btn-link text-white" title="{{btnPurchases}} " (click)="isMenuCollapsed = true" (click)="goToPurchases()"> {{btnPurchases}} </button>          </li>
+        </div>
+          <li class="nav-item">
+            <!-- Step 4: Close the menu when a link is clicked. 
+            <a class="nav-link text-white" >{{btnLabel}}</a>-->
+            <button class="btn btn-link text-white" title="{{btnLabel}}" (click)="isMenuCollapsed = true" (click)="goNextPage()"> {{btnLabel}} </button>
+          </li>
+     
+
+      </ul>
     </div>
   </div>
 </nav>

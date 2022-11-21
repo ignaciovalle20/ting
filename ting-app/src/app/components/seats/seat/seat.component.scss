@@ -51,7 +51,7 @@
     //Value toma el valor de Empty, si esta vacio el asiento no muestra nada
     input[value=true] {
       &:hover {
-        cursor: default;
+        cursor: not-allowed;
       }
   
       +img {

@@ -36,6 +36,7 @@ export class LoginPageComponent implements OnInit {
           next: res => {
             this.wrongUser = false;
             this.userloged = true;
+            this.authService.setUser(this.username!);
             this.route.navigate(['/moviefinder']);
           }, error: err => {
             this.wrongUser = true;

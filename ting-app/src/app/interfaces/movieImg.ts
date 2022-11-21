@@ -1,5 +1,5 @@
 
-export interface PostImg {
+export interface MovieImg {
     id: string;
     url: string;
     urlWide: string;

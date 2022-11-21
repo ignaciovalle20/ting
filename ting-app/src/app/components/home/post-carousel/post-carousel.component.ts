@@ -49,9 +49,7 @@ export class PostCarouselComponent implements OnInit {
     this.swipeStartXPos = undefined;
   }
 
- /*  ngAfterviewInit() {
-    this.userloged = this.loginService.isUserLoged("admin");
-  } */
+ 
   
 
 }

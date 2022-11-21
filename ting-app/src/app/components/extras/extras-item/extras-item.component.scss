@@ -7,7 +7,7 @@ span{
 }
 
 //WEB
-@media (min-width: 500px) {
+@media (min-width: 576px) {
     img{
         width:100px;
         height:100px;
@@ -27,18 +27,18 @@ span{
 }
 
 //MOBILE
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     img{
         width:50px;
         height:50px;
     }
     #minus,#plus{
         max-height: 2.5rem;
-        max-width: 1.0rem;
+        max-width: 2.0rem;
     }
     .btn-plus,.btn-minus{
         max-height: 2.5rem;
-        max-width: 1.0rem;
+        max-width: 2.0rem;
     }
     .input-number{
         max-height: 3rem;
@@ -82,7 +82,7 @@ span{
     overflow: hidden;
     border: none;
     border-radius: 0%;
-    padding: 10px;
+    padding: 15px;
 }
 
 .btn-plus{

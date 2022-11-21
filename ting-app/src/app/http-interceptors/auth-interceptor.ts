@@ -14,10 +14,16 @@ export class AuthInterceptor implements HttpInterceptor {
             //console.log("INTERCEPTOR", req.url);
         const idToken = localStorage.getItem("id_token");
         const whiteListURL = [
-            "http://localhost:3000/api/login",
-            "http://localhost:3000/api/home",
+            "/login",
+            "/home",
+            "/api/movies",
         ];
-        if (idToken && !whiteListURL.includes(req.url)) {
+        console.log("REQ", this.route.url);
+        if (!idToken && !whiteListURL.includes(this.route.url)) {
+            console.log("No hay token");
+            this.route.navigate(["/login"]);
+        }
+        if (idToken && !whiteListURL.includes(this.route.url)) {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization", idToken)
             });

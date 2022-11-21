@@ -4,7 +4,6 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 28px;
-  min-height: 25vh;
   background-color: #262b4f;
   color: #fdfdfd;
 
@@ -26,3 +25,14 @@
     color: #fdfdfd;
   }
 }
+
+@media (min-width: 768px) {
+  .description {
+    padding-bottom: 3rem;
+  }
+}
+  @media (min-width: 1280px) {
+    .description {
+      padding-bottom: 5rem;
+    }
+  }

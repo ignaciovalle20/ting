@@ -3,16 +3,16 @@ li{
 }
 
 
-@media (min-width: 500px) {
+@media (min-width: 576px) {
     ul{
         height: 550px;
         overflow: auto;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     ul{
-        height: 300px;
+        height: 35vh;
         overflow: auto;
     }
 }

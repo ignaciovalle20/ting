@@ -26,6 +26,7 @@ export class MovieService {
   getMovieImageWide(name: string): Observable<any> {
     return this.http.get<any>(MOVIE_URL+"/imgwide/"+name)
   }
+  
   getMovieImageMobile(name: string): Observable<any> {
     return this.http.get<any>(MOVIE_URL+"/img/"+name)
   }

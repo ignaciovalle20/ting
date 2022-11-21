@@ -9,8 +9,9 @@ import { ProcessingPaymentComponent } from './components/processing-payment/proc
 import { SeatsComponent } from './components/seats/seats.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+
 const routes: Routes = [
-  
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent},
   { path: 'moviefinder', component: MovieFinderComponent},
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'snacks', component: ExtrasComponent},
   { path: 'processing', component: ProcessingPaymentComponent},
   { path: 'summary', component: SummaryComponent},
-  { path: 'qrcode' , component: QrcodeComponent}
+  { path: 'qrcode' , component: QrcodeComponent},
+  { path: 'qrcode/:qrcodeID', component: QrcodeComponent},
+  { path: 'purchases', component: PurchasesComponent}
 ];
 
 @NgModule({

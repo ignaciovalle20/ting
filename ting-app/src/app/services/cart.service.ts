@@ -14,7 +14,10 @@ const CART_URL = `${environment.baseApiUrl}/api/cart`;
 export class CartService {
 
 
+  qrbody: any;
+
   constructor(private http: HttpClient) { }
+
 
   getCart() : Observable<any> {
     return this.http.get<any>(CART_URL);
@@ -48,6 +51,18 @@ export class CartService {
   setPrice(priceInp:number) : Observable<any>{
     const body = { price : priceInp };
     return this.http.put<Cart>(CART_URL, body);
+  }
+
+  setSeats(exhibitionInp:string) : Observable<any>{
+    const body = { exhibition : exhibitionInp };
+    return this.http.put<Cart>(CART_URL+"/"+this.authService.getUser(), body);
+  }
+
+  generateQR() : Observable<any> {
+    this.getCart().subscribe((value) => {
+      this.qrbody = { qr : value };
+    });
+    return this.http.put<Cart>(CART_URL+"/"+"genqrcode/", this.qrbody);
   }
 
   setSeats(seatsInp:Seats[]) : Observable<any>{
@@ -85,4 +100,6 @@ export class CartService {
     };
     return this.http.put<Cart>(CART_URL, body);
   }
+
+
 }
