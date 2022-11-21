@@ -8,6 +8,8 @@ export interface Cart {
     date: string,
     time: string,
     exhibition: string,
+    price: number,
+    qrcode: string,
     seats: Seats[],
-    selectedExtras: SelectedExtras,
+    selectedExtras: SelectedExtras[],
 }

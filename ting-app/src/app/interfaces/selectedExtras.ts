@@ -1,6 +1,6 @@
-import { Extra } from './extra';
-
 export interface SelectedExtras {
-    extra: Extra;
-    quantity: number;
+    id: string,
+    name: string,
+    price: number,
+    quantity: number,
 }

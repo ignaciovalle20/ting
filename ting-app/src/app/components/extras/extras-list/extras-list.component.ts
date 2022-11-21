@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SelectedExtras } from 'src/app/interfaces/selectedExtras';
+import { CartService } from 'src/app/services/cart.service';
 import { Extra } from '../../../interfaces/extra';
 
 @Component({
@@ -13,23 +15,33 @@ string(arg0: string) {
 
   @Input() extras : Extra[] = [];
   @Output() ExtraEvent = new EventEmitter<any>();
-  Seleccionados = new Map();
+  selectedExtras = new Map();
+  preSelectedExtras = new Map();
+  selectedExtrasFromCart : SelectedExtras[] = [];
 
-  constructor() { }
+  constructor(private cart : CartService) { }
 
   ngOnInit(): void {
+    this.cart.getCart().subscribe(async (cart) => {
+      const extras = await cart[0].selectedExtras;
+      this.selectedExtrasFromCart = extras;
+      this.selectedExtrasFromCart.forEach(extra => {
+        this.preSelectedExtras.set(extra.id, extra.quantity);
+        this.selectedExtras.set(extra.id, extra.quantity);
+      });
+    });
   }
 
   addItem(item: string) {
-    let SelecID = item.substring(0,1);
-    let SelecQuantity = item.substring(1);
-    if (SelecQuantity === "0"){
-      this.Seleccionados.delete(SelecID);
+    let SelectedID = item.substring(0,1);
+    let SelectedQuantity = item.substring(1);
+    if (SelectedQuantity === "0"){
+      this.selectedExtras.delete(SelectedID);
     }
     else{
-      this.Seleccionados.set(SelecID, SelecQuantity);
+      this.selectedExtras.set(SelectedID, SelectedQuantity);
     }
-    this.ExtraEvent.emit(this.Seleccionados);
+    this.ExtraEvent.emit(this.selectedExtras);
   }
 
 }

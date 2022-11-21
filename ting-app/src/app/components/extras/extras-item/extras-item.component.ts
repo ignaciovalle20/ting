@@ -11,9 +11,9 @@ export class ExtrasItemComponent implements OnInit {
   @Input() name : string = "";
   @Input() id : string = "";
   @Input() img : string = "";
+  @Input() quantity : number = 0;
 
   @Output() ExtraEvent = new EventEmitter<any>();
-  quantity:number = 0;
   disablePlus:boolean = false;
   disableMinus:boolean = true;
 
