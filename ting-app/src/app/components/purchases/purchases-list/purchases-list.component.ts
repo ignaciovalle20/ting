@@ -9,9 +9,8 @@ import { Purchases } from 'src/app/interfaces/purchases';
 export class PurchasesListComponent implements OnInit {
 
   @Input() purchases : Purchases[] = [];
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

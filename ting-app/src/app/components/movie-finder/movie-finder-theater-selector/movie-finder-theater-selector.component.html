@@ -1,16 +1,3 @@
-<!-- ORIGINAL
-<div class="input-group mb-3">
-    <select class="form-select" id="inputGroupSelect01">
-      <option selected disabled>Elegir cine...</option>
-      <option *ngFor="let cine of listaCines" [value]="cine">
-        {{cine.cine}}
-      </option>
-      <option *ngIf='pelicula !== ""'>{{pelicula}}</option>
-    </select>
-  </div>
--->
-
-
 <div class="input-group mb-3" >
   <select [(ngModel)]="selectedTheater" class="form-select" id="inputGroupSelectTheater" [disabled]="isDisabled" (change)="enableDateForm()" >
     <option selected disabled value="undefined">Elegir cine...</option>
@@ -19,7 +6,6 @@
         {{theater}}
       </option>
     </ng-container>
-    <!--<option *ngIf='pelicula !== ""'>{{pelicula}}</option> -->
   </select>
 </div>
 

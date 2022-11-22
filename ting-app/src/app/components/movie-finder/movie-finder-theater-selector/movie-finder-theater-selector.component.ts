@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ExhibitionService } from 'src/app/services/exhibition.service';
 import { MovieFinderDateSelectorComponent } from '../movie-finder-date-selector/movie-finder-date-selector.component';
 
@@ -18,9 +18,7 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
 
   @ViewChild(MovieFinderDateSelectorComponent) dateSelector: MovieFinderDateSelectorComponent | undefined;
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   //Obtengo los teathers de la pelicula seleccionada
   getTheater(value: string) {
@@ -36,11 +34,9 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
     this.enableDateFormEvent.emit();
   }
 
-
   selectedTheaterFunction() {
     return this.selectedTheater;
   }
-
 }
 
 

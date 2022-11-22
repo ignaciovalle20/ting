@@ -11,10 +11,11 @@ export class ProcessingPaymentComponent implements OnInit {
   constructor(private router: Router) { }
 
   sleep: number = Math.floor(Math.random() * 1800) + 1200;
+  
   ngOnInit(): void {
     setTimeout(() => {
       this.router.navigate(['qrcode']);
-  }, this.sleep);  
+    }, this.sleep);  
   } 
 
 }

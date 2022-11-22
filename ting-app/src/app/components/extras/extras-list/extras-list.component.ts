@@ -8,6 +8,7 @@ import { Extra } from '../../../interfaces/extra';
   templateUrl: './extras-list.component.html',
   styleUrls: ['./extras-list.component.scss']
 })
+
 export class ExtrasListComponent implements OnInit {
 string(arg0: string) {
   throw new Error('Method not implemented.');
@@ -43,5 +44,4 @@ string(arg0: string) {
     }
     this.ExtraEvent.emit(this.selectedExtras);
   }
-
 }

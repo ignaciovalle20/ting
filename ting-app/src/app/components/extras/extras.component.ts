@@ -20,9 +20,7 @@ export class ExtrasComponent implements OnInit {
   movieUrlWide: string = "";
   movieUrlMobile: string = "";
   
-  constructor(private route: Router, private extrasService: ExtrasService,
-     private cartService: CartService, private movieService: MovieService) { }
-
+  constructor(private route: Router, private extrasService: ExtrasService, private cartService: CartService, private movieService: MovieService) { }
 
   @ViewChild('extrasList') extrasList!: any;
 

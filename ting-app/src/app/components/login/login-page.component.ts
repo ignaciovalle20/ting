@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/services/cart.service';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -9,23 +9,20 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class LoginPageComponent implements OnInit {
 
-
   username: string | undefined;
   password: string | undefined;
 
   wrongUser: boolean = false;
   msgerror: string | undefined;
   userloged: boolean = false;
-  constructor(private authService: AuthService, private route: Router, private cart : CartService) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private authService: AuthService, private route: Router) { }
+
+  ngOnInit(): void {}
+
   @ViewChild('userinput') userinput!: any;
   @ViewChild('passinput') passinput!: any;
 
-
-  // @ViewChild(LoginPageInputComponent) userinput!: LoginPageInputComponent;
-  // @ViewChild(LoginPageInputComponent) passinput!: LoginPageInputComponent;
   login() {
     this.username = this.userinput.input;
     this.password = this.passinput.input;
@@ -36,7 +33,6 @@ export class LoginPageComponent implements OnInit {
           next: res => {
             this.wrongUser = false;
             this.userloged = true;
-            this.authService.setUser(this.username!);
             this.route.navigate(['/moviefinder']);
           }, error: err => {
             this.wrongUser = true;
@@ -49,6 +45,5 @@ export class LoginPageComponent implements OnInit {
       this.msgerror = "Debe ingresar ambos campos";
     }
   }
-
 }
 

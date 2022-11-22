@@ -15,33 +15,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  user : string = "";
-  logedUsers: string[] = [];
-
-  setUser(user: string) {
-    this.user = user;
-  }
-
-  getUser() {
-    return this.user;
-  }
-
-  /*   getUser(user: string, pass: string): boolean {
-  
-      let userfound = USERS.filter(u => u.username === user);
-      if (userfound.length > 0) {
-        if (userfound[0].password === pass) {
-          this.logedUsers.push(user);
-          return true;
-        }
-      }
-      return false;
-    }
-   *//* 
-getUser(user:string, pass: string){
- return this.http.get<any>(LOGIN_URL)
-} */
-
 
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(LOGIN_URL, { username, password })

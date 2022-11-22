@@ -8,10 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class MovieFinderNextComponent implements OnInit {
 
   @Output() SearchMovieFunctionsEvent = new EventEmitter<MouseEvent>();
+  
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   searchMovieFunctions(event: MouseEvent) {
     this.SearchMovieFunctionsEvent.emit(event);
