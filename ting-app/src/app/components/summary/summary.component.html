@@ -11,7 +11,7 @@
                 <h4 class="text-center">{{time}}hs</h4>
                 <h4 class="text-center">Asientos:</h4>
                 <h4 class="text-center" *ngFor="let seat of seatsString">{{seat}}</h4>
-                <h4 class="text-center">Extras:</h4>
+                <h4 class="text-center" *ngIf="extras.length > 0 ">Snacks:</h4>
                 <h4 class="text-center" *ngFor="let extra of extras">{{extra}}</h4>
                 <h4 class="text-center">Total ${{total}}</h4>
                 <app-summary-btn-next (SummaryNext)="goNext()"></app-summary-btn-next>

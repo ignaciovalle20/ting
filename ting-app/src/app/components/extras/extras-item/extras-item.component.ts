@@ -20,6 +20,12 @@ export class ExtrasItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.quantity > 0 && this.quantity <= 8){
+      this.disableMinus = false;
+      if (this.quantity === 8){
+        this.disablePlus = true;
+      }
+    }
   }
 
   clickPlus(){

@@ -18,8 +18,9 @@ export class PurchasesService {
     return this.http.get<Purchases[]>(PURCHASES_URL);
   }
 
-  addPurchase(): Observable<Purchases[]> {
-    return this.http.get<Purchases[]>(PURCHASES_URL);
+  addPurchase(purchase: any) : Observable<any> {
+    const body = { purchase: purchase};
+    return this.http.post<any>(PURCHASES_URL, body);
   }
 
 }

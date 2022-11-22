@@ -1,4 +1,3 @@
-import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Location} from '@angular/common';
 
@@ -7,13 +6,14 @@ import {Location} from '@angular/common';
   templateUrl: './purchases-btn-return.component.html',
   styleUrls: ['./purchases-btn-return.component.scss']
 })
+
 export class PurchasesBtnReturnComponent implements OnInit {
 
   @Output() SummaryNext = new EventEmitter<MouseEvent>();
+  
   constructor(private location: Location)  { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   goBack(){
     this.location.back();

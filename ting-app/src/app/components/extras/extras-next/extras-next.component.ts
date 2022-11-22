@@ -9,10 +9,9 @@ export class ExtrasNextComponent implements OnInit {
 
   @Output() ExtrasNext = new EventEmitter<MouseEvent>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   extrasNext(event: MouseEvent) {
     this.ExtrasNext.emit(event);

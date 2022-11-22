@@ -33,7 +33,7 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.cart.generateQR().subscribe((value) => {});
+    this.cart.generateQR().subscribe();
     this.cart.getCart().subscribe(async (cart) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
@@ -68,9 +68,11 @@ export class SummaryComponent implements OnInit {
 
   calculatePrice(){
     this.total += this.price * this.seats.length;
-    this.selectedExtras.forEach(extra => {
-      this.total += extra.price * extra.quantity;
-    });
+    if (this.selectedExtras != null){
+      this.selectedExtras.forEach(extra => {
+        this.total += extra.price * extra.quantity;
+      });
+    }
   }
 
   seatsToString(seats: Seats[]){
@@ -83,7 +85,6 @@ export class SummaryComponent implements OnInit {
   extrasToString(extrass: SelectedExtras[]){
     extrass.forEach(extra => {
       var extraString = extra.name + " x" + extra.quantity;
-      console.log("EXTRA STRING: "+extraString);
       this.extras.push(extraString);
     });
   }
@@ -91,7 +92,6 @@ export class SummaryComponent implements OnInit {
   //Botón de pagar
   goNext(){
     this.exhibitionService.putSeats(this.exhibition, this.seats).subscribe();
-    this.cart.clearCart().subscribe(() => {});
     this.route.navigate(['/processing']);
   }
   

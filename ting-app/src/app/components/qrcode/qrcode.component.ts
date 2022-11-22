@@ -39,12 +39,9 @@ export class QrcodeComponent implements OnInit {
           this.qrloaded = true;
         }
         this.btnLabel = "Finalizar";
-        /*         console.log("QR", this.qrcode?.toString());
-                console.log("QR JSON", JSON.stringify(this.qrcode!)); */
-        //Agregamos a las compras realizadas
-        this.purchasesService.addPurchase(cart).subscribe(() => { });
+        this.purchasesService.addPurchase(cart[0]).subscribe(() => { });
+        this.cartService.clearCart().subscribe(() => {});
       });
     }
   }
 }
-

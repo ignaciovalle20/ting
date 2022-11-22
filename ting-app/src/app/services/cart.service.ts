@@ -53,11 +53,6 @@ export class CartService {
     return this.http.put<Cart>(CART_URL, body);
   }
 
-  setSeats(exhibitionInp:string) : Observable<any>{
-    const body = { exhibition : exhibitionInp };
-    return this.http.put<Cart>(CART_URL+"/"+this.authService.getUser(), body);
-  }
-
   generateQR() : Observable<any> {
     this.getCart().subscribe((value) => {
       this.qrbody = { qr : value };
@@ -80,11 +75,19 @@ export class CartService {
     return this.http.put<Cart>(CART_URL, body);
   }
 
-  getSeats() : any {
+  /*
+  getSeatsLength() : any {
+    let valor : Seats[] = [];
     this.getCart().subscribe((value) => {
-      return value[0].seats;
+      valor = value[0].seats;
     });
+    if (valor === null) {
+      return 0;
+    }else{
+      return valor.length;
+    }
   }
+  */
 
   clearCart() : Observable<any>{
     const body = {

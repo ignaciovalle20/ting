@@ -67,7 +67,7 @@ span{
     
 }
 
-.btn-minus{
+.btn-minus, .btn-plus{
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
     align-items: center;
@@ -76,22 +76,17 @@ span{
     color: white;
 }
 
-.btn-minus:disabled{
-    background: #dddddd;
-    color: black;
+.btn-minus:active, .btn-plus:active {
+    border-color: transparent;
+}
+
+.btn-minus:disabled, .btn-plus:disabled{
+    background: rgba(0,0,0,0.5);
+    color: grey;
     overflow: hidden;
     border: none;
     border-radius: 0%;
     padding: 15px;
-}
-
-.btn-plus{
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;   
-    color: white; 
 }
 
 .input-number{
@@ -106,76 +101,3 @@ span{
 #quantity{
     height: fit-content;
 }
-
-
-/*
-ORIGINAL
-
-#minus{
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-    border: 1px solid #ccc;
-    max-height: 2.5rem;
-    max-width: 2.0rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;    
-}
-
-#plus{
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-    border: 1px solid #ccc;
-    max-height: 2.5rem;
-    max-width: 2.0rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    
-}
-
-.btn-minus{
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-    max-height: 2.5rem;
-    max-width: 2.0rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;    
-}
-
-.btn-minus:disabled{
-    background: #dddddd;
-    color: black;
-    overflow: hidden;
-    border: none;
-    border-radius: 0%;
-    padding: 10px;
-}
-
-.btn-plus{
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-
-    max-height: 2.5rem;
-    max-width: 2.0rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;    
-}
-
-.input-number{
-    max-width: 3rem ;
-    text-align: center;
-    max-height: 2.5rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    background-color: red;
-}
-
-#quantity{
-    height: fit-content;
-}
-
-*/

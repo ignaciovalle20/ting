@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login-page-btn',
@@ -12,9 +12,9 @@ export class LoginPageBtnComponent implements OnInit {
   @Output() LoginEvent = new EventEmitter<MouseEvent>();
 
   constructor() { }
-  ngOnInit(): void {
 
-  }
+  ngOnInit(): void {}
+
   loginevent(event: MouseEvent) {
     this.LoginEvent.emit(event);
   }

@@ -8,6 +8,7 @@ import { Extra } from '../../../interfaces/extra';
   templateUrl: './extras-list.component.html',
   styleUrls: ['./extras-list.component.scss']
 })
+
 export class ExtrasListComponent implements OnInit {
 string(arg0: string) {
   throw new Error('Method not implemented.');
@@ -25,10 +26,12 @@ string(arg0: string) {
     this.cart.getCart().subscribe(async (cart) => {
       const extras = await cart[0].selectedExtras;
       this.selectedExtrasFromCart = extras;
-      this.selectedExtrasFromCart.forEach(extra => {
-        this.preSelectedExtras.set(extra.id, extra.quantity);
-        this.selectedExtras.set(extra.id, extra.quantity);
-      });
+      if (this.selectedExtrasFromCart != null) {
+        this.selectedExtrasFromCart.forEach(extra => {
+          this.preSelectedExtras.set(extra.id, extra.quantity);
+          this.selectedExtras.set(extra.id, extra.quantity);
+        });
+      }
     });
   }
 
@@ -43,5 +46,4 @@ string(arg0: string) {
     }
     this.ExtraEvent.emit(this.selectedExtras);
   }
-
 }

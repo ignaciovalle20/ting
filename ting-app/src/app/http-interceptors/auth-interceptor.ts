@@ -18,9 +18,9 @@ export class AuthInterceptor implements HttpInterceptor {
             "/home",
             "/api/movies",
         ];
-        console.log("REQ", this.route.url);
+        //console.log("REQ", this.route.url);
         if (!idToken && !whiteListURL.includes(this.route.url)) {
-            console.log("No hay token");
+            //console.log("No hay token");
             this.route.navigate(["/login"]);
         }
         if (idToken && !whiteListURL.includes(this.route.url)) {
