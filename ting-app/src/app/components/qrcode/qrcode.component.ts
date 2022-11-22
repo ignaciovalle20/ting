@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { Location } from '@angular/common';
 import { PurchasesService } from 'src/app/services/purchases.service';
-
+import { Cart } from 'src/app/interfaces/cart';
 
 @Component({
   selector: 'app-qrcode',
@@ -15,13 +15,14 @@ export class QrcodeComponent implements OnInit {
   constructor(private cartService: CartService, private activeRoute: ActivatedRoute, private purchasesService: PurchasesService) { }
 
   qrcode?: string;
-  width = 250;
+  width = 200;
   /*   qrInfo: string = "";
    */
   qrloaded: boolean = false;
   params?: string;
-
   btnLabel?: string;
+
+  cart!: Cart[];
   ngOnInit(): void {
 
     this.params = this.activeRoute.snapshot.params['qrcodeID'];
@@ -34,6 +35,7 @@ export class QrcodeComponent implements OnInit {
     else {
 
       this.cartService.getCart().subscribe(async (cart) => {
+        this.cart = cart;
         this.qrcode = await cart[0].qrcode.toString();
         if (this.qrcode?.length != 0) {
           this.qrloaded = true;

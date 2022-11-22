@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-movie-finder-date-selector',
@@ -21,6 +22,7 @@ export class MovieFinderDateSelectorComponent implements OnInit {
 
   showDate() {
     this.isDisabled = false;
+    this.selectedDate = moment(this.today).format("YYYY-MM-DD");
   }
   selectedDateFunction() {
     return this.selectedDate;
