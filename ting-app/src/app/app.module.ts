@@ -44,6 +44,7 @@ import { PurchasesBtnReturnComponent } from './components/purchases/purchases-bt
 import { PurchasesListComponent } from './components/purchases/purchases-list/purchases-list.component';
 import { PurchasesItemComponent } from './components/purchases/purchases-item/purchases-item.component';
 import { QrcodeBtnComponent } from './components/qrcode/qrcode-btn/qrcode-btn.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { QrcodeBtnComponent } from './components/qrcode/qrcode-btn/qrcode-btn.co
     PurchasesBtnReturnComponent,
     PurchasesListComponent,
     PurchasesItemComponent,
-    QrcodeBtnComponent
+    QrcodeBtnComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,
