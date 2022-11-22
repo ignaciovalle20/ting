@@ -45,7 +45,6 @@ export class MovieFinderComponent implements OnInit {
         this.route.navigate(['/moviescheduler']);
       } else {
         this.schedNotFound = true;
-        console.log("No hay funciones para la pelicula seleccionada");
       }
     });
   }

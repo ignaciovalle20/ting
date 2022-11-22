@@ -26,10 +26,12 @@ string(arg0: string) {
     this.cart.getCart().subscribe(async (cart) => {
       const extras = await cart[0].selectedExtras;
       this.selectedExtrasFromCart = extras;
-      this.selectedExtrasFromCart.forEach(extra => {
-        this.preSelectedExtras.set(extra.id, extra.quantity);
-        this.selectedExtras.set(extra.id, extra.quantity);
-      });
+      if (this.selectedExtrasFromCart != null) {
+        this.selectedExtrasFromCart.forEach(extra => {
+          this.preSelectedExtras.set(extra.id, extra.quantity);
+          this.selectedExtras.set(extra.id, extra.quantity);
+        });
+      }
     });
   }
 

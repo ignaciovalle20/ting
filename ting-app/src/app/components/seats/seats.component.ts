@@ -46,8 +46,8 @@ export class SeatsComponent implements OnInit {
   }
  
   getChangeOnGrid(){
-    let seats = this.cart.getSeats();
-    if (seats.length === 0){
+    const seats = this.seatsGridComponent.getSeats().length;
+    if (seats === 0){
       this.noSeatsSelected = true;
     } else {
       this.noSeatsSelected = false;
@@ -66,7 +66,7 @@ export class SeatsComponent implements OnInit {
         var newSeat: Seats = { row: row, seat: seatN, empty: false, available: false };
         selectedSeats.push(newSeat);
       });
-      console.log("ASIENTOS SELECCIONADOS :",selectedSeats);
+      //console.log("ASIENTOS SELECCIONADOS :",selectedSeats);
       this.cart.clearSeats().subscribe();
       this.cart.setSeats(selectedSeats).subscribe();
       this.route.navigate(['/snacks']);

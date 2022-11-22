@@ -28,7 +28,6 @@ export class ExtrasComponent implements OnInit {
     this.extrasService.getExtras()
       .subscribe(extras => {
         this.extras = extras;
-        console.log("this Extra", this.extras)
       });
 
       this.cartService.getCart().subscribe(async (cart) => {
@@ -42,10 +41,11 @@ export class ExtrasComponent implements OnInit {
         this.movieUrlMobile = res[0].movieImg.url;
       });
   
-      });
+    });
   }
 
   extrasNext(){
+    this.Seleccionados = this.extrasList.selectedExtras;
     this.extras.forEach((extraA) => {
       if (this.Seleccionados.has(extraA.id)){
         var id = extraA.id;
@@ -59,10 +59,4 @@ export class ExtrasComponent implements OnInit {
     this.cartService.setExtras(this.selectedExtras).subscribe((res) => {});
     this.route.navigate(['/summary']);
   }
-
-  getCompras(compras: any){
-    this.Seleccionados = compras;
-    console.log(this.Seleccionados);
-  }
-
 }

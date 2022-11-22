@@ -22,11 +22,9 @@ export class MovieFinderTheaterSelectorComponent implements OnInit {
 
   //Obtengo los teathers de la pelicula seleccionada
   getTheater(value: string) {
-    console.log("getTheater", value);
     this.exhibitionService.getTheaterByMovie(value).subscribe(theater => {
       this.theaters = theater;
-    }); 
-    console.log("getTheater", this.theaters);
+    });
     this.isDisabled = false;
   }
   //Emitimos el evento para habilitar el formulario de fecha
