@@ -23,9 +23,9 @@ const routes: Routes = [
   { path: 'processing', component: ProcessingPaymentComponent},
   { path: 'summary', component: SummaryComponent},
   { path: 'qrcode' , component: QrcodeComponent},
-  { path: 'qrcode/:qrcodeID', component: QrcodeComponent},
+  { path: 'qrcode/:qrcode', component: QrcodeComponent},
   { path: 'purchases', component: PurchasesComponent},
-  { path: 'pdf/:data', component: PdfComponent}
+  { path: 'pdf/:qrcode', component: PdfComponent}
 ];
 
 @NgModule({

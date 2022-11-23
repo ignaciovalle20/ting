@@ -45,6 +45,7 @@ import { PurchasesListComponent } from './components/purchases/purchases-list/pu
 import { PurchasesItemComponent } from './components/purchases/purchases-item/purchases-item.component';
 import { QrcodeBtnComponent } from './components/qrcode/qrcode-btn/qrcode-btn.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { QrcodeBtnTicketComponent } from './components/qrcode/qrcode-btn-ticket/qrcode-btn-ticket.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { PdfComponent } from './components/pdf/pdf.component';
     PurchasesListComponent,
     PurchasesItemComponent,
     QrcodeBtnComponent,
-    PdfComponent
+    PdfComponent,
+    QrcodeBtnTicketComponent
   ],
   imports: [
     BrowserModule,

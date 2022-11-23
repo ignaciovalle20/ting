@@ -7,6 +7,7 @@
     <h3> QRCode: {{qrcode}}</h3>
   </div>
   <app-qrcode-btn [btnLabel]="btnLabel!"> </app-qrcode-btn>
+  <app-qrcode-btn-ticket [qrcode]="qrcode"> </app-qrcode-btn-ticket>
 </div>
 <ng-template #notloaded>
   <div class="d-flex justify-content-center text-white loading p-5">

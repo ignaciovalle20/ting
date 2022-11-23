@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
 export class QrcodeBtnComponent implements OnInit {
 
   @Input() btnLabel!: string;
+
   constructor(private route: Router, private location: Location) { }
 
   ngOnInit(): void {
@@ -16,7 +17,7 @@ export class QrcodeBtnComponent implements OnInit {
   }
 
   goTo(): void {
-    if(this.btnLabel == 'Finalizar') {
+    if(this.btnLabel == 'Finalizar' || this.btnLabel == 'Ir a mis compras') {
       this.route.navigate(['/purchases']);
     }
     else{

@@ -9,6 +9,7 @@ export interface Cart {
     time: string,
     exhibition: string,
     price: number,
+    total: number,
     qrcode: string,
     seats: Seats[],
     selectedExtras: SelectedExtras[],

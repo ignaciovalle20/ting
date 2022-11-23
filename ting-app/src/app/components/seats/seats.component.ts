@@ -55,18 +55,15 @@ export class SeatsComponent implements OnInit {
   }
 
   gotoNextPage(){
-    console.log("getseats",this.seatsGridComponent.getSeats());
     const seats = this.seatsGridComponent.getSeats();
     var selectedSeats : Seats[] = [];
     if (this.seatsGridComponent.getSeats().length > 0) {
-      //this.cart.setSeats(this.seatsGridComponent.getSeats());
       seats.forEach(seat => {
         let row = Number(seat.charAt(0));
         let seatN = Number(seat.charAt(2));
         var newSeat: Seats = { row: row, seat: seatN, empty: false, available: false };
         selectedSeats.push(newSeat);
       });
-      //console.log("ASIENTOS SELECCIONADOS :",selectedSeats);
       this.cart.clearSeats().subscribe();
       this.cart.setSeats(selectedSeats).subscribe();
       this.route.navigate(['/snacks']);

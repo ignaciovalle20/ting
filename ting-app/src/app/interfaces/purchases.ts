@@ -5,4 +5,8 @@ export interface Purchases {
     theater: string;
     date: string;
     time: string;
+    total: number;
+    seats: string[];
+    extras: string[];
+    purchaseDate: string;
 }
