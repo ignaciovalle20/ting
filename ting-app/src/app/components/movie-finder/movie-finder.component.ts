@@ -39,6 +39,7 @@ export class MovieFinderComponent implements OnInit {
     this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe((schedule: any) => {
       if (schedule.length > 0) {
         this.schedNotFound = false;
+        this.selectedDate = this.selectedDate?.split("-").reverse().join("-");
         this.cart.setMovie(this.selectedMovie).subscribe();
         this.cart.setTheater(this.selectedTheater).subscribe();
         this.cart.setDate(this.selectedDate!).subscribe();

@@ -87,10 +87,11 @@ export class CartService {
       date: "",
       time: "",
       price: 0,
+      total: 0,
       qrcode: "",
       exhibition: "",
       seats: null,
-      selectedExtras: null
+      selectedExtras: null,
     };
     return this.http.put<Cart>(CART_URL, body);
   }

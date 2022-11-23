@@ -17,6 +17,6 @@ export class PurchasesItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.date = this.date?.replace(/-/g, "/");
   }
-
 }

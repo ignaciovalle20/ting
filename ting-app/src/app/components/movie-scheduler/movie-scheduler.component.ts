@@ -42,7 +42,7 @@ export class MovieSchedComponent implements OnInit {
 
       this.movie = movie;
       this.theater = theater;
-      this.date = date;
+      this.date = date.replace(/-/g, "/");
     });
   }
 

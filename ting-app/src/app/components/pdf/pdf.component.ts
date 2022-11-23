@@ -22,9 +22,11 @@ export class PdfComponent implements OnInit {
   time : string = "";
   total : number = 0;
   seats : string[] = [];
+  seatsString : string = "";
   extras : string[] = [];
+  extrasString : string = "";
   purchaseDate : string = "";
-
+  image : string = "";
   constructor(private activeRoute: ActivatedRoute, private location : Location, private purchasesService : PurchasesService) { }
 
   ngOnInit(): void {
@@ -48,8 +50,16 @@ export class PdfComponent implements OnInit {
       this.seats = seats;
       this.extras = extras;
       this.purchaseDate = purchaseDate;
+      this.image = await this.fetchImage("https://i.imgur.com/HzfiCl0.png")
+      this.toString();
       this.createPdf();
     });
+    
+  }
+
+  toString(){
+    this.extrasString = this.extras.join(", ");
+    this.seatsString = this.seats.join(", ");
   }
 
   createPdf() {
@@ -57,26 +67,23 @@ export class PdfComponent implements OnInit {
       footer: {
         columns: [
           { text: 'ting.uy', alignment: 'left', margin: [ 20, 10, 0, 0 ]},
-          /*
           {
-            image: this.logo,
+            image: this.image,
             width: 40,
             alignment: 'right',
             margin: [0, 0, 10, 0]
           }
-          */
         ]
       },
       content: [
         // IMAGEN TING
-        /*
         {
-          image: this.logo,
+          image: this.image,
           width: 150,
           alignment: 'center',
           margin: [0, 1, 0, 40]
         },
-        */
+        
         // QR TITLE
         {
           text: 'TU CÓDIGO QR:',
@@ -97,75 +104,74 @@ export class PdfComponent implements OnInit {
           margin: [0, 10, 0, 0],
           color: '#696969'
         },
-
-        // INFO DEL TICKET
         {
-          text: 'INFORMACIÓN DEL TICKET:',
-          alignment: 'left',
-          margin: [0, 30, 0, 0],
-          bold: true,
-          fontSize: 16
-        },
-        // MOVIE
-        {
-          text: ['Pelicula: ',  {text:this.movie, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // CINE
-        {
-          text: ['Cine: ',  {text:this.theater, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // DATE
-        {
-          text: ['Fecha: ',  {text:this.date, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // TIME
-        {
-          text: ['Hora: ',  {text:this.time, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // SEATS
-        {
-          text: ['Asientos: ',  {text:this.seats, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // EXTRAS
-        {
-          text: ['Extras: ',  {text:this.extras, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // TOTAL
-        {
-          text: ['Total: ',  {text:this.total, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
-        },
-        // PURCHASEDATE
-        {
-          text: ['Purchase date: ',  {text:this.purchaseDate, bold: false}],
-          alignment: 'left',
-          margin: [0, 5, 0, 0],
-          bold: true
+          style: 'tableExample',
+          margin: [0, 40, 0, 0],
+          table: {
+            widths: ['*'],
+            headerRows: 1,
+            body: [
+              [{text: 'INFORMACIÓN DEL TICKET:', style: 'tableHeader', bold: true, fontSize: 20, alignment: 'center'}],
+              [{
+                text: ['Pelicula: ',  {text:this.movie, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Cine: ',  {text:this.theater, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Fecha: ',  {text:this.date, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Hora: ',  {text:this.time, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Asientos: ',  {text:this.seatsString, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Snacks: ',  {text:this.extrasString, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Total: ',  { text: "$" + this.total, bold: false}],
+                bold: true
+              }],
+              [{
+                text: ['Fecha de compra: ',  {text:this.purchaseDate, bold: false}],
+                bold: true
+              }],
+            ]
+          },
+          layout: 'lightHorizontalLines'
         },
       ]
     };
-    const pdf = pdfMake.createPdf(documentDefinition);
-    pdf.open();
+    pdfMake.createPdf(documentDefinition).open();
+    //pdfMake.createPdf(documentDefinition).download(this.movie + "_" + this.date + ".pdf");
+    //pdfMake.createPdf(documentDefinition).print();
     this.location.back();
   }
+
+
+  ///////////////////////
+  ////    IMAGEN     ////
+  ///////////////////////
+  fetchImage(url : string) {
+    return fetch(url)
+      .then((response) => response.blob())
+      .then(
+        (blob) =>
+          new Promise<any>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+          })
+      );
+  }
+
 }

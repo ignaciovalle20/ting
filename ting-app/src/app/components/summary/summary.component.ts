@@ -53,7 +53,7 @@ export class SummaryComponent implements OnInit {
 
       this.movie = movie;
       this.theater = theater;
-      this.date = date;
+      this.date = date.replace(/-/g, "/");
       this.time = time;
       this.seats = seats;
       this.selectedExtras = extras;
@@ -72,7 +72,7 @@ export class SummaryComponent implements OnInit {
         this.total += extra.price * extra.quantity;
       });
     }
-    this.cartService.setTotal(this.total);
+    this.cartService.setTotal(this.total).subscribe();
   }
 
   seatsToString(seats: Seats[]){

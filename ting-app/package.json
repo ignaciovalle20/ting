@@ -23,6 +23,7 @@
     "angular2-qrcode": "^2.0.3",
     "bootstrap": "^5.2.1",
     "bootstrap-icons": "^1.9.1",
+    "canvas": "^2.10.2",
     "moment": "^2.29.4",
     "ngx-toastr": "^15.2.2",
     "pdfmake": "^0.2.6",
