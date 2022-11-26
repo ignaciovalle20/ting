@@ -40,4 +40,8 @@ export class PurchasesService {
     return this.http.post<any>(PURCHASES_URL, body);
   }
 
+  payment(): Observable<any> {
+    return this.http.get<Purchases[]>(PURCHASES_URL + '/payment');
+  }
+
 }

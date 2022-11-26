@@ -44,7 +44,7 @@ export class PdfComponent implements OnInit {
 
       this.movie = movie;
       this.theater = theater;
-      this.date = date;
+      this.date = date.replace(/-/g, "/");
       this.time = time;
       this.total = total;
       this.seats = seats;
