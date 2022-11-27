@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <div id="boxContent">
   <h1 class="text-center pb-sm-0 m-sm-0 m-md-3 m-lg-3 pb-md-3">Código verificador</h1>
-  <div *ngIf="qrloaded; else notloaded" class="d-flex justify-content-center text-center pb-sm-0 m-sm-0 mt-md-3 mt-lg-3 " id="qrcode">
+  <div *ngIf="qrloaded; else notloaded"
+    class="d-flex justify-content-center text-center pb-sm-0 m-sm-0 mt-md-3 mt-lg-3">
     <qr-code [value]='qrcode!' [size]='width' [level]="'H'"></qr-code>
   </div>
   <div class="d-flex justify-content-center m-3">
@@ -12,8 +13,8 @@
 </div>
 <ng-template #notloaded>
   <div class="d-flex justify-content-center text-white loading p-5">
-      <div class="spinner-border" role="status">
-      </div>
+    <div class="spinner-border" role="status">
+    </div>
   </div>
 </ng-template>
 
