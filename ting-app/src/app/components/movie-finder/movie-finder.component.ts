@@ -42,7 +42,7 @@ export class MovieFinderComponent implements OnInit {
     const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes());
     this.selectedDate = this.dateSelector?.selectedDateFunction();
     this.selectedTheater = this.theaterSelector?.selectedTheaterFunction();
-    this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe((schedule: any) => {
+    this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe(async (schedule: any) => {
       console.log("this.selectedMovie", this.selectedMovie);
       console.log("this.selectedTheater", this.selectedTheater);
       console.log("this.selectedDate", this.selectedDate);
@@ -67,15 +67,25 @@ export class MovieFinderComponent implements OnInit {
       if (this.schedulesFound > 0) {
         this.schedNotFound = false;
         console.log("SELECTEDDATE", this.selectedDate);
-        this.cartService.setMovie(this.selectedMovie).subscribe();
-        this.cartService.setTheater(this.selectedTheater).subscribe();
-        this.cartService.setDate(this.selectedDate!).subscribe();
-        this.route.navigate(['/moviescheduler']);
+        this.cartService.clearCart().subscribe(() => {});
+        this.cartService.setMovie(this.selectedMovie).subscribe(() => {
+          this.cartService.setTheater(this.selectedTheater).subscribe(() => {
+            this.cartService.setDate(this.selectedDate!).subscribe(() => {
+              this.route.navigate(['/moviescheduler']);
+            });
+          });
+        });
       } else {
         this.schedNotFound = true;
       }
     });
   }
+  async setCart() {
+    this.cartService.setMovie(this.selectedMovie).subscribe();
+     this.cartService.setTheater(this.selectedTheater).subscribe();
+     this.cartService.setDate(this.selectedDate!).subscribe();
+  }
+
   convert2Digits(num: number) {
     return ("0" + num).slice(-2);
   }
