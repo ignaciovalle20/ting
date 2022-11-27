@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
     if (this.router.url === "/home") {
       this.isNotLoginPage = true;
       this.isLoggedIn = false;
-      this.btnLabel = "Iniciar Sesion";
+      this.btnLabel = "Iniciar Sesión";
       this.gotoPage = "login";
       this.biclass = "bi bi-person-circle";
     }
