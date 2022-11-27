@@ -4,10 +4,6 @@
         <div (touchstart)="captureSwipeStart($event)" (touchend)="swipePost($event)">
             <app-post-img [image]="movie.movieImg" [movie]="movie.name"></app-post-img>
             <app-info-post [movie]="movie.name" [description]="movie.description"></app-info-post>
-            <!-- <span *ngIf="userloged"> 
-                    <app-home-buy-btn></app-home-buy-btn>
-                </span>
- -->
         </div>
     </ng-template>
 </ngb-carousel>
