@@ -42,18 +42,12 @@ export class MovieFinderComponent implements OnInit {
     const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes());
     this.selectedDate = this.dateSelector?.selectedDateFunction();
     this.selectedTheater = this.theaterSelector?.selectedTheaterFunction();
-    this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe((schedule: any) => {
-      console.log("this.selectedMovie", this.selectedMovie);
-      console.log("this.selectedTheater", this.selectedTheater);
-      console.log("this.selectedDate", this.selectedDate);
-      console.log("schedule", schedule);
-
+    this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe(async (schedule: any) => {
+      
       // verificamos que haya horarios disponibles
-
       schedule.forEach((exhibition: any) => {
         // si alguna funcion tiene horario mayor al actual, entonces hay funciones disponibles
         // y seteamos schedNotFound en false
-        console.log("exhibition.movie", exhibition.movie + " - " + exhibition.time + " - " + actualTime);
         if (this.selectedDate === today) {
           if (exhibition.time > actualTime) {
             this.schedulesFound++;
@@ -66,16 +60,20 @@ export class MovieFinderComponent implements OnInit {
       // si se setea el schedNotFound en false, entonces hay funciones disponibles 
       if (this.schedulesFound > 0) {
         this.schedNotFound = false;
-        this.selectedDate = this.selectedDate;
-        this.cartService.setMovie(this.selectedMovie).subscribe();
-        this.cartService.setTheater(this.selectedTheater).subscribe();
-        this.cartService.setDate(this.selectedDate!).subscribe();
-        this.route.navigate(['/moviescheduler']);
+        this.cartService.clearCart().subscribe(() => {});
+        this.cartService.setMovie(this.selectedMovie).subscribe(() => {
+          this.cartService.setTheater(this.selectedTheater).subscribe(() => {
+            this.cartService.setDate(this.selectedDate!).subscribe(() => {
+              this.route.navigate(['/moviescheduler']);
+            });
+          });
+        });
       } else {
         this.schedNotFound = true;
       }
     });
   }
+
   convert2Digits(num: number) {
     return ("0" + num).slice(-2);
   }

@@ -11,16 +11,13 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>,
         next: HttpHandler): Observable<HttpEvent<any>> {
 
-            //console.log("INTERCEPTOR", req.url);
         const idToken = localStorage.getItem("id_token");
         const whiteListURL = [
             "/login",
             "/home",
             "/api/movies",
         ];
-        //console.log("REQ", this.route.url);
         if (!idToken && !whiteListURL.includes(this.route.url)) {
-            //console.log("No hay token");
             this.route.navigate(["/login"]);
         }
         if (idToken && !whiteListURL.includes(this.route.url)) {

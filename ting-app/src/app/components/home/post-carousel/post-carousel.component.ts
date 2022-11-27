@@ -14,6 +14,7 @@ export class PostCarouselComponent implements OnInit {
 
   swipeStartXPos?: number = undefined;
 
+  wrap: boolean = true;
   // NGB Carousel reference and config
   @ViewChild('ngcarousel', { static: false }) ngCarousel!: NgbCarousel;
   showNavigationArrows = true;

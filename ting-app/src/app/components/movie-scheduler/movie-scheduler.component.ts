@@ -22,48 +22,47 @@ export class MovieSchedComponent implements OnInit {
 
   now = new Date();
 
-  
-  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) {}
 
-   ngOnInit(){
-    this.cartService.getCart().subscribe(async (cart) => {
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) { }
+
+  ngOnInit() {
+    this.cartService.getCart().subscribe(async (cart: any) => {
+      const today = this.now.toLocaleString().split(',')[0].replace(/\//g, "-")
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
       const date = await cart[0].date;
-          
-      const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes()); 
-
-  
-      this.movieService.getMovieImageWide(movie).subscribe((res) => {
+      const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes());
+      this.movieService.getMovieImageWide(movie).subscribe((res: any) => {
         this.movieUrlWide = res[0].movieImg.urlWide;
       });
 
-      this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+      this.movieService.getMovieImageMobile(movie).subscribe((res: any) => {
         this.movieUrlMobile = res[0].movieImg.url;
       });
 
       this.exhibitionService.getSchedule(movie!, theater!, date!).subscribe((schedule: any) => {
+        if (date === today) {
+          schedule.forEach((exhibition: any) => {
+            if (exhibition.time > actualTime) {
+              this.exhibitions.push(exhibition);
+            }
+          });
 
-      
-        schedule.forEach((exhibition: any) => {
-          console.log("exhibition TIME: " + exhibition.time);
-          console.log("actual TIME: " + actualTime);
-          if( exhibition.time > actualTime){
-            this.exhibitions.push(exhibition);
-          }
-        });
+        } else {
+          this.exhibitions = schedule;
+        }
+
+        this.movie = movie;
+        this.theater = theater;
+        this.date = date.replace(/-/g, "/");
       });
-
-      this.movie = movie;
-      this.theater = theater;
-      this.date = date.replace(/-/g, "/");
     });
   }
-  
+
   convert2Digits(num: number) {
-    return ("0" + num).slice(-2);
+      return("0" + num).slice(-2);
   }
-  goNext(exhibition: string, time: string, price : number) {
+  goNext(exhibition: string, time: string, price: number) {
     this.cartService.setExhibition(exhibition).subscribe();
     this.cartService.setTime(time).subscribe();
     this.cartService.setPrice(price).subscribe();

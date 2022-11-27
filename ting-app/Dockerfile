@@ -1,6 +1,9 @@
 FROM node:16.10-alpine AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
+RUN apk update 
+RUN apk add --no-cache build-base g++ cairo-dev jpeg-dev pango-dev giflib-dev
+RUN apk add --update --repository http://dl-3.alpinelinux.org/alpine/edge/testing libmount ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family fontconfig
 RUN npm install
 RUN npm install -g @angular/cli@14.2.4
 COPY . .

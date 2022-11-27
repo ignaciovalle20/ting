@@ -17,10 +17,8 @@ export class ProcessingPaymentComponent implements OnInit {
   
   ngOnInit(): void {
     this.purchasesService.payment().subscribe((payment) => {
-      console.log(payment);
       this.sleep = payment.time;
       this.approved = payment.approved;
-      console.log(this.sleep, this.approved);
       setTimeout(() => {
         if(this.approved){
           this.router.navigate(['qrcode']);

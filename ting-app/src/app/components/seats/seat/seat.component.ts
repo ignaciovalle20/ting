@@ -28,7 +28,6 @@ export class SeatComponent implements OnInit {
 
   seatClick(event: Event) {
     this.seatClickEvent.emit(event);
-   // console.log("EVENTO DEL SEAT",event)
   }
 
 }

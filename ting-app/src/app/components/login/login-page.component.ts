@@ -28,7 +28,6 @@ export class LoginPageComponent implements OnInit {
     this.username = this.userinput.input;
     this.password = this.passinput.input;
     if (this.username && this.password) {
-      console.log(this.authService.login(this.username, this.password))
       this.authService.login(this.username, this.password)
         .subscribe({
           next: res => {
