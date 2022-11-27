@@ -46,8 +46,6 @@ export class NavbarComponent implements OnInit {
       this.btnPurchases = "Mis compras";
       this.biclass = "bi bi-box-arrow-right";
     }
-    console.log("LOGEDIN", this.isLoggedIn);
-
   }
 
   goNextPage() {

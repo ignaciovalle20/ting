@@ -26,7 +26,6 @@ export class PurchasesService {
   addPurchase(qrcodeInp: string, movieInp: string, theaterInp: string, dateInp: string, timeInp: string, totalInp: number, seatsInp: string[], extrasInp: string[]) : Observable<any> {
     var today = new Date();
     var now = today.toLocaleString();
-    console.log(now);
     const body = {
       qrcode: qrcodeInp,
       movie: movieInp,

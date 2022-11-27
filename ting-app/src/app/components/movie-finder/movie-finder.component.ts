@@ -43,17 +43,11 @@ export class MovieFinderComponent implements OnInit {
     this.selectedDate = this.dateSelector?.selectedDateFunction();
     this.selectedTheater = this.theaterSelector?.selectedTheaterFunction();
     this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe(async (schedule: any) => {
-      console.log("this.selectedMovie", this.selectedMovie);
-      console.log("this.selectedTheater", this.selectedTheater);
-      console.log("this.selectedDate", this.selectedDate);
-      console.log("schedule", schedule);
-
+      
       // verificamos que haya horarios disponibles
-
       schedule.forEach((exhibition: any) => {
         // si alguna funcion tiene horario mayor al actual, entonces hay funciones disponibles
         // y seteamos schedNotFound en false
-        console.log("exhibition.movie", exhibition.movie + " - " + exhibition.time + " - " + actualTime);
         if (this.selectedDate === today) {
           if (exhibition.time > actualTime) {
             this.schedulesFound++;
@@ -66,7 +60,6 @@ export class MovieFinderComponent implements OnInit {
       // si se setea el schedNotFound en false, entonces hay funciones disponibles 
       if (this.schedulesFound > 0) {
         this.schedNotFound = false;
-        console.log("SELECTEDDATE", this.selectedDate);
         this.cartService.clearCart().subscribe(() => {});
         this.cartService.setMovie(this.selectedMovie).subscribe(() => {
           this.cartService.setTheater(this.selectedTheater).subscribe(() => {
@@ -79,11 +72,6 @@ export class MovieFinderComponent implements OnInit {
         this.schedNotFound = true;
       }
     });
-  }
-  async setCart() {
-    this.cartService.setMovie(this.selectedMovie).subscribe();
-     this.cartService.setTheater(this.selectedTheater).subscribe();
-     this.cartService.setDate(this.selectedDate!).subscribe();
   }
 
   convert2Digits(num: number) {

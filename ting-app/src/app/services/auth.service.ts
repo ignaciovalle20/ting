@@ -20,7 +20,6 @@ export class AuthService {
     return this.http.post<any>(LOGIN_URL, { username, password })
       .pipe(tap(res => {
         this.setSession(res);
-        console.log(res);
       }
     ));
   }

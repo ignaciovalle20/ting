@@ -22,33 +22,26 @@ export class MovieSchedComponent implements OnInit {
 
   now = new Date();
 
-  
-  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) {}
 
-   ngOnInit(){
-    this.cartService.getCart().subscribe(async (cart:any) => {
+  constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) { }
+
+  ngOnInit() {
+    this.cartService.getCart().subscribe(async (cart: any) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
       const date = await cart[0].date;
-      console.log("date: " + date);
-      const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes()); 
-
-  
-      this.movieService.getMovieImageWide(movie).subscribe((res :any) => {
+      const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes());
+      this.movieService.getMovieImageWide(movie).subscribe((res: any) => {
         this.movieUrlWide = res[0].movieImg.urlWide;
       });
 
-      this.movieService.getMovieImageMobile(movie).subscribe((res :any) => {
+      this.movieService.getMovieImageMobile(movie).subscribe((res: any) => {
         this.movieUrlMobile = res[0].movieImg.url;
       });
 
       this.exhibitionService.getSchedule(movie!, theater!, date!).subscribe((schedule: any) => {
-
-      
         schedule.forEach((exhibition: any) => {
-          console.log("exhibition TIME: " + exhibition.time);
-          console.log("actual TIME: " + actualTime);
-          if( exhibition.time > actualTime){
+          if (exhibition.time > actualTime) {
             this.exhibitions.push(exhibition);
           }
         });
@@ -59,11 +52,11 @@ export class MovieSchedComponent implements OnInit {
       this.date = date.replace(/-/g, "/");
     });
   }
-  
+
   convert2Digits(num: number) {
     return ("0" + num).slice(-2);
   }
-  goNext(exhibition: string, time: string, price : number) {
+  goNext(exhibition: string, time: string, price: number) {
     this.cartService.setExhibition(exhibition).subscribe();
     this.cartService.setTime(time).subscribe();
     this.cartService.setPrice(price).subscribe();
