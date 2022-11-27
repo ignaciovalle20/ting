@@ -1,5 +1,5 @@
 <ngb-carousel #ngcarousel *ngIf="movies" [showNavigationArrows]="showNavigationArrows"
-    [showNavigationIndicators]="showNavigationIndicators">
+    [showNavigationIndicators]="showNavigationIndicators" [wrap]="wrap" >
     <ng-template ngbSlide *ngFor="let movie of movies">
         <div (touchstart)="captureSwipeStart($event)" (touchend)="swipePost($event)">
             <app-post-img [image]="movie.movieImg" [movie]="movie.name"></app-post-img>
