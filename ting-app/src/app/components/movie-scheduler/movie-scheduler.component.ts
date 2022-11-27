@@ -27,6 +27,7 @@ export class MovieSchedComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.getCart().subscribe(async (cart: any) => {
+      const today = this.now.toLocaleString().split(',')[0].replace(/\//g, "-")
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
       const date = await cart[0].date;
@@ -40,21 +41,26 @@ export class MovieSchedComponent implements OnInit {
       });
 
       this.exhibitionService.getSchedule(movie!, theater!, date!).subscribe((schedule: any) => {
-        schedule.forEach((exhibition: any) => {
-          if (exhibition.time > actualTime) {
-            this.exhibitions.push(exhibition);
-          }
-        });
-      });
+        if (date === today) {
+          schedule.forEach((exhibition: any) => {
+            if (exhibition.time > actualTime) {
+              this.exhibitions.push(exhibition);
+            }
+          });
 
-      this.movie = movie;
-      this.theater = theater;
-      this.date = date.replace(/-/g, "/");
+        } else {
+          this.exhibitions = schedule;
+        }
+
+        this.movie = movie;
+        this.theater = theater;
+        this.date = date.replace(/-/g, "/");
+      });
     });
   }
 
   convert2Digits(num: number) {
-    return ("0" + num).slice(-2);
+      return("0" + num).slice(-2);
   }
   goNext(exhibition: string, time: string, price: number) {
     this.cartService.setExhibition(exhibition).subscribe();
