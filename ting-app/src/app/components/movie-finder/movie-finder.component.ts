@@ -17,9 +17,11 @@ export class MovieFinderComponent implements OnInit {
   selectedDate?: string = "";
   schedNotFound: boolean = false;
 
-  constructor(private exhibitionService : ExhibitionService, private route: Router, private cart: CartService) { }
+  constructor(private exhibitionService : ExhibitionService, private route: Router, private cartService: CartService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartService.clearCart().subscribe(() => {});
+  }
 
   @ViewChild(MovieFinderTheaterSelectorComponent) theaterSelector: MovieFinderTheaterSelectorComponent | undefined;
   @ViewChild(MovieFinderDateSelectorComponent) dateSelector: MovieFinderDateSelectorComponent | undefined;
@@ -37,12 +39,16 @@ export class MovieFinderComponent implements OnInit {
     this.selectedDate = this.dateSelector?.selectedDateFunction();
     this.selectedTheater = this.theaterSelector?.selectedTheaterFunction();
     this.exhibitionService.getSchedule(this.selectedMovie!, this.selectedTheater!, this.selectedDate!).subscribe((schedule: any) => {
+      console.log("this.selectedMovie", this.selectedMovie);
+      console.log("this.selectedTheater", this.selectedTheater);
+      console.log("this.selectedDate", this.selectedDate);
+      console.log("schedule", schedule);
       if (schedule.length > 0) {
         this.schedNotFound = false;
         this.selectedDate = this.selectedDate?.split("-").reverse().join("-");
-        this.cart.setMovie(this.selectedMovie).subscribe();
-        this.cart.setTheater(this.selectedTheater).subscribe();
-        this.cart.setDate(this.selectedDate!).subscribe();
+        this.cartService.setMovie(this.selectedMovie).subscribe();
+        this.cartService.setTheater(this.selectedTheater).subscribe();
+        this.cartService.setDate(this.selectedDate!).subscribe();
         this.route.navigate(['/moviescheduler']);
       } else {
         this.schedNotFound = true;

@@ -26,8 +26,10 @@ export class MovieSchedComponent implements OnInit {
     this.cartService.getCart().subscribe(async (cart) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
-      const date = await cart[0].date;
-    
+      const date = await cart[0].date.split("-").reverse().join("-");
+      console.log("movie: " + movie);
+      console.log("theater: " + theater);
+      console.log("date: " + date);
       this.movieService.getMovieImageWide(movie).subscribe((res) => {
         this.movieUrlWide = res[0].movieImg.urlWide;
       });
@@ -36,7 +38,8 @@ export class MovieSchedComponent implements OnInit {
         this.movieUrlMobile = res[0].movieImg.url;
       });
 
-      this.exhibitionService.getSchedule(movie, theater, date).subscribe((schedule: any) => {
+      this.exhibitionService.getSchedule(movie!, theater!, date!).subscribe((schedule: any) => {
+        console.log("schedule", schedule);
         this.exhibitions = schedule;
       });
 

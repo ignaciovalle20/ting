@@ -6,6 +6,7 @@ import { Purchases } from '../interfaces/purchases';
 
 const PURCHASES_URL = `${environment.baseApiUrl}/api/mypurchases`;
 
+const PAYMENT_URL = `${environment.baseApiUrl}/api/payment`;
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class PurchasesService {
   }
 
   payment(): Observable<any> {
-    return this.http.get<Purchases[]>(PURCHASES_URL + '/payment');
+    return this.http.get<any>(PAYMENT_URL);
   }
 
 }
