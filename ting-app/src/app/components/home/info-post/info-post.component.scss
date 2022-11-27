@@ -6,18 +6,13 @@
   line-height: 28px;
   background-color: #262b4f;
   color: #fdfdfd;
+  position: fixed;
+  width: 100%;
 
-  /*  &.light {
-      color: rgba(0, 0, 0, 0.8);
-      background-color: rgba(255, 255, 255, 0.8);
-    }
-    &.dark {
-      color: rgba(255, 255, 255, 0.8);
-    } */
   #film {
     font-weight: 800;
     font-size: 1.5rem;
-    color: cornflowerblue;
+    color: rgb(255, 255, 255);
     font-weight: bold;
   }
 
@@ -26,13 +21,14 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .description {
-    padding-bottom: 3rem;
+    bottom: 40px;
   }
 }
-  @media (min-width: 1280px) {
-    .description {
-      padding-bottom: 5rem;
-    }
+
+@media (max-width: 576px) {
+  .description {
+    bottom: 0px;
   }
+}
