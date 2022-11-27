@@ -1,4 +1,4 @@
- .carousel-control-prev,
+.carousel-control-prev,
 .carousel-control-next {
     height: 65vh;
 }
@@ -40,7 +40,6 @@ body {
 
 h1 {
     margin: 0;
-
     padding-bottom: 10pt;
     color: #fdfdfd;    
     font-family: 'Inter-bold', 'sans-serif';
@@ -150,7 +149,7 @@ h1 {
 
    @font-face {
     font-family: "Inter-Bold";
-    src: local("Inter-Bold"), url(./assets/fonts/Inter/static/Inter-bold.ttf) format("truetype");
+    src: local("Inter-Bold"), url(./assets/fonts/Inter/static/Inter-Bold.ttf) format("truetype");
   } 
 
   //@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Inter:wght@800&display=swap');

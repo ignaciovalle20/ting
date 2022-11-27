@@ -9,14 +9,15 @@
                     <tbody>
                         <ng-container class="d-flex" *ngFor="let row of rows">
                             <tr>
-                                <p class="m-2">{{row}}</p>
+                                <p class="m-2" id="rowNumber">{{row}}</p>
                                 <ng-container *ngFor="let seat of seats">
                                     <td *ngIf="seat.row == row">
                                         <app-seat *ngIf="checkSeats(seat)" [empty]="seat.empty" [checked]="checkedTrue" [disabled]="seat.available"
                                          [id]="seat.row + ',' + seat.seat" (seatClickEvent)="checkboxClick($event)">
                                         </app-seat>
-                                        <app-seat *ngIf="!checkSeats(seat)" [empty]="seat.empty" [checked]="checkedFalse" [disabled]="seat.available"
-                                         [id]="seat.row + ',' + seat.seat" (seatClickEvent)="checkboxClick($event)">
+                                        <app-seat *ngIf="!checkSeats(seat)" [empty]="seat.empty" [checked]="checkedFalse"
+                                            [disabled]="seat.available" [id]="seat.row + ',' + seat.seat"
+                                            (seatClickEvent)="checkboxClick($event)">
                                         </app-seat>
                                     </td>
                                 </ng-container>
@@ -31,7 +32,14 @@
         <!-- NO PUDE HACERLO ANDAR CON NGMMODEL Y RENDERIZAR EL HTML -->
         <h6 class="d-flex justify-content-center">Asientos seleccionados:</h6>
         <!-- Agregamos el ngDefaultControl porque sino no refresca automatico el dom con los datos de seleccionados -->
-        <span id="seatsSelected" class="d-flex justify-content-center" ngDefaultControl *ngFor="let seat of seleccionadosDisplay"> {{seat}} </span>
+        <span id="seatsSelected" class="justify-content-center" ngDefaultControl *ngFor="let seat of seleccionadosDisplay; first as isFirst ">
+            <span *ngIf="isFirst">
+                {{seat}}
+            </span>
+            <span *ngIf="!isFirst">
+                -  {{seat}}
+            </span>
+        </span>
         <ng-container *ngIf="maxSeats">
             <div class="alert alert-danger" role="alert">
                 Limite de asientos alcanzado

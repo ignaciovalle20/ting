@@ -13,9 +13,10 @@ export class PurchasesItemComponent implements OnInit {
   @Input() qrcode: string | undefined;
   @Input() time: string | undefined;
   @Input() theater: string | undefined;
-  
+
   constructor() { }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.date = this.date?.replace(/-/g, "/");
+  }
 }

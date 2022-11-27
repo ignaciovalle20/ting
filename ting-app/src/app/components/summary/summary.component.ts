@@ -14,7 +14,7 @@ import { ExhibitionService } from 'src/app/services/exhibition.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private cart: CartService, private movieService: MovieService, private route: Router, private exhibitionService : ExhibitionService) { }
+  constructor(private cartService: CartService, private movieService: MovieService, private route: Router, private exhibitionService : ExhibitionService) { }
 
   movie : string = "";
   theater : string = "";
@@ -32,9 +32,8 @@ export class SummaryComponent implements OnInit {
   movieUrlMobile: string = "";
 
   ngOnInit(): void {
-
-    this.cart.generateQR().subscribe();
-    this.cart.getCart().subscribe(async (cart) => {
+    this.cartService.generateQR().subscribe();
+    this.cartService.getCart().subscribe(async (cart) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
       const date = await cart[0].date;
@@ -54,7 +53,7 @@ export class SummaryComponent implements OnInit {
 
       this.movie = movie;
       this.theater = theater;
-      this.date = date;
+      this.date = date.replace(/-/g, "/");
       this.time = time;
       this.seats = seats;
       this.selectedExtras = extras;
@@ -73,6 +72,7 @@ export class SummaryComponent implements OnInit {
         this.total += extra.price * extra.quantity;
       });
     }
+    this.cartService.setTotal(this.total).subscribe();
   }
 
   seatsToString(seats: Seats[]){
@@ -91,7 +91,6 @@ export class SummaryComponent implements OnInit {
 
   //Botón de pagar
   goNext(){
-    this.exhibitionService.putSeats(this.exhibition, this.seats).subscribe();
     this.route.navigate(['/processing']);
   }
   

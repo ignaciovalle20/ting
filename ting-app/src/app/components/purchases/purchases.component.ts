@@ -18,6 +18,5 @@ export class PurchasesComponent implements OnInit {
     this.purchasesService.getPurchases().subscribe((purchases) => {
       this.purchases = purchases;
     });
-
   }
 }

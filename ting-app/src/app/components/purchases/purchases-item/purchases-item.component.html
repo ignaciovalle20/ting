@@ -1,11 +1,11 @@
 <div class="row">
-    <div class="col-4 col-sm-4 align-self-center d-flex justify-content-center">
-        <span>
+    <div class="col-3 col-sm-3 align-self-center d-flex justify-content-center">
+        <span class="text-center">
             {{date}}
             {{time}}
         </span>
     </div>
-    <div class="col-2 col-sm-2 d-flex justify-content-center align-self-center text-center">
+    <div class="col-3 col-sm-3 d-flex justify-content-center align-self-center text-center">
         <span class="align-middle">
             {{movie}}
         </span>
@@ -17,7 +17,8 @@
     </div>
     <div class="col-3 col-sm-3 d-flex d-flex justify-content-center align-self-center text-center">
         <span class="align-middle">
-            <a [routerLink]="['/qrcode', qrcode]">{{qrcode}}</a>
+            <!-- <a [routerLink]="['/qrcode', qrcode]">{{qrcode}}</a> -->
+            <button type="button" class="btn btn-primary" [routerLink]="['/qrcode', qrcode]"><i class="bi bi-download"></i></button>
         </span>
     </div>
 </div>

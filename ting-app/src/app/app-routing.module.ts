@@ -10,6 +10,7 @@ import { SeatsComponent } from './components/seats/seats.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 import { PurchasesComponent } from './components/purchases/purchases.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'processing', component: ProcessingPaymentComponent},
   { path: 'summary', component: SummaryComponent},
   { path: 'qrcode' , component: QrcodeComponent},
-  { path: 'qrcode/:qrcodeID', component: QrcodeComponent},
-  { path: 'purchases', component: PurchasesComponent}
+  { path: 'qrcode/:qrcode', component: QrcodeComponent},
+  { path: 'purchases', component: PurchasesComponent},
+  { path: 'pdf/:qrcode', component: PdfComponent}
 ];
 
 @NgModule({

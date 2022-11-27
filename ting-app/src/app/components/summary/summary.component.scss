@@ -1,16 +1,5 @@
-
 body {
-  /*     background-image: url("/assets/seats-background.jpg");
-   */
   background-image: var(--BgImageWide);
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
-  color: #fdfdfd;
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
 }
 
 h4 {
@@ -19,21 +8,27 @@ h4 {
   font-weight: 400;
 }
 
+h5 {
+  color: #fdfdfd;
+  padding-left: 20px;
+}
+
+h6{
+  color: #bebebe;
+}
+
+.divpeli{
+  padding-left: 1.5rem;
+}
+
+
+
 @media (max-width: 576px) {
 
 
   body {
     background-image: var(--BgImageMobile);
   }
-
-  h1 {
-    margin: 0;
-    padding: 0;
-    color: #fdfdfd;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-  }
-
 
   #resumen {
     width: 100%;
