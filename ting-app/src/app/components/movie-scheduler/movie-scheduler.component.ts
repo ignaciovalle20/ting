@@ -20,16 +20,20 @@ export class MovieSchedComponent implements OnInit {
   movieUrlWide: string = "";
   movieUrlMobile: string = "";
 
+  now = new Date();
+
+  
   constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) {}
 
    ngOnInit(){
     this.cartService.getCart().subscribe(async (cart) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
-      const date = await cart[0].date.split("-").reverse().join("-");
-      console.log("movie: " + movie);
-      console.log("theater: " + theater);
-      console.log("date: " + date);
+      const date = await cart[0].date;
+          
+      const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes()); 
+
+  
       this.movieService.getMovieImageWide(movie).subscribe((res) => {
         this.movieUrlWide = res[0].movieImg.urlWide;
       });
@@ -39,8 +43,15 @@ export class MovieSchedComponent implements OnInit {
       });
 
       this.exhibitionService.getSchedule(movie!, theater!, date!).subscribe((schedule: any) => {
-        console.log("schedule", schedule);
-        this.exhibitions = schedule;
+
+      
+        schedule.forEach((exhibition: any) => {
+          console.log("exhibition TIME: " + exhibition.time);
+          console.log("actual TIME: " + actualTime);
+          if( exhibition.time > actualTime){
+            this.exhibitions.push(exhibition);
+          }
+        });
       });
 
       this.movie = movie;
@@ -48,7 +59,10 @@ export class MovieSchedComponent implements OnInit {
       this.date = date.replace(/-/g, "/");
     });
   }
-
+  
+  convert2Digits(num: number) {
+    return ("0" + num).slice(-2);
+  }
   goNext(exhibition: string, time: string, price : number) {
     this.cartService.setExhibition(exhibition).subscribe();
     this.cartService.setTime(time).subscribe();

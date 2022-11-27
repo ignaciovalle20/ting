@@ -23,6 +23,6 @@ export class MovieFinderDateSelectorComponent implements OnInit {
   }
 
   selectedDateFunction() {
-    return this.selectedDate;
+    return this.selectedDate!.split("-").reverse().join("-");
   }
 }
