@@ -6,8 +6,9 @@
   line-height: 28px;
   background-color: #262b4f;
   color: #fdfdfd;
-  position: fixed;
+  //position: fixed;
   width: 100%;
+  padding-bottom: 40px;
 
   #film {
     font-weight: 800;
@@ -23,7 +24,7 @@
 
 @media (min-width: 576px) {
   .description {
-    bottom: 40px;
+    margin-bottom: 40px;
   }
 }
 
