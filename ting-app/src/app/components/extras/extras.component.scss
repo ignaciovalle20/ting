@@ -10,4 +10,8 @@ body {
     body {
         background-image: var(--BgImageMobile);
     }
+
+    #boxContent {
+        height: 80vh !important;
+    }
 }

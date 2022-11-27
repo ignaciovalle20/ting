@@ -21,7 +21,7 @@ export class PostCarouselComponent implements OnInit {
   showNavigationIndicators = false;
 
   constructor(config: NgbCarouselConfig, ) {
-    config.interval = 3500;
+    config.interval = 1200;
     config.wrap = false;
   }
 
