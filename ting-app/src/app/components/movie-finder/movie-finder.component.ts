@@ -66,7 +66,7 @@ export class MovieFinderComponent implements OnInit {
       // si se setea el schedNotFound en false, entonces hay funciones disponibles 
       if (this.schedulesFound > 0) {
         this.schedNotFound = false;
-        this.selectedDate = this.selectedDate;
+        console.log("SELECTEDDATE", this.selectedDate);
         this.cartService.setMovie(this.selectedMovie).subscribe();
         this.cartService.setTheater(this.selectedTheater).subscribe();
         this.cartService.setDate(this.selectedDate!).subscribe();

@@ -26,19 +26,19 @@ export class MovieSchedComponent implements OnInit {
   constructor(private exhibitionService: ExhibitionService, private movieService: MovieService, private route: Router, private cartService: CartService) {}
 
    ngOnInit(){
-    this.cartService.getCart().subscribe(async (cart) => {
+    this.cartService.getCart().subscribe(async (cart:any) => {
       const movie = await cart[0].movie;
       const theater = await cart[0].theater;
       const date = await cart[0].date;
-          
+      console.log("date: " + date);
       const actualTime = this.convert2Digits(this.now.getHours()) + ":" + this.convert2Digits(this.now.getMinutes()); 
 
   
-      this.movieService.getMovieImageWide(movie).subscribe((res) => {
+      this.movieService.getMovieImageWide(movie).subscribe((res :any) => {
         this.movieUrlWide = res[0].movieImg.urlWide;
       });
 
-      this.movieService.getMovieImageMobile(movie).subscribe((res) => {
+      this.movieService.getMovieImageMobile(movie).subscribe((res :any) => {
         this.movieUrlMobile = res[0].movieImg.url;
       });
 
