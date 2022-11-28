@@ -1,11 +1,13 @@
-/* #qrcode {
-  padding: 2rem 1rem;
-  color: #fdfdfd;
-} */
 
-#boxContent{
-  padding: 2rem 1rem;
-}
+
 h5 {
   color: #fdfdfd;
+}
+
+
+@media (max-width: 576px) {
+
+  #boxContent {
+    height: 80vh !important;
+  }
 }

@@ -7,3 +7,11 @@ h5 {
 h1{
     padding-bottom: 0;
 }
+
+
+@media (max-width: 576px) {
+
+    #boxContent {
+      height: 80vh !important;
+    }
+  }

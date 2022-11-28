@@ -30,6 +30,7 @@ export class SummaryComponent implements OnInit {
 
   movieUrlWide: string = "";
   movieUrlMobile: string = "";
+  isloaded: boolean = false;
 
   ngOnInit(): void {
     this.cartService.generateQR().subscribe();
@@ -72,7 +73,10 @@ export class SummaryComponent implements OnInit {
         this.total += extra.price * extra.quantity;
       });
     }
-    this.cartService.setTotal(this.total).subscribe();
+    this.cartService.setTotal(this.total).subscribe(() => {  
+      this.isloaded = true;  
+    });
+    
   }
 
   seatsToString(seats: Seats[]){
