@@ -8,7 +8,10 @@ h1{
     padding-bottom: 0;
 }
 
-#boxContent {
-    height: 80vh !important;
-}
-  
+
+@media (max-width: 576px) {
+
+    #boxContent {
+      height: 80vh !important;
+    }
+  }
